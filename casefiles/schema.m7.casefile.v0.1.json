@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schema.m7.casefile.v0.1.json",
+  "title": "REALMVOID M7 Casefile",
+  "description": "Schema for interactive noir investigation casefiles in the REALMVOID universe.",
+  "type": "object",
+  "required": ["meta", "crossing", "heat_spike", "scenes"],
+  "properties": {
+
+    "meta": {
+      "type": "object",
+      "description": "Casefile metadata — who, where, what canon level.",
+      "required": ["id", "title", "version", "truth_tag", "city", "fixer"],
+      "properties": {
+        "id":        { "type": "string", "pattern": "^CF-[0-9]{2}$", "description": "Casefile ID, e.g. CF-04" },
+        "title":     { "type": "string", "description": "Casefile title, e.g. Der Kerzenschneider ruft" },
+        "version":   { "type": "string", "description": "Casefile version, e.g. 0.1.0" },
+        "author":    { "type": "string", "description": "Author name or handle" },
+        "bible_ver": { "type": "string", "description": "Compatible Bible version, e.g. 1.2.1" },
+        "m4_ver":    { "type": "string", "description": "Compatible M4 Katalog version, e.g. 0.1.1" },
+        "truth_tag": {
+          "type": "string",
+          "enum": ["CORE-OK", "SETTING-OK", "FOUNDING-MYTH", "LOCAL-TRUTH", "ALT-TIMELINE", "NONCANON"],
+          "description": "Canon status of this casefile"
+        },
+        "city":      { "type": "string", "description": "City module, e.g. Agnon City" },
+        "fixer":     { "type": "string", "description": "Fixer who gives the job, e.g. Jonas Kroll" },
+        "m4_refs":   {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^M4-(HLX|PCT|OVL)-[0-9]{2}$" },
+          "description": "M4 Technomancy effects used in this casefile"
+        }
+      }
+    },
+
+    "hook": {
+      "type": "string",
+      "description": "The Hook — Markdown. Who comes? Who pays? Who lies?"
+    },
+
+    "the_job": {
+      "type": "string",
+      "description": "The Job — Markdown. The official assignment."
+    },
+
+    "the_dirt": {
+      "type": "string",
+      "description": "The Dirt — Markdown. What's really going on. (The Job ≠ The Dirt)"
+    },
+
+    "crossing": {
+      "type": "object",
+      "description": "Which reality layers does this casefile cross?",
+      "required": ["layers"],
+      "properties": {
+        "layers": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string", "enum": ["MEATSPACE", "NET", "AETHER", "DEAD_ZONE"] },
+          "description": "At least 2 layers required (Lint Checkliste rule)"
+        },
+        "note": { "type": "string", "description": "Markdown — how/why the crossing happens" }
+      }
+    },
+
+    "heat_spike": {
+      "type": "object",
+      "description": "The escalation point — where HEAT becomes critical.",
+      "required": ["heat_type", "level", "trigger"],
+      "properties": {
+        "heat_type": {
+          "type": "string",
+          "enum": ["Prozessor-Hitze", "Bandbreite", "Audit-Spur", "Hardware-Verschleiß", "Körperbelastung", "Brain-Burn", "Zeit"],
+          "description": "Primary HEAT type (from Lint Checkliste)"
+        },
+        "level":   { "type": "string", "enum": ["niedrig", "mittel", "hoch", "extrem"] },
+        "trigger": { "type": "string", "description": "What triggers the spike — Markdown" }
+      }
+    },
+
+    "scenes": {
+      "type": "array",
+      "description": "The playable scenes. Each scene has text, a layer, and choices.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["sid", "title", "layer", "zone", "text_md", "choices"],
+        "properties": {
+          "sid":   { "type": "string", "description": "Scene ID, e.g. s01, s02, s_fail, s_end_good" },
+          "title": { "type": "string", "description": "Short scene title for overview" },
+          "layer": {
+            "type": "string",
+            "enum": ["MEATSPACE", "NET", "AETHER", "DEAD_ZONE"],
+            "description": "Which reality layer this scene takes place in"
+          },
+          "zone":       { "type": "string", "description": "Location name, e.g. Nullkapelle, Rostkai" },
+          "heat_delta": {
+            "type": "integer",
+            "minimum": -50,
+            "maximum": 50,
+            "default": 0,
+            "description": "HEAT change on entering this scene. Positive = hotter, negative = cooldown."
+          },
+          "audio": {
+            "type": "string",
+            "description": "Audio cue — ambient file or keyword, e.g. 'rain_metal', 'dead_silence', 'void_noise_01'"
+          },
+          "text_md": {
+            "type": "string",
+            "description": "Scene narrative — Markdown. What the player reads."
+          },
+          "choices": {
+            "type": "array",
+            "description": "Player choices. Empty array = ending scene.",
+            "items": {
+              "type": "object",
+              "required": ["label", "goto"],
+              "properties": {
+                "label":       { "type": "string", "description": "Choice text shown to player" },
+                "goto":        { "type": "string", "description": "Target scene ID (sid)" },
+                "heat_delta":  {
+                  "type": "integer",
+                  "minimum": -50,
+                  "maximum": 50,
+                  "description": "HEAT change when choosing this option"
+                },
+                "requires_m4": {
+                  "type": "string",
+                  "pattern": "^M4-(HLX|PCT|OVL)-[0-9]{2}$",
+                  "description": "M4 effect required — choice only available if player 'knows' this effect"
+                },
+                "heat_min": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "description": "Minimum HEAT required to see this choice"
+                },
+                "heat_max": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "description": "Maximum HEAT — choice disappears above this value"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "aftermath": {
+      "type": "array",
+      "description": "Possible endings — at least 2 (Lint Checkliste rule).",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "text_md"],
+        "properties": {
+          "id":      { "type": "string", "description": "Ending ID, referenced by scene goto, e.g. end_good, end_bad" },
+          "title":   { "type": "string", "description": "Ending title" },
+          "text_md": { "type": "string", "description": "Ending narrative — Markdown" },
+          "heat_range": {
+            "type": "string",
+            "description": "HEAT range that leads here, e.g. '0-40', '60-100'"
+          }
+        }
+      }
+    }
+  }
+}

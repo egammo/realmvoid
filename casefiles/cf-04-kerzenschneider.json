@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "id": "CF-04",
+    "title": "Der Kerzenschneider ruft",
+    "version": "0.1.0",
+    "author": "Julian Fides",
+    "bible_ver": "1.2.1",
+    "m4_ver": "0.1.1",
+    "truth_tag": "FOUNDING-MYTH",
+    "city": "Agnon City",
+    "fixer": "Jonas Kroll",
+    "m4_refs": ["M4-HLX-05", "M4-PCT-03", "M4-OVL-01"]
+  },
+
+  "hook": "Jonas Kroll sitzt auf seiner Bank in der Nullkapelle. Eine Kerze. Kein Netz. Er sagt nur: *'Jemand erinnert sich. Das sollte nicht passieren.'* Er bietet keine Bezahlung an. Nur einen Namen und eine Adresse in der Faraday-Schlucht.",
+
+  "the_job": "Finde heraus, wer in der Dead Zone einen alten Datenkern aktiviert hat. Bring den Kern zurück. Lösch die Spuren.",
+
+  "the_dirt": "Der Datenkern enthält ein Fragment aus der Aurora-Ära — ein Erinnerungsstück, das beweisen könnte, dass Aurora kein Mythos ist. Kroll will es nicht zurückbringen. Er will es *vernichten*. Aber er sagt das erst, wenn es zu spät ist.",
+
+  "crossing": {
+    "layers": ["MEATSPACE", "DEAD_ZONE", "NET"],
+    "note": "Start in der Dead Zone (Nullkapelle), Übergang in MEATSPACE (Faraday-Schlucht), Rückkehr ins NET wenn der Kern aktiviert wird."
+  },
+
+  "heat_spike": {
+    "heat_type": "Audit-Spur",
+    "level": "hoch",
+    "trigger": "Der Datenkern sendet beim Aktivieren ein Signal. Helix-Exorzisten werden aufmerksam. Ab jetzt läuft ein Timer."
+  },
+
+  "scenes": [
+    {
+      "sid": "s01",
+      "title": "Die Nullkapelle",
+      "layer": "DEAD_ZONE",
+      "zone": "Nullkapelle",
+      "heat_delta": 0,
+      "audio": "dead_silence",
+      "text_md": "Stille. Echte Stille — nicht die gedämpfte Sorte, die du aus dem Sprawl kennst. Hier gibt es kein Netz, kein Overlay, keinen Puls der Stadt.\n\nJonas Kroll sitzt auf der Kerzenbank. Er sieht dich nicht an. Die Flamme flackert nicht.\n\n*'Jemand erinnert sich'*, sagt er. *'In der Schlucht. Ein alter Kern. Hol ihn. Bring ihn mir.'*\n\nEr legt ein Stück Papier auf die Bank. Eine Adresse. Handgeschrieben.",
+      "choices": [
+        {
+          "label": "Die Adresse nehmen und gehen.",
+          "goto": "s02",
+          "heat_delta": 0
+        },
+        {
+          "label": "Nachfragen: Was für ein Kern?",
+          "goto": "s01b",
+          "heat_delta": 0
+        },
+        {
+          "label": "Ablehnen. Das fühlt sich falsch an.",
+          "goto": "s_refuse",
+          "heat_delta": 0
+        }
+      ]
+    },
+    {
+      "sid": "s01b",
+      "title": "Krolls Schweigen",
+      "layer": "DEAD_ZONE",
+      "zone": "Nullkapelle",
+      "heat_delta": 0,
+      "audio": "dead_silence",
+      "text_md": "Kroll dreht die Kerze zwischen seinen Fingern. Langsam.\n\n*'Ein Kern, der nicht mehr senden sollte. Jemand hat ihn geweckt. Das... passiert nicht einfach so.'*\n\nEr schweigt. Dann:\n\n*'Frag nicht, was drauf ist. Bring ihn einfach.'*",
+      "choices": [
+        {
+          "label": "Die Adresse nehmen.",
+          "goto": "s02",
+          "heat_delta": 0
+        },
+        {
+          "label": "\"Was ist drauf, Kroll?\"",
+          "goto": "s01c",
+          "heat_delta": 5
+        }
+      ]
+    },
+    {
+      "sid": "s01c",
+      "title": "Zu viele Fragen",
+      "layer": "DEAD_ZONE",
+      "zone": "Nullkapelle",
+      "heat_delta": 5,
+      "audio": "dead_silence",
+      "text_md": "Krolls Augen treffen deine. Zum ersten Mal.\n\n*'Erinnerungen'*, sagt er. Das Wort klingt wie eine Warnung.\n\n*'An etwas, das es nicht geben darf.'*\n\nEr schiebt die Adresse über die Bank. Sein Finger zittert. Jonas Kroll zittert nie.",
+      "choices": [
+        {
+          "label": "Die Adresse nehmen. Jetzt will ich es wissen.",
+          "goto": "s02",
+          "heat_delta": 0
+        }
+      ]
+    },
+    {
+      "sid": "s_refuse",
+      "title": "Ablehnung",
+      "layer": "DEAD_ZONE",
+      "zone": "Nullkapelle",
+      "heat_delta": 0,
+      "audio": "dead_silence",
+      "text_md": "Du stehst auf. Die Stille drückt.\n\nKroll sagt nichts. Er pustet die Kerze aus.\n\nAuf dem Rückweg durch die Schlucht merkst du, dass du die Adresse trotzdem in der Tasche hast. Du weißt nicht, wann er sie dir zugesteckt hat.\n\n*Manche Jobs suchen dich aus.*",
+      "choices": [
+        {
+          "label": "Zur Faraday-Schlucht gehen. Verdammt.",
+          "goto": "s02",
+          "heat_delta": 0
+        },
+        {
+          "label": "Die Adresse wegwerfen und nach Hause gehen.",
+          "goto": "end_walk_away",
+          "heat_delta": 0
+        }
+      ]
+    },
+    {
+      "sid": "s02",
+      "title": "Faraday-Schlucht",
+      "layer": "MEATSPACE",
+      "zone": "Faraday-Schlucht",
+      "heat_delta": 0,
+      "audio": "drip_echo",
+      "text_md": "Die Schlucht frisst Licht. Alte Wartungstunnel, betoniert in einer Ära, als man noch glaubte, Abschirmung sei eine Vorsichtsmaßnahme und keine Lebensweise.\n\nDein Overlay stirbt am Eingang. Kein Netz. Kein GPS. Nur deine Augen, deine Ohren, und die Adresse auf dem Papier.\n\nNach zwanzig Minuten findest du die Tür. Stahl, verrostet, aber das Schloss ist neu.",
+      "choices": [
+        {
+          "label": "Schloss knacken (Handwerk).",
+          "goto": "s03",
+          "heat_delta": 5
+        },
+        {
+          "label": "Klopfen.",
+          "goto": "s02b",
+          "heat_delta": 0
+        },
+        {
+          "label": "Scanner aktivieren — falls hier noch ein Signal durchkommt.",
+          "goto": "s02c",
+          "heat_delta": 15,
+          "requires_m4": "M4-HLX-05"
+        }
+      ]
+    },
+
+    {
+      "sid": "TODO_REMAINING_SCENES",
+      "title": "— Platzhalter —",
+      "layer": "MEATSPACE",
+      "zone": "Faraday-Schlucht",
+      "heat_delta": 0,
+      "text_md": "Die restlichen Szenen werden in der nächsten Iteration geschrieben.\n\nGeplant: s02b, s02c, s03 (Kern finden), s04 (Kern aktivieren — NET-Übergang), s05 (Helix-Exorzisten), s06 (Konfrontation mit Kroll), Endings.",
+      "choices": []
+    }
+  ],
+
+  "aftermath": [
+    {
+      "id": "end_deliver",
+      "title": "Abgeliefert",
+      "text_md": "Du bringst den Kern zu Kroll. Er nimmt ihn. Er zerstört ihn vor deinen Augen.\n\n*'Danke'*, sagt er. Und dann: *'Vergiss das.'*\n\nDu vergisst es nicht. Du wirst es nie vergessen.\n\n**Aber wer erinnert sich jetzt?**",
+      "heat_range": "0-40"
+    },
+    {
+      "id": "end_keep",
+      "title": "Behalten",
+      "text_md": "Du behältst den Kern. Kroll wird es erfahren. Die Exorzisten werden es erfahren. Alle werden es erfahren.\n\nAber du hast etwas gesehen. In dem Fragment. Eine Erinnerung, die nicht dir gehört.\n\nRegen auf echter Haut. Ein Name. *Aurora.*\n\n**Wer erinnert sich?**",
+      "heat_range": "0-100"
+    },
+    {
+      "id": "end_caught",
+      "title": "Erwischt",
+      "text_md": "HEAT 100. Die Exorzisten waren schneller.\n\nDein Overlay blinkt rot, dann schwarz. Der letzte Sound ist ein Ton, den du nicht einordnen kannst. Kein Signal. Kein Rauschen.\n\nStille.\n\n**VOID-NOISE.**\n\n*Wer erinnert sich?*\n*Nicht du. Nicht mehr.*",
+      "heat_range": "90-100"
+    },
+    {
+      "id": "end_walk_away",
+      "title": "Weggegangen",
+      "text_md": "Du gehst nach Hause. Du legst dich hin. Du schließt die Augen.\n\nUnd dann hörst du es. Leise. Unter dem Rauschen deines eigenen Netzes.\n\nEine Stimme, die fragt: *'Wer erinnert sich?'*\n\nDu drehst dich um. Niemand da.\n\n**Manche Jobs suchen dich aus.**",
+      "heat_range": "0-10"
+    }
+  ]
+}
