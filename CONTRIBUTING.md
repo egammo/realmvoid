@@ -33,8 +33,8 @@ Found a bug in the Player? A contradiction in the lore? Open an Issue with a cle
 
 ## Licenses
 
-- Code contributions fall under [MIT License](LICENSE-CODE).
-- Content contributions fall under [CC BY-SA 4.0](LICENSE-CONTENT).
+- Code contributions fall under [MIT License](LICENSES/MIT.txt).
+- Content contributions fall under [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt).
 
 By submitting a Pull Request, you agree to these license terms.
 

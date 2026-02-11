@@ -49,8 +49,8 @@ realmvoid/
 
 ## Licenses
 
-- **Code** (Player, Tools, Website): [MIT License](LICENSE-CODE)
-- **Content** (Lore, Casefiles, Artwork): [CC BY-SA 4.0](LICENSE-CONTENT)
+- **Code** (Player, Tools, Website): [MIT License](LICENSES/MIT.txt)
+- **Content** (Lore, Casefiles, Artwork): [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt)
 
 ## Created by
 
