@@ -1,0 +1,61 @@
+name: Validate Casefiles
+
+on:
+  push:
+    paths:
+      - 'casefiles/**'
+      - 'player/**/*.json'
+  pull_request:
+    paths:
+      - 'casefiles/**'
+      - 'player/**/*.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: JSON Schema Check
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli ajv-formats
+
+      - name: Validate casefiles against M7 schema
+        run: |
+          SCHEMA="casefiles/schema.m7.casefile.v0.1.json"
+          ERRORS=0
+
+          for cf in casefiles/cf-*.json; do
+            echo "Validating: $cf"
+            if ajv validate -s "$SCHEMA" -d "$cf" --all-errors 2>&1; then
+              echo "  ✅ PASS"
+            else
+              echo "  ❌ FAIL"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+
+          if [ $ERRORS -gt 0 ]; then
+            echo ""
+            echo "❌ $ERRORS casefile(s) failed validation."
+            exit 1
+          else
+            echo ""
+            echo "✅ All casefiles valid."
+          fi
+
+      - name: Check JSON syntax
+        run: |
+          for f in casefiles/*.json player/*.json; do
+            if [ -f "$f" ]; then
+              echo "Checking JSON syntax: $f"
+              python3 -m json.tool "$f" > /dev/null || exit 1
+            fi
+          done
+          echo "✅ All JSON files are syntactically valid."
