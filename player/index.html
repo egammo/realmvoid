@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REALMVOID — Casefile Player</title>
+<style>
+  /* ═══════════════════════════════════════════════════
+     REALMVOID CASEFILE PLAYER — Terminal 2226
+     Not retro. Not nostalgic. Dangerous.
+     ═══════════════════════════════════════════════════ */
+
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Share+Tech+Mono&display=swap');
+
+  :root {
+    /* Layer colors */
+    --meat: #a0c4a8;
+    --meat-bg: rgba(160, 196, 168, 0.03);
+    --meat-glow: rgba(160, 196, 168, 0.15);
+    --net: #4ecdc4;
+    --net-bg: rgba(78, 205, 196, 0.03);
+    --net-glow: rgba(78, 205, 196, 0.15);
+    --aether: #c4a0c4;
+    --aether-bg: rgba(196, 160, 196, 0.03);
+    --aether-glow: rgba(196, 160, 196, 0.15);
+    --dead: #666;
+    --dead-bg: rgba(40, 40, 40, 0.5);
+    --dead-glow: rgba(100, 100, 100, 0.1);
+
+    /* UI */
+    --bg: #0a0a0c;
+    --surface: #111114;
+    --text: #c8c8cc;
+    --text-dim: #666670;
+    --text-bright: #eeeef0;
+    --accent: #ff3b3b;
+    --accent-dim: rgba(255, 59, 59, 0.3);
+    --border: #1e1e24;
+
+    /* Active layer — set by JS */
+    --layer-color: var(--meat);
+    --layer-bg: var(--meat-bg);
+    --layer-glow: var(--meat-glow);
+
+    /* HEAT gradient */
+    --heat-color: #4ecdc4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Scanline overlay ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* ── Noise texture ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* ── Layout ── */
+  #app {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* ── Header bar ── */
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+  }
+
+  #header .logo {
+    color: var(--text-bright);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 4px;
+  }
+
+  #header .logo span {
+    color: var(--accent);
+  }
+
+  /* ── Layer indicator ── */
+  #layer-bar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 0;
+    margin-bottom: 24px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  #layer-bar .layer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--layer-color);
+    box-shadow: 0 0 8px var(--layer-glow), 0 0 20px var(--layer-glow);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  #layer-bar .layer-name {
+    color: var(--layer-color);
+    font-weight: 500;
+  }
+
+  #layer-bar .zone-name {
+    color: var(--text-dim);
+    margin-left: auto;
+    font-size: 10px;
+  }
+
+  /* ── HEAT bar ── */
+  #heat-container {
+    margin-bottom: 32px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  #heat-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  #heat-value {
+    color: var(--heat-color);
+    font-weight: 700;
+    font-size: 12px;
+    transition: color 0.5s;
+  }
+
+  #heat-bar-outer {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  #heat-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: var(--heat-color);
+    border-radius: 2px;
+    transition: width 0.8s ease, background 0.5s ease;
+    box-shadow: 0 0 8px var(--heat-color);
+  }
+
+  #heat-warning {
+    font-size: 10px;
+    color: var(--accent);
+    margin-top: 6px;
+    min-height: 14px;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  #heat-warning.visible {
+    opacity: 1;
+  }
+
+  /* ── Scene title ── */
+  #scene-title {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── Scene text ── */
+  #scene-text {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fade-in 0.6s ease forwards;
+  }
+
+  #scene-text em {
+    color: var(--layer-color);
+    font-style: italic;
+  }
+
+  #scene-text strong {
+    color: var(--text-bright);
+    font-weight: 500;
+  }
+
+  #scene-text p {
+    margin-bottom: 16px;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Choices ── */
+  #choices {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .choice-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 14px 20px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: choice-appear 0.3s ease forwards;
+  }
+
+  .choice-btn:nth-child(1) { animation-delay: 0.4s; }
+  .choice-btn:nth-child(2) { animation-delay: 0.55s; }
+  .choice-btn:nth-child(3) { animation-delay: 0.7s; }
+  .choice-btn:nth-child(4) { animation-delay: 0.85s; }
+
+  @keyframes choice-appear {
+    from { opacity: 0; transform: translateX(-12px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .choice-btn::before {
+    content: '›';
+    position: absolute;
+    left: 8px;
+    opacity: 0;
+    color: var(--layer-color);
+    transition: opacity 0.2s, left 0.2s;
+  }
+
+  .choice-btn:hover {
+    border-color: var(--layer-color);
+    background: var(--layer-bg);
+    padding-left: 28px;
+    color: var(--text-bright);
+  }
+
+  .choice-btn:hover::before {
+    opacity: 1;
+    left: 12px;
+  }
+
+  .choice-btn .heat-cost {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    opacity: 0.7;
+  }
+
+  .choice-btn .m4-tag {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 9px;
+    color: var(--aether);
+    letter-spacing: 1px;
+    border: 1px solid rgba(196, 160, 196, 0.3);
+    padding: 1px 6px;
+    border-radius: 2px;
+  }
+
+  .choice-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    border-color: var(--border);
+  }
+
+  .choice-btn:disabled:hover {
+    background: transparent;
+    padding-left: 20px;
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  /* ── Ending screen ── */
+  #ending {
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0;
+    animation: fade-in 1s ease forwards;
+  }
+
+  #ending h2 {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+  }
+
+  #ending .ending-text {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text);
+    max-width: 500px;
+    margin: 0 auto 40px;
+  }
+
+  #ending .ending-text em {
+    color: var(--layer-color);
+  }
+
+  #ending .ending-text strong {
+    color: var(--text-bright);
+    font-weight: 500;
+  }
+
+  #restart-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  #restart-btn:hover {
+    border-color: var(--layer-color);
+    color: var(--text-bright);
+  }
+
+  /* ── Boot screen ── */
+  #boot-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
+    transition: opacity 0.8s ease;
+  }
+
+  #boot-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #boot-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    color: #444;
+    text-align: center;
+    line-height: 2.2;
+  }
+
+  #boot-text .revealed {
+    color: var(--text);
+  }
+
+  #boot-text .hook-line {
+    color: var(--accent);
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  #boot-enter {
+    margin-top: 40px;
+    background: transparent;
+    border: 1px solid #333;
+    color: #555;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 40px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  #boot-enter.visible {
+    opacity: 1;
+  }
+
+  #boot-enter:hover {
+    border-color: var(--accent);
+    color: var(--text-bright);
+  }
+
+  /* ── Dead Zone effect ── */
+  .dead-zone-active {
+    animation: dead-flicker 4s ease-in-out infinite;
+  }
+
+  @keyframes dead-flicker {
+    0%, 96%, 100% { opacity: 1; }
+    97% { opacity: 0.7; }
+    98% { opacity: 1; }
+    99% { opacity: 0.85; }
+  }
+
+  /* ── Glitch effect for VOID-NOISE ── */
+  .glitch {
+    animation: glitch-text 0.3s ease;
+  }
+
+  @keyframes glitch-text {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 1px); filter: hue-rotate(90deg); }
+    40% { transform: translate(2px, -1px); }
+    60% { transform: translate(-1px, -1px); filter: hue-rotate(0deg); }
+    80% { transform: translate(1px, 1px); }
+    100% { transform: translate(0); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    body { font-size: 13px; }
+    #app { padding: 16px; }
+    #scene-text { font-size: 14px; }
+    .choice-btn { font-size: 12px; padding: 12px 16px; }
+  }
+
+  /* ── Audio control ── */
+  #audio-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 6px 12px;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+
+  #audio-toggle:hover {
+    border-color: var(--layer-color);
+    color: var(--text);
+  }
+
+  /* ── Casefile title ── */
+  #case-title {
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Boot screen -->
+<div id="boot-screen">
+  <div id="boot-text"></div>
+  <button id="boot-enter" onclick="startGame()">Betritt die Welt</button>
+</div>
+
+<!-- Main app -->
+<div id="app" style="display:none;">
+  <div id="header">
+    <div class="logo">REALM<span>VOID</span></div>
+    <div id="case-title">—</div>
+  </div>
+
+  <div id="layer-bar">
+    <div class="layer-dot"></div>
+    <span class="layer-name" id="layer-name">MEATSPACE</span>
+    <span class="zone-name" id="zone-name">—</span>
+  </div>
+
+  <div id="heat-container">
+    <div id="heat-label">
+      <span>HEAT</span>
+      <span id="heat-value">0</span>
+    </div>
+    <div id="heat-bar-outer">
+      <div id="heat-bar-inner"></div>
+    </div>
+    <div id="heat-warning" class="">—</div>
+  </div>
+
+  <div id="scene-title">—</div>
+  <div id="scene-text"></div>
+  <div id="choices"></div>
+  <div id="ending" style="display:none;"></div>
+</div>
+
+<button id="audio-toggle" style="display:none;" onclick="toggleAudio()">♪ Audio: An</button>
+
+<script>
+// ═══════════════════════════════════════════════════
+// REALMVOID CASEFILE PLAYER ENGINE v0.1
+// Vanilla JS — No frameworks, no build, no npm.
+// ═══════════════════════════════════════════════════
+
+let CASEFILE = null;
+let state = { scene: null, heat: 0, history: [], audioOn: true };
+
+// Layer style mapping
+const LAYERS = {
+  MEATSPACE: { color: '#a0c4a8', bg: 'rgba(160,196,168,0.03)', glow: 'rgba(160,196,168,0.15)' },
+  NET:       { color: '#4ecdc4', bg: 'rgba(78,205,196,0.03)',   glow: 'rgba(78,205,196,0.15)' },
+  AETHER:    { color: '#c4a0c4', bg: 'rgba(196,160,196,0.03)', glow: 'rgba(196,160,196,0.15)' },
+  DEAD_ZONE: { color: '#666666', bg: 'rgba(40,40,40,0.5)',     glow: 'rgba(100,100,100,0.1)' }
+};
+
+// HEAT thresholds — like session variables with consequences
+const HEAT_THRESHOLDS = [
+  { at: 0,  color: '#4ecdc4', warning: '' },
+  { at: 30, color: '#c4c44e', warning: '⚠ SYSTEM AUFMERKSAM' },
+  { at: 60, color: '#c4804e', warning: '⚠ AUDIT-PROTOKOLL AKTIV' },
+  { at: 90, color: '#ff3b3b', warning: '⚠ EXORZISTEN ALARMIERT — LAUF.' },
+  { at: 100, color: '#ff0000', warning: '▓▓▓ HEAT CRITICAL — GAME OVER ▓▓▓' }
+];
+
+// ── Boot sequence ──
+async function boot() {
+  const lines = [
+    { text: 'REALMVOID TERMINAL v2226.04', delay: 400, cls: '' },
+    { text: 'Connecting to Agnon City Infrastructure...', delay: 600, cls: '' },
+    { text: 'WARNING: Unstable node detected', delay: 400, cls: '' },
+    { text: '...', delay: 800, cls: '' },
+    { text: 'Wer erinnert sich?', delay: 1200, cls: 'hook-line' }
+  ];
+
+  const bootText = document.getElementById('boot-text');
+
+  for (const line of lines) {
+    await sleep(line.delay);
+    const div = document.createElement('div');
+    div.className = line.cls;
+    bootText.appendChild(div);
+    await typeText(div, line.text, line.cls === 'hook-line' ? 80 : 30);
+  }
+
+  await sleep(800);
+  document.getElementById('boot-enter').classList.add('visible');
+}
+
+async function typeText(el, text, speed) {
+  for (let i = 0; i < text.length; i++) {
+    el.textContent = text.substring(0, i + 1);
+    el.classList.add('revealed');
+    await sleep(speed);
+  }
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── Load casefile ──
+async function loadCasefile() {
+  // Try loading from same directory, then from casefiles/
+  const paths = [
+    'cf-04-kerzenschneider.json',
+    'casefiles/cf-04-kerzenschneider.json',
+    '../casefiles/cf-04-kerzenschneider.json'
+  ];
+
+  for (const path of paths) {
+    try {
+      const res = await fetch(path);
+      if (res.ok) {
+        CASEFILE = await res.json();
+        return true;
+      }
+    } catch(e) { /* try next */ }
+  }
+
+  // Fallback: use embedded casefile for demo
+  console.warn('Could not load external casefile, using embedded demo.');
+  return false;
+}
+
+// ── Start game ──
+async function startGame() {
+  document.getElementById('boot-screen').classList.add('hidden');
+  await sleep(800);
+  document.getElementById('boot-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('audio-toggle').style.display = 'block';
+
+  await loadCasefile();
+
+  if (!CASEFILE) {
+    document.getElementById('scene-text').innerHTML =
+      '<p>Casefile konnte nicht geladen werden.</p><p>Stelle sicher, dass <code>cf-04-kerzenschneider.json</code> im selben Verzeichnis liegt.</p>';
+    return;
+  }
+
+  // Set title
+  document.getElementById('case-title').textContent =
+    CASEFILE.meta.id + ' — ' + CASEFILE.meta.title;
+
+  // Start first scene
+  state.heat = 0;
+  state.history = [];
+  renderScene(CASEFILE.scenes[0].sid);
+}
+
+// ── Render scene ──
+function renderScene(sid) {
+  // Check endings first
+  const ending = CASEFILE.aftermath?.find(e => e.id === sid);
+  if (ending) {
+    renderEnding(ending);
+    return;
+  }
+
+  // Check HEAT game over
+  if (state.heat >= 100) {
+    const heatEnd = CASEFILE.aftermath?.find(e => e.id === 'end_caught');
+    if (heatEnd) { renderEnding(heatEnd); return; }
+  }
+
+  const scene = CASEFILE.scenes.find(s => s.sid === sid);
+  if (!scene) {
+    console.error('Scene not found:', sid);
+    return;
+  }
+
+  state.scene = sid;
+  state.history.push(sid);
+
+  // Apply scene HEAT
+  if (scene.heat_delta) {
+    changeHeat(scene.heat_delta);
+  }
+
+  // Update layer
+  setLayer(scene.layer, scene.zone);
+
+  // Dead Zone effect
+  document.body.classList.toggle('dead-zone-active', scene.layer === 'DEAD_ZONE');
+
+  // Scene title
+  document.getElementById('scene-title').textContent = scene.title || '—';
+
+  // Scene text — convert markdown-ish to HTML
+  const textEl = document.getElementById('scene-text');
+  textEl.innerHTML = mdToHtml(scene.text_md);
+  textEl.style.animation = 'none';
+  textEl.offsetHeight; // trigger reflow
+  textEl.style.animation = 'fade-in 0.6s ease forwards';
+
+  // Choices
+  const choicesEl = document.getElementById('choices');
+  choicesEl.innerHTML = '';
+
+  const availableChoices = scene.choices.filter(c => {
+    if (c.heat_min !== undefined && state.heat < c.heat_min) return false;
+    if (c.heat_max !== undefined && state.heat > c.heat_max) return false;
+    return true;
+  });
+
+  if (availableChoices.length === 0 && scene.choices.length === 0) {
+    // Ending scene with no choices — look for matching aftermath
+    const matchingEnd = CASEFILE.aftermath?.find(e => {
+      if (!e.heat_range) return false;
+      const [min, max] = e.heat_range.split('-').map(Number);
+      return state.heat >= min && state.heat <= max;
+    });
+    if (matchingEnd) {
+      setTimeout(() => renderEnding(matchingEnd), 1500);
+    }
+    return;
+  }
+
+  availableChoices.forEach(choice => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+
+    let label = choice.label;
+    if (choice.heat_delta && choice.heat_delta > 0) {
+      label += `<span class="heat-cost">+${choice.heat_delta} HEAT</span>`;
+    }
+    if (choice.requires_m4) {
+      label += `<span class="m4-tag">${choice.requires_m4}</span>`;
+    }
+    btn.innerHTML = label;
+
+    btn.onclick = () => {
+      if (choice.heat_delta) changeHeat(choice.heat_delta);
+      renderScene(choice.goto);
+    };
+
+    choicesEl.appendChild(btn);
+  });
+
+  // Show ending
+  document.getElementById('ending').style.display = 'none';
+}
+
+// ── Render ending ──
+function renderEnding(ending) {
+  document.getElementById('scene-title').textContent = '';
+  document.getElementById('scene-text').innerHTML = '';
+  document.getElementById('choices').innerHTML = '';
+
+  const endEl = document.getElementById('ending');
+  endEl.style.display = 'block';
+  endEl.style.animation = 'none';
+  endEl.offsetHeight;
+  endEl.style.animation = 'fade-in 1s ease forwards';
+
+  endEl.innerHTML = `
+    <h2>— ${ending.title} —</h2>
+    <div class="ending-text">${mdToHtml(ending.text_md)}</div>
+    <div style="font-size:10px;color:var(--text-dim);letter-spacing:2px;margin-bottom:24px;">
+      FINAL HEAT: ${state.heat} · SCENES: ${state.history.length}
+    </div>
+    <button id="restart-btn" onclick="restart()">Nochmal spielen</button>
+  `;
+}
+
+// ── Restart ──
+function restart() {
+  state = { scene: null, heat: 0, history: [], audioOn: state.audioOn };
+  updateHeatUI();
+  document.getElementById('ending').style.display = 'none';
+  renderScene(CASEFILE.scenes[0].sid);
+}
+
+// ── HEAT system ──
+function changeHeat(delta) {
+  state.heat = Math.max(0, Math.min(100, state.heat + delta));
+  updateHeatUI();
+
+  // Glitch effect on big HEAT changes
+  if (Math.abs(delta) >= 10) {
+    document.getElementById('heat-container').classList.add('glitch');
+    setTimeout(() => document.getElementById('heat-container').classList.remove('glitch'), 300);
+  }
+}
+
+function updateHeatUI() {
+  const h = state.heat;
+
+  // Find current threshold
+  let threshold = HEAT_THRESHOLDS[0];
+  for (const t of HEAT_THRESHOLDS) {
+    if (h >= t.at) threshold = t;
+  }
+
+  document.getElementById('heat-value').textContent = h;
+  document.getElementById('heat-value').style.color = threshold.color;
+  document.getElementById('heat-bar-inner').style.width = h + '%';
+  document.getElementById('heat-bar-inner').style.background = threshold.color;
+  document.getElementById('heat-bar-inner').style.boxShadow = `0 0 8px ${threshold.color}`;
+  document.documentElement.style.setProperty('--heat-color', threshold.color);
+
+  const warning = document.getElementById('heat-warning');
+  if (threshold.warning) {
+    warning.textContent = threshold.warning;
+    warning.classList.add('visible');
+  } else {
+    warning.classList.remove('visible');
+  }
+}
+
+// ── Layer system ──
+function setLayer(layer, zone) {
+  const l = LAYERS[layer] || LAYERS.MEATSPACE;
+  const root = document.documentElement;
+
+  root.style.setProperty('--layer-color', l.color);
+  root.style.setProperty('--layer-bg', l.bg);
+  root.style.setProperty('--layer-glow', l.glow);
+
+  document.getElementById('layer-name').textContent = layer.replace('_', ' ');
+  document.getElementById('zone-name').textContent = zone || '—';
+}
+
+// ── Minimal Markdown → HTML ──
+function mdToHtml(md) {
+  if (!md) return '';
+  return md
+    .split('\n\n').map(block => {
+      // Process inline markdown
+      let html = block
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // bold
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')              // italic
+        .replace(/`(.+?)`/g, '<code>$1</code>')            // code
+        .replace(/\n/g, '<br>');                            // line breaks
+      return `<p>${html}</p>`;
+    })
+    .join('');
+}
+
+// ── Audio (placeholder — real implementation needs audio files) ──
+function toggleAudio() {
+  state.audioOn = !state.audioOn;
+  document.getElementById('audio-toggle').textContent =
+    state.audioOn ? '♪ Audio: An' : '♪ Audio: Aus';
+}
+
+// ── Init ──
+window.addEventListener('DOMContentLoaded', boot);
+</script>
+</body>
+</html>
