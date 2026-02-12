@@ -2,7 +2,7 @@
   "meta": {
     "id": "CF-04",
     "title": "Der Kerzenschneider ruft",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "author": "Julian Fides",
     "bible_ver": "1.2.1",
     "m4_ver": "0.1.1",
@@ -39,20 +39,20 @@
       "zone": "Nullkapelle",
       "heat_delta": 0,
       "audio": "dead_silence",
-      "text_md": "Stille. Echte Stille — nicht die gedämpfte Sorte, die du aus dem Sprawl kennst. Hier gibt es kein Netz, kein Overlay, keinen Puls der Stadt.\n\nJonas Kroll sitzt auf der Kerzenbank. Er sieht dich nicht an. Die Flamme flackert nicht.\n\n*'Jemand erinnert sich'*, sagt er. *'In der Schlucht. Ein alter Kern. Hol ihn. Bring ihn mir.'*\n\nEr legt ein Stück Papier auf die Bank. Eine Adresse. Handgeschrieben.",
+      "text_md": "Die Nullkapelle ist einer der letzten toten Winkel in Agnon City — ein Betonraum tief in der Dead Zone, wo kein Netzwerk hinreicht. Keine Überwachung, keine Daten, keine Helix-Augen.\n\nJonas Kroll sitzt auf einer Holzbank. Vor ihm brennt eine einzelne Kerze — echtes Feuer, kein Hologramm. Er ist ein alter Fixer, einer der wenigen, denen du halbwegs vertraust.\n\n*'Jemand hat in der Faraday-Schlucht einen alten Datenkern aktiviert'*, sagt er leise. *'Der Kern sendet. Wenn Helix das Signal findet, kommen die Exorzisten. Hol den Kern, bevor sie es tun.'*\n\nEr legt ein Stück Papier auf die Bank. Eine Adresse in der Schlucht. Handgeschrieben — kein digitaler Abdruck.",
       "choices": [
         {
-          "label": "Die Adresse nehmen und gehen.",
+          "label": "Die Adresse nehmen und losgehen.",
           "goto": "s02",
           "heat_delta": 0
         },
         {
-          "label": "Nachfragen: Was für ein Kern?",
+          "label": "Nachfragen: Was genau ist das für ein Kern?",
           "goto": "s01b",
           "heat_delta": 0
         },
         {
-          "label": "Ablehnen. Das fühlt sich falsch an.",
+          "label": "Ablehnen. Das riecht nach Ärger.",
           "goto": "s_refuse",
           "heat_delta": 0
         }
@@ -65,7 +65,7 @@
       "zone": "Nullkapelle",
       "heat_delta": 0,
       "audio": "dead_silence",
-      "text_md": "Kroll dreht die Kerze zwischen seinen Fingern. Langsam.\n\n*'Ein Kern, der nicht mehr senden sollte. Jemand hat ihn geweckt. Das... passiert nicht einfach so.'*\n\nEr schweigt. Dann:\n\n*'Frag nicht, was drauf ist. Bring ihn einfach.'*",
+      "text_md": "Kroll dreht die Kerze zwischen seinen Fingern.\n\n*'Ein Datenkern aus der alten Zeit — vor der Helix-Ära. Jemand hat ihn wieder hochgefahren. Das passiert nicht einfach so. Irgendjemand wollte, dass dieser Kern sendet.'*\n\nEr schweigt einen Moment.\n\n*'Frag nicht, was auf dem Kern gespeichert ist. Bring ihn einfach her, bevor die Exorzisten die Spur finden.'*",
       "choices": [
         {
           "label": "Die Adresse nehmen.",
@@ -73,7 +73,7 @@
           "heat_delta": 0
         },
         {
-          "label": "\"Was ist drauf, Kroll?\"",
+          "label": "\"Was ist auf dem Kern, Kroll?\"",
           "goto": "s01c",
           "heat_delta": 3
         }
@@ -86,10 +86,10 @@
       "zone": "Nullkapelle",
       "heat_delta": 2,
       "audio": "dead_silence",
-      "text_md": "Krolls Augen treffen deine. Zum ersten Mal.\n\n*'Erinnerungen'*, sagt er. Das Wort klingt wie eine Warnung.\n\n*'An etwas, das es nicht geben darf.'*\n\nEr schiebt die Adresse über die Bank. Sein Finger zittert. Jonas Kroll zittert nie.",
+      "text_md": "Kroll sieht dich zum ersten Mal direkt an.\n\n*'Erinnerungen'*, sagt er. *'Daten aus einer Zeit, die offiziell nie existiert hat. Die Aurora-Ära.'*\n\nAurora — das Wort allein reicht, um Ärger zu bekommen. Niemand redet darüber. Niemand soll sich erinnern.\n\nEr schiebt die Adresse über die Bank. Sein Finger zittert. Jonas Kroll zittert nie.",
       "choices": [
         {
-          "label": "Die Adresse nehmen. Jetzt will ich es wissen.",
+          "label": "Die Adresse nehmen. Jetzt will ich es erst recht wissen.",
           "goto": "s02",
           "heat_delta": 0
         }
@@ -102,7 +102,7 @@
       "zone": "Nullkapelle",
       "heat_delta": 0,
       "audio": "dead_silence",
-      "text_md": "Du stehst auf. Die Stille drückt.\n\nKroll sagt nichts. Er pustet die Kerze aus.\n\nAuf dem Rückweg durch die Schlucht merkst du, dass du die Adresse trotzdem in der Tasche hast. Du weißt nicht, wann er sie dir zugesteckt hat.\n\n*Manche Jobs suchen dich aus.*",
+      "text_md": "Du stehst auf. Kroll sagt nichts. Er pustet die Kerze aus.\n\nAuf dem Rückweg greifst du in deine Jackentasche und findest die Adresse. Du weißt nicht, wann er sie dir zugesteckt hat.\n\n*Manche Jobs suchen sich ihre Leute selbst aus.*",
       "choices": [
         {
           "label": "Zur Faraday-Schlucht gehen. Verdammt.",
@@ -123,7 +123,7 @@
       "zone": "Faraday-Schlucht",
       "heat_delta": 0,
       "audio": "drip_echo",
-      "text_md": "Die Schlucht frisst Licht. Alte Wartungstunnel, betoniert in einer Ära, als man noch glaubte, Abschirmung sei eine Vorsichtsmaßnahme und keine Lebensweise.\n\nDein Overlay stirbt am Eingang. Kein Netz. Kein GPS. Nur deine Augen, deine Ohren, und die Adresse auf dem Papier.\n\nNach zwanzig Minuten findest du die Tür. Stahl, verrostet, aber das Schloss ist neu.",
+      "text_md": "Die Faraday-Schlucht ist ein Netz aus alten Wartungstunneln unter der Stadt, ummantelt mit Abschirmplatten. Hier dringt kein Signal durch.\n\nDein Overlay — das digitale Sichtfeld, das dir normalerweise Karten, Nachrichten und Warnungen einblendet — stirbt am Eingang. Ab hier bist du blind: Kein Netz, kein GPS. Nur deine Augen, deine Ohren und die Adresse auf dem Papier.\n\nNach zwanzig Minuten im Halbdunkel findest du die Tür. Schwerer Stahl, verrostet — aber das Schloss daran ist nagelneu. Jemand war kürzlich hier.",
       "choices": [
         {
           "label": "Schloss knacken (Handwerk).",
@@ -131,12 +131,12 @@
           "heat_delta": 3
         },
         {
-          "label": "Klopfen.",
+          "label": "Klopfen und schauen, wer aufmacht.",
           "goto": "s02b",
           "heat_delta": 0
         },
         {
-          "label": "Scanner aktivieren — falls hier noch ein Signal durchkommt.",
+          "label": "Technomantie-Scanner benutzen — Signale hinter der Tür lesen.",
           "goto": "s02c",
           "heat_delta": 8,
           "requires_m4": "M4-HLX-05"
@@ -150,20 +150,20 @@
       "zone": "Faraday-Schlucht",
       "heat_delta": 3,
       "audio": "drip_echo",
-      "text_md": "Du klopfst. Einmal. Dann nochmal.\n\nLange nichts.\n\nDann kommt eine Stimme, trocken wie Staub: *\"Wenn du Kerzen suchst, bist du falsch.\"*\n\nEin Schatten hinter dem Blech. Jemand lebt da drin. Oder spielt es.\n\n*\"Sag deinen Namen. Oder geh.\"*",
+      "text_md": "Du klopfst an die Stahltür. Einmal. Dann nochmal.\n\nStille. Dann eine raue Stimme von drinnen: *'Wenn du Kerzen suchst, bist du falsch.'*\n\nHinter dem Blech bewegt sich ein Schatten. Jemand lebt hier — oder versteckt sich.\n\n*'Sag deinen Namen. Oder geh.'*",
       "choices": [
         {
-          "label": "\"Kroll schickt mich. Ich will nur, dass es still wird.\"",
+          "label": "\"Kroll schickt mich. Ich will nur den Kern holen.\"",
           "goto": "s03_pete",
           "heat_delta": 3
         },
         {
-          "label": "\"Mach auf. Jetzt.\"",
+          "label": "\"Mach auf. Sofort.\" (aggressiv)",
           "goto": "s03_pete",
           "heat_delta": 8
         },
         {
-          "label": "Zurücktreten. Schloss knacken wie geplant.",
+          "label": "Vergiss das Klopfen. Schloss knacken.",
           "goto": "s03",
           "heat_delta": 5
         }
@@ -171,20 +171,20 @@
     },
     {
       "sid": "s02c",
-      "title": "Den Geist rufen (Scanner)",
+      "title": "Technomantie-Scan",
       "layer": "DEAD_ZONE",
       "zone": "Faraday-Schlucht",
       "heat_delta": 10,
       "audio": "void_noise_01",
-      "text_md": "Du hältst das Gerät an das Metall und flüsterst den Straßenspruch, den du hasst.\n\nDer Scanner *sollte* hier tot sein.\n\nStattdessen atmet er.\n\nIm Display: eine Karte aus Schatten. Dahinter ein Raum. Ein Kern. Warm. Pulsierend.\n\nUnd etwas, das wie Text aussieht, aber sich anfühlt wie Haut:\n\n**WER ERINNERT SICH?**",
+      "text_md": "Du hältst deinen Scanner an die Stahltür. Das Gerät nutzt Technomantie — verbotene Software, die Signale aus toten Systemen lesen kann. Die Straße nennt es Hexerei. Du nennst es ein Werkzeug.\n\nDer Scanner *sollte* hier nicht funktionieren. Aber er zeigt ein Bild: Hinter der Tür liegt ein Raum. Darin ein Datenkern, der Wärme und Signale abstrahlt.\n\nUnd auf dem Display erscheinen Zeichen, die sich nicht wie normaler Code anfühlen:\n\n**WER ERINNERT SICH?**",
       "choices": [
         {
-          "label": "Schloss knacken – jetzt weißt du, wo's hinführt.",
+          "label": "Schloss knacken — jetzt weißt du, was drinnen ist.",
           "goto": "s03",
           "heat_delta": 5
         },
         {
-          "label": "Nochmal scannen. Tiefer. (riskant)",
+          "label": "Nochmal tiefer scannen. (mehr Info, mehr Risiko)",
           "goto": "s03",
           "heat_delta": 8
         }
@@ -197,10 +197,10 @@
       "zone": "Faraday-Schlucht",
       "heat_delta": 3,
       "audio": "drip_echo",
-      "text_md": "Das Blech knirscht. Ein Spalt öffnet sich.\n\nEin Mann mit Händen voller Rost und Augen voller Schlaf starrt dich an.\n\n*\"Rusty Pete.\"* Er sagt es, als wär's ein Urteil.\n\n*\"Da drin ist was Warmes. Warm heißt Ärger. Ärger heißt Helix.\"*\n\nEr hält die Tür nicht fest. Er hält dich fest – mit Blicken.\n\n*\"Du gehst rein? Dann gehst du nicht allein.\"*",
+      "text_md": "Die Tür knirscht. Ein Spalt öffnet sich.\n\nEin Mann mit rostfleckigen Händen und übermüdeten Augen starrt dich an.\n\n*'Rusty Pete.'* Er stellt sich vor, als wäre sein Name ein Urteil.\n\n*'Da drin ist ein aktiver Datenkern. Warm heißt Ärger. Ärger heißt Helix schickt Exorzisten.'*\n\nEr mustert dich. *'Du willst da rein? Dann gehe ich mit. Allein lasse ich dich nicht.'*",
       "choices": [
         {
-          "label": "\"Komm. Aber wenn du lügst, bleibst du zurück.\"",
+          "label": "\"Komm mit. Aber wenn du lügst, bleibst du zurück.\"",
           "goto": "s03",
           "heat_delta": 3
         },
@@ -210,7 +210,7 @@
           "heat_delta": 5
         },
         {
-          "label": "\"Was willst du dafür?\"",
+          "label": "\"Was willst du als Gegenleistung?\"",
           "goto": "s03",
           "heat_delta": 5
         }
@@ -218,25 +218,25 @@
     },
     {
       "sid": "s03",
-      "title": "Der Raum",
+      "title": "Der Raum mit dem Kern",
       "layer": "MEATSPACE",
-      "zone": "Nullkapelle – verschmolzener Core",
+      "zone": "Faraday-Schlucht – Kernraum",
       "heat_delta": 3,
       "audio": "dead_silence",
-      "text_md": "Der Raum ist Glas, das vergessen hat, wie man bricht.\n\nWände verschmolzen. Kabel wie Adern.\n\nIn der Mitte: der Kern.\n\nEr sollte tot sein.\n\nEr pulsiert.\n\nNicht hell. Nicht laut.\n\nWie etwas, das versucht, nicht zu atmen.",
+      "text_md": "Du stehst in einem Raum, der aussieht, als wäre er mit seinen eigenen Wänden verschmolzen. Die Oberflächen glänzen glasig. Kabel verlaufen durch den Beton wie Adern.\n\nIn der Mitte steht der Datenkern — ein schwarzer Kasten, etwa so groß wie ein Schuhkarton. Er sollte längst tot sein.\n\nAber er pulsiert. Ein schwaches Leuchten, ein kaum hörbares Summen. Irgendjemand hat ihn reaktiviert.",
       "choices": [
         {
-          "label": "Langsam ran. Nichts anfassen.",
+          "label": "Langsam nähern. Erstmal nur anschauen. (vorsichtig)",
           "goto": "s04",
           "heat_delta": 3
         },
         {
-          "label": "Die Leitungen prüfen. Woher kommt der Strom?",
+          "label": "Die Kabel prüfen. Woher kommt der Strom?",
           "goto": "s04",
           "heat_delta": 5
         },
         {
-          "label": "\"Wer ist da?\" (in die Stille)",
+          "label": "Laut in den Raum rufen: \"Ist hier jemand?\" (riskant)",
           "goto": "s04",
           "heat_delta": 8
         }
@@ -244,25 +244,25 @@
     },
     {
       "sid": "s04",
-      "title": "Aktivierung",
+      "title": "Kontakt mit dem Kern",
       "layer": "MEATSPACE",
-      "zone": "Nullkapelle – Core",
+      "zone": "Faraday-Schlucht – Kernraum",
       "heat_delta": 5,
       "audio": "data_hum",
-      "text_md": "Du berührst das Gehäuse.\n\nEs ist warm.\n\nDer Kern antwortet.\n\nEin Summen schiebt sich unter deine Zähne, als hätte jemand die Luft verkabelt.\n\nEin kurzer Riss – ein Kontakt.\n\nNicht Netz.\n\nMehr wie... eine Narbe, die wieder aufgeht.",
+      "text_md": "Du berührst das Gehäuse des Kerns. Es ist warm — wärmer als es sein sollte.\n\nIn dem Moment reagiert der Kern. Ein tiefes Summen breitet sich aus, so tief, dass du es mehr fühlst als hörst.\n\nFür einen kurzen Moment öffnet sich eine Verbindung — nicht ins normale Netz, sondern in etwas Älteres. Der Kern versucht, seine gespeicherten Daten zu übertragen.",
       "choices": [
         {
-          "label": "Stabilisieren. Kurz halten. (vorsichtig)",
+          "label": "Vorsichtig stabilisieren. Schauen was er sendet. (kontrolliert)",
           "goto": "s04b",
           "heat_delta": 5
         },
         {
-          "label": "Kern abklemmen. Sofort still machen. (brutal)",
+          "label": "Sofort abklemmen. Kern mitnehmen, ohne reinzuschauen. (schnell)",
           "goto": "s05",
           "heat_delta": 8
         },
         {
-          "label": "PACT erzwingen: Zugang erzwingen. (M4-PCT-03)",
+          "label": "Zugang per Technomantie erzwingen. (voller Datenzugriff)",
           "goto": "s04b",
           "heat_delta": 12,
           "requires_m4": "M4-PCT-03"
@@ -271,25 +271,25 @@
     },
     {
       "sid": "s04b",
-      "title": "Fragment",
+      "title": "Das Fragment",
       "layer": "NET",
-      "zone": "Kernkontakt (kurz)",
+      "zone": "Kern-Datenstrom",
       "heat_delta": 8,
       "audio": "void_noise_01",
-      "text_md": "Die Welt kippt in Daten.\n\nDu riechst Regen.\n\nDu fühlst Metall auf Haut.\n\nEin Name fällt wie eine Münze in einen Brunnen:\n\n**AURORA.**\n\nUnd dann wieder diese Frage, nicht als Text, sondern als Druck in der Brust:\n\n**WER ERINNERT SICH?**\n\nDer Kern sendet.\n\nDas ist der Moment, in dem die Stadt zurückschaut.",
+      "text_md": "Die Verbindung reißt deine Wahrnehmung auf. Für einen Moment bist du nicht mehr im Raum — du steckst im Datenstrom des Kerns.\n\nDu siehst Bilder, die nicht dir gehören: Regen auf echter Haut. Eine Stadt vor der Helix-Ära. Menschen, die ohne Overlay leben. Und einen Namen, der sich wie verbotenes Wissen anfühlt:\n\n**AURORA.**\n\nDann, wie ein Echo:\n\n**WER ERINNERT SICH?**\n\nDer Kern sendet jetzt aktiv nach außen. Das Signal geht raus — und irgendwo in Agnon City wird Helix aufmerksam.",
       "choices": [
         {
-          "label": "Abreißen. Kern raus und weg.",
+          "label": "Verbindung kappen. Kern einpacken und weg hier.",
           "goto": "s05",
           "heat_delta": 5
         },
         {
-          "label": "Noch ein Blick. Tiefer. (mehr Erinnerung)",
+          "label": "Noch tiefer graben. Mehr Erinnerungen sehen. (hohes Risiko)",
           "goto": "s05",
           "heat_delta": 12
         },
         {
-          "label": "Still machen. Hier. Jetzt.",
+          "label": "Den Kern hier und jetzt zerstören. Daten vernichten.",
           "goto": "s05_destroy",
           "heat_delta": 8
         }
@@ -299,29 +299,29 @@
       "sid": "s05",
       "title": "Die Jagd",
       "layer": "MEATSPACE",
-      "zone": "Nullkapelle",
+      "zone": "Faraday-Schlucht – Kernraum",
       "heat_delta": 8,
       "audio": "heartbeat",
-      "text_md": "Von draußen: Schritte.\n\nNicht viele.\n\nGenug.\n\nLichtkegel schneiden durch Ritzen, die es nicht geben sollte.\n\nHelix kommt nicht zum Reden.\n\nDer Kern in deinen Händen ist plötzlich sehr schwer – wie ein Beweis.",
+      "text_md": "Von draußen: Schritte. Schwere Stiefel auf Beton.\n\nExorzisten — die Vollstrecker von Helix. Sie kommen nicht, um zu reden. Lichtkegel schneiden durch die Ritzen der Wände.\n\nDer Kern in deinen Händen fühlt sich schwer an. Ein Beweisstück, das dich alles kosten kann.\n\nDu musst jetzt handeln.",
       "choices": [
         {
-          "label": "Rennen. Faraday-Schlucht. (Dead Zone)",
+          "label": "Rennen. Zurück durch die Faraday-Schlucht. (schnell, aber laut)",
           "goto": "s05_run",
           "heat_delta": 5
         },
         {
-          "label": "Schleier weben und warten, bis sie vorbei sind. (M4-OVL-01)",
+          "label": "Technomantie-Schleier aktivieren. Unsichtbar warten. (riskant)",
           "goto": "s05_hide",
           "heat_delta": 12,
           "requires_m4": "M4-OVL-01"
         },
         {
-          "label": "Kern hier zerstören und mit leeren Händen raus.",
+          "label": "Kern hier zerstören. Mit leeren Händen rausgehen.",
           "goto": "s05_destroy",
           "heat_delta": 5
         },
         {
-          "label": "Zögern. Lauschen. (schlechter Instinkt)",
+          "label": "Abwarten und lauschen. (schlechte Idee)",
           "goto": "end_caught",
           "heat_delta": 20
         }
@@ -329,15 +329,15 @@
     },
     {
       "sid": "s05_hide",
-      "title": "Schleier",
+      "title": "Der Schleier",
       "layer": "MEATSPACE",
-      "zone": "Nullkapelle",
+      "zone": "Faraday-Schlucht – Kernraum",
       "heat_delta": 5,
       "audio": "dead_silence",
-      "text_md": "Du legst den Schleier.\n\nNicht mit Technik. Mit Aberglauben.\n\nDu wirst kleiner in den Augen der Welt.\n\nDie Exorzisten gehen vorbei.\n\nEiner bleibt stehen.\n\nEr schaut nicht zu dir.\n\nEr schaut *durch* dich.\n\nDann weiter.\n\nSie nehmen nichts.\n\nAber sie lassen etwas zurück.\n\nEine Spur, die sich wie Kreide anfühlt.",
+      "text_md": "Du aktivierst den Overlay-Schleier — Technomantie, die dich für Sensoren unsichtbar macht. Nicht perfekt, aber es muss reichen.\n\nDie Exorzisten kommen vorbei. Schwere Schritte, Scanner-Piepen. Einer bleibt stehen, direkt neben dir. Sein Sensor dreht sich in deine Richtung.\n\nDann geht er weiter.\n\nSie haben dich nicht gefunden. Aber der Schleier hinterlässt digitale Spuren, die Helix später auswerten kann.",
       "choices": [
         {
-          "label": "Jetzt raus. Bevor die Kreide trocknet.",
+          "label": "Jetzt raus. Bevor sie die Spuren finden.",
           "goto": "s05_run",
           "heat_delta": 5
         }
@@ -345,20 +345,20 @@
     },
     {
       "sid": "s05_destroy",
-      "title": "Still machen",
+      "title": "Kern zerstören",
       "layer": "MEATSPACE",
-      "zone": "Nullkapelle – Core",
+      "zone": "Faraday-Schlucht – Kernraum",
       "heat_delta": 8,
       "audio": "void_noise_01",
-      "text_md": "Du schlägst.\n\nDer Kern schreit nicht.\n\nEr *fragt*.\n\nDann bricht er.\n\nDas Summen stirbt.\n\nFür einen Atemzug ist alles normal.\n\nDann hörst du draußen die Schritte schneller werden.\n\nNicht wegen dem Signal.\n\nWegen dir.",
+      "text_md": "Du schlägst auf den Kern ein.\n\nEr gibt ein kurzes digitales Flackern von sich — fast wie eine Frage. Dann bricht er auseinander.\n\nDas Summen stirbt. Für einen Atemzug ist alles still.\n\nDann hörst du, wie die Schritte draußen schneller werden. Nicht wegen dem Signal des Kerns — wegen dem Geräusch, das du gerade gemacht hast.",
       "choices": [
         {
-          "label": "Raus. Faraday-Schlucht.",
+          "label": "Raus hier. Schnell durch die Schlucht.",
           "goto": "s05_run",
           "heat_delta": 5
         },
         {
-          "label": "Nicht rennen. Leise bewegen. (langsamer, sicherer)",
+          "label": "Leise bewegen. Langsam, aber sicherer.",
           "goto": "s05_run",
           "heat_delta": 3
         }
@@ -366,20 +366,20 @@
     },
     {
       "sid": "s05_run",
-      "title": "Flucht",
+      "title": "Flucht durch die Schlucht",
       "layer": "DEAD_ZONE",
       "zone": "Faraday-Schlucht",
       "heat_delta": 5,
       "audio": "drip_echo",
-      "text_md": "Der Tunnel schluckt dich.\n\nKein Netz.\n\nKein Overlay.\n\nNur Tropfen, Atem, Schritte.\n\nHinter dir: Stimmen.\n\nVorne: Dunkel.\n\nDu weißt nicht, was schlimmer ist.",
+      "text_md": "Du rennst zurück in die Faraday-Schlucht. Kein Netz, kein Overlay — nur Dunkelheit, tropfendes Wasser und dein eigener Atem.\n\nHinter dir: Die Stimmen der Exorzisten, die in die Tunnel eindringen.\n\nVor dir: Schwärze.\n\nDu musst raus, bevor sie die Ausgänge absperren.",
       "choices": [
         {
-          "label": "Durchziehen. Keine Pausen. (schnell, laut)",
+          "label": "Durchrennen. Keine Pausen. (schnell, aber laut)",
           "goto": "s06",
           "heat_delta": 8
         },
         {
-          "label": "Langsam. Schatten. Jede Ecke lesen. (vorsichtig)",
+          "label": "Im Schatten schleichen. Jede Ecke prüfen. (langsam, aber leise)",
           "goto": "s06",
           "heat_delta": 3
         }
@@ -389,28 +389,28 @@
       "sid": "s06",
       "title": "Zurück bei Kroll",
       "layer": "DEAD_ZONE",
-      "zone": "Nullkapelle – Vorhalle",
+      "zone": "Nullkapelle",
       "heat_delta": 3,
       "audio": "dead_silence",
-      "text_md": "Kroll wartet, wo er immer wartet.\n\nEr fragt nicht, ob du verletzt bist.\n\nEr schaut auf deine Hände.\n\n*\"Hast du's still gemacht?\"*\n\nDann, leiser:\n\n*\"Und... hat es dich gefragt?\"*",
+      "text_md": "Kroll wartet genau dort, wo du ihn verlassen hast.\n\nEr fragt nicht, ob du verletzt bist oder was passiert ist. Er schaut auf deine Hände.\n\n*'Hast du den Kern?'*\n\nDann, leiser: *'Und... hat er dich etwas gefragt?'*\n\nDu musst dich jetzt entscheiden: Was machst du mit dem Kern — und mit dem, was du gesehen hast?",
       "choices": [
         {
-          "label": "Kern geben. \"Ist still.\"",
+          "label": "Kern an Kroll übergeben. Auftrag erledigt.",
           "goto": "end_deliver",
           "heat_delta": 5
         },
         {
-          "label": "Kern behalten. \"Ist meins.\"",
+          "label": "Kern behalten. Das hier gehört nicht Kroll.",
           "goto": "end_keep",
           "heat_delta": 8
         },
         {
-          "label": "Lügen. \"Nichts gefunden.\"",
+          "label": "Lügen: \"Nichts gefunden. Kern war schon weg.\"",
           "goto": "end_walk_away",
           "heat_delta": 5
         },
         {
-          "label": "An Mirror-Net verkaufen.",
+          "label": "An Mirror-Net verkaufen. Daten sind Geld wert.",
           "goto": "end_sell",
           "heat_delta": 8
         }
@@ -420,32 +420,37 @@
   "aftermath": [
     {
       "id": "end_deliver",
-      "title": "Abgeliefert",
-      "text_md": "Du bringst den Kern zu Kroll. Er nimmt ihn. Er zerstört ihn vor deinen Augen.\n\n*'Danke'*, sagt er. Und dann: *'Vergiss das.'*\n\nDu vergisst es nicht. Du wirst es nie vergessen.\n\n**Aber wer erinnert sich jetzt?**",
+      "title": "Auftrag erledigt",
+      "status": "MISSION ABGESCHLOSSEN",
+      "text_md": "Du gibst Kroll den Kern. Er nimmt ihn wortlos und zerstört ihn vor deinen Augen — schlägt ihn auf den Beton, bis nur Splitter übrig sind.\n\n*'Danke'*, sagt er. Und dann: *'Vergiss, was du gesehen hast.'*\n\nDu vergisst es nicht. Die Bilder aus dem Datenstrom — Regen auf echter Haut, eine Stadt ohne Helix, der Name *Aurora* — bleiben.\n\nDer Auftrag ist erledigt. Aber die Frage bleibt:\n\n**Wer erinnert sich?**",
       "heat_range": "0-70"
     },
     {
       "id": "end_keep",
-      "title": "Behalten",
-      "text_md": "Du behältst den Kern. Kroll wird es erfahren. Die Exorzisten werden es erfahren. Alle werden es erfahren.\n\nAber du hast etwas gesehen. In dem Fragment. Eine Erinnerung, die nicht dir gehört.\n\nRegen auf echter Haut. Ein Name. *Aurora.*\n\n**Wer erinnert sich?**",
+      "title": "Den Kern behalten",
+      "status": "MISSION ABGEBROCHEN",
+      "text_md": "Du behältst den Kern. Krolls Gesicht versteinert.\n\n*'Das ist ein Fehler'*, sagt er leise. Dann steht er auf und geht.\n\nKroll wird reden. Die Exorzisten werden kommen. Alle werden erfahren, dass du ein Aurora-Fragment besitzt.\n\nAber du hast etwas gesehen, das die Welt nicht vergessen sollte. Eine Erinnerung an eine Zeit vor Helix. Ein Beweis, dass es anders sein könnte.\n\n**Die Frage ist nicht mehr, wer sich erinnert. Die Frage ist, was du damit machst.**",
       "heat_range": "0-100"
     },
     {
       "id": "end_caught",
       "title": "Erwischt",
-      "text_md": "HEAT 100. Die Exorzisten waren schneller.\n\nDein Overlay blinkt rot, dann schwarz. Der letzte Sound ist ein Ton, den du nicht einordnen kannst. Kein Signal. Kein Rauschen.\n\nStille.\n\n**VOID-NOISE.**\n\n*Wer erinnert sich?*\n*Nicht du. Nicht mehr.*",
+      "status": "GESCHEITERT",
+      "text_md": "Die Exorzisten waren schneller.\n\nSie kommen nicht allein — drei Gestalten in schwarzer Taktik-Ausrüstung, Scanner auf deinen Kopf gerichtet. Dein Overlay blinkt rot, dann schwarz. Systemsperre.\n\n*'Identifiziert. Sicherungsstufe: Rot. Kern sicherstellen. Subjekt neutralisieren.'*\n\nDas letzte, was du hörst, ist ein Ton, den du nicht einordnen kannst. Kein Signal. Kein Rauschen.\n\nStille.\n\n**Wer erinnert sich? Nicht du. Nicht mehr.**",
       "heat_range": "90-100"
     },
     {
       "id": "end_walk_away",
       "title": "Weggegangen",
-      "text_md": "Du gehst nach Hause. Du legst dich hin. Du schließt die Augen.\n\nUnd dann hörst du es. Leise. Unter dem Rauschen deines eigenen Netzes.\n\nEine Stimme, die fragt: *'Wer erinnert sich?'*\n\nDu drehst dich um. Niemand da.\n\n**Manche Jobs suchen dich aus.**",
+      "status": "MISSION AUFGEGEBEN",
+      "text_md": "Du lügst Kroll an — oder du bist einfach nach Hause gegangen, ohne den Kern zu holen.\n\nDu legst dich hin. Schließt die Augen. Versuchst, den Tag zu vergessen.\n\nAber dann hörst du es. Leise, unter dem Rauschen deines eigenen Netz-Overlays.\n\nEine Stimme, die fragt: *'Wer erinnert sich?'*\n\nDu drehst dich um. Niemand da.\n\n**Manche Jobs suchen sich ihre Leute. Und manche Fragen hören nicht auf, nur weil du weggehst.**",
       "heat_range": "0-40"
     },
     {
       "id": "end_sell",
       "title": "Verkauft",
-      "text_md": "Du verkaufst das Fragment.\n\nNicht an einen Menschen.\n\nAn eine Treppe voller Augen.\n\nSie zahlen gut.\n\nSie zahlen schnell.\n\nUnd sie fragen nicht, ob du schlafen kannst.\n\nSpäter, im Regen, hörst du die Frage wieder. Leiser, aber näher:\n\n**Wer erinnert sich?**\n\nDu hast Geld.\n\nAber du hast auch eine Schuld, die niemand eintreibt.\n\nAußer der Stadt.",
+      "status": "KERN VERKAUFT",
+      "text_md": "Du verkaufst das Aurora-Fragment auf dem Mirror-Net — dem Schwarzmarkt für Daten, die nicht existieren dürfen.\n\nDer Käufer hat kein Gesicht. Nur eine Kontonummer und eine Stimme, die klingt wie automatisch generiert. Die Bezahlung kommt sofort. Mehr Geld, als du in einem Jahr verdienst.\n\nSpäter, im Regen, hörst du die Frage wieder. Leiser als vorher, aber näher:\n\n**Wer erinnert sich?**\n\nDu hast Geld. Aber du hast auch etwas verkauft, das vielleicht nicht dir gehörte. Und der Käufer — wer auch immer das war — erinnert sich jetzt auch.",
       "heat_range": "0-100"
     }
   ]

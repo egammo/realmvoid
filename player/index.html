@@ -578,6 +578,119 @@
     text-transform: uppercase;
     margin-bottom: 4px;
   }
+
+  /* ── Briefing screen ── */
+  #briefing-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 400;
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  #briefing-screen.hidden {
+    display: none;
+  }
+
+  #briefing-content {
+    max-width: 600px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text);
+  }
+
+  #briefing-content h2 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #briefing-content .briefing-section {
+    margin-bottom: 20px;
+  }
+
+  #briefing-content .briefing-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+
+  #briefing-content .briefing-value {
+    color: var(--text-bright);
+  }
+
+  #briefing-content .briefing-glossary {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 16px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  #briefing-content .glossary-term {
+    color: var(--net);
+    font-weight: 500;
+  }
+
+  #briefing-content .glossary-def {
+    color: var(--text-dim);
+  }
+
+  #briefing-start {
+    margin-top: 32px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 48px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  #briefing-start:hover {
+    background: rgba(255, 59, 59, 0.1);
+    color: var(--text-bright);
+  }
+
+  /* ── Ending status badge ── */
+  .ending-status {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .ending-status.good {
+    color: var(--meat);
+    border: 1px solid var(--meat);
+  }
+
+  .ending-status.neutral {
+    color: var(--net);
+    border: 1px solid rgba(78, 205, 196, 0.4);
+  }
+
+  .ending-status.bad {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
 </style>
 </head>
 <body>
@@ -586,6 +699,49 @@
 <div id="boot-screen">
   <div id="boot-text"></div>
   <button id="boot-enter" onclick="startGame()">Betritt die Welt</button>
+</div>
+
+<!-- Briefing screen -->
+<div id="briefing-screen" class="hidden">
+  <div id="briefing-content">
+    <h2>// Einsatz-Briefing</h2>
+
+    <div class="briefing-section">
+      <div class="briefing-label">Wer bist du?</div>
+      <div class="briefing-value">Du bist ein <strong>Fixer</strong> — ein Problemlöser für Leute, die keine offiziellen Wege gehen können. Du arbeitest in Agnon City, einer Megastadt im Jahr 2226.</div>
+    </div>
+
+    <div class="briefing-section">
+      <div class="briefing-label">Dein Auftraggeber</div>
+      <div class="briefing-value"><strong>Jonas Kroll</strong> — ein alter Kontakt, dem du halbwegs vertraust. Er will, dass du einen aktivierten Datenkern aus der Faraday-Schlucht holst, bevor die Stadtpolizei ihn findet.</div>
+    </div>
+
+    <div class="briefing-section">
+      <div class="briefing-label">Dein Ziel</div>
+      <div class="briefing-value">Finde den Kern. Entscheide, was du damit machst. Überlebe. <strong>Halte dein HEAT niedrig</strong> — bei 100 ist das Spiel vorbei.</div>
+    </div>
+
+    <div class="briefing-section">
+      <div class="briefing-label">Begriffe</div>
+      <div class="briefing-glossary">
+        <span class="glossary-term">Helix</span>
+        <span class="glossary-def">Die KI, die Agnon City überwacht und kontrolliert.</span>
+        <span class="glossary-term">Exorzisten</span>
+        <span class="glossary-def">Helix-Vollstrecker. Bewaffnet, schnell, gnadenlos.</span>
+        <span class="glossary-term">Overlay</span>
+        <span class="glossary-def">Dein digitales Sichtfeld — zeigt Karten, Nachrichten, Warnungen.</span>
+        <span class="glossary-term">Dead Zone</span>
+        <span class="glossary-def">Orte ohne Netzwerk. Kein Overlay, keine Überwachung.</span>
+        <span class="glossary-term">Technomantie</span>
+        <span class="glossary-def">Verbotene Software-Tricks. Mächtig, aber hinterlässt Spuren.</span>
+        <span class="glossary-term">Aurora</span>
+        <span class="glossary-def">Eine vergessene Ära. Niemand soll sich daran erinnern.</span>
+        <span class="glossary-term">HEAT</span>
+        <span class="glossary-def">Wie aufmerksam Helix auf dich ist. 0 = sicher. 100 = tot.</span>
+      </div>
+    </div>
+  </div>
+  <button id="briefing-start" onclick="startFirstScene()">Auftrag annehmen</button>
 </div>
 
 <!-- Main app -->
@@ -650,10 +806,10 @@ const M4_DESCRIPTIONS = {
 // HEAT thresholds — like session variables with consequences
 const HEAT_THRESHOLDS = [
   { at: 0,  color: '#4ecdc4', warning: '' },
-  { at: 30, color: '#c4c44e', warning: '⚠ SYSTEM AUFMERKSAM' },
-  { at: 60, color: '#c4804e', warning: '⚠ AUDIT-PROTOKOLL AKTIV' },
-  { at: 90, color: '#ff3b3b', warning: '⚠ EXORZISTEN ALARMIERT — LAUF.' },
-  { at: 100, color: '#ff0000', warning: '▓▓▓ HEAT CRITICAL — GAME OVER ▓▓▓' }
+  { at: 30, color: '#c4c44e', warning: 'Helix wird aufmerksam. Sei vorsichtiger.' },
+  { at: 60, color: '#c4804e', warning: 'Helix sucht aktiv nach dir. Vermeide riskante Aktionen!' },
+  { at: 90, color: '#ff3b3b', warning: 'Exorzisten sind unterwegs! Noch wenige Fehler bis Game Over!' },
+  { at: 100, color: '#ff0000', warning: 'HEAT 100 — GAME OVER' }
 ];
 
 // ── Boot sequence ──
@@ -720,21 +876,30 @@ async function loadCasefile() {
   return false;
 }
 
-// ── Start game ──
+// ── Start game (boot -> briefing) ──
 async function startGame() {
   document.getElementById('boot-screen').classList.add('hidden');
   await sleep(800);
   document.getElementById('boot-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-  document.getElementById('audio-toggle').style.display = 'block';
 
   await loadCasefile();
 
   if (!CASEFILE) {
+    document.getElementById('app').style.display = 'block';
     document.getElementById('scene-text').innerHTML =
       '<p>Casefile konnte nicht geladen werden.</p><p>Stelle sicher, dass <code>cf-04-kerzenschneider.json</code> im selben Verzeichnis liegt.</p>';
     return;
   }
+
+  // Show briefing screen
+  document.getElementById('briefing-screen').classList.remove('hidden');
+}
+
+// ── Start first scene (briefing -> game) ──
+function startFirstScene() {
+  document.getElementById('briefing-screen').classList.add('hidden');
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('audio-toggle').style.display = 'block';
 
   // Set title
   document.getElementById('case-title').textContent =
@@ -877,11 +1042,20 @@ function renderEnding(ending) {
   endEl.offsetHeight;
   endEl.style.animation = 'fade-in 1s ease forwards';
 
+  // Determine ending quality
+  const statusText = ending.status || ending.title;
+  let statusClass = 'neutral';
+  if (ending.id === 'end_deliver') statusClass = 'good';
+  else if (ending.id === 'end_caught') statusClass = 'bad';
+  else if (ending.id === 'end_keep' || ending.id === 'end_sell') statusClass = 'neutral';
+  else if (ending.id === 'end_walk_away') statusClass = 'neutral';
+
   endEl.innerHTML = `
+    <div class="ending-status ${statusClass}">${statusText}</div>
     <h2>— ${ending.title} —</h2>
     <div class="ending-text">${mdToHtml(ending.text_md)}</div>
     <div style="font-size:10px;color:var(--text-dim);letter-spacing:2px;margin-bottom:24px;">
-      FINAL HEAT: ${state.heat} · SCENES: ${state.history.length}
+      FINAL HEAT: ${state.heat} · SZENEN: ${state.history.length}
     </div>
     <button id="restart-btn" onclick="restart()">Nochmal spielen</button>
   `;
