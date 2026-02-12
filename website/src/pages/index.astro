@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base title="REALMVOID — Agnon City 2226 AD">
@@ -31,7 +32,7 @@ import Base from '../layouts/Base.astro';
   <!-- HERO -->
   <section class="hero">
     <div class="hero-logo">
-      <img src="/assets/REALMVOID-LOGO.png" alt="REALMVOID" width="280" height="280" />
+      <img src={`${base}assets/REALMVOID-LOGO.png`} alt="REALMVOID" width="280" height="280" />
     </div>
     <h1 class="hero-title">REALM<span class="c-accent">VOID</span></h1>
     <p class="hero-sub">Noir-Ermittlungen zwischen den Ebenen</p>
@@ -84,14 +85,14 @@ import Base from '../layouts/Base.astro';
     <h2 class="section-title">ZUGANG</h2>
     <div class="access-grid">
 
-      <a href="/player/" target="_blank" class="access-card access-play">
+      <a href={`${base}player/`} target="_blank" class="access-card access-play">
         <div class="access-icon">▶</div>
         <h3>SPIELEN</h3>
         <p>CF-04: Der Kerzenschneider ruft</p>
         <span class="access-tag">Browser · Sofort · Kostenlos</span>
       </a>
 
-      <a href="/assets/REALMVOID_Quickstart_v1_0.pdf" target="_blank" class="access-card access-pnp">
+      <a href={`${base}assets/REALMVOID_Quickstart_v1_0.pdf`} target="_blank" class="access-card access-pnp">
         <div class="access-icon">⬡</div>
         <h3>PEN &amp; PAPER</h3>
         <p>Quickstart — 10 Seiten One-Shot</p>
