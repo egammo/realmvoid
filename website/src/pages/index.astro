@@ -1,0 +1,512 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="REALMVOID — Agnon City 2226 AD">
+
+<!-- ═══════════════ BOOT SEQUENCE ═══════════════ -->
+<section id="boot" class="boot">
+  <div class="boot-text">
+    <p class="boot-line" style="--delay:0">REALMVOID TERMINAL v2226.1</p>
+    <p class="boot-line" style="--delay:1">Initializing HELIX handshake...</p>
+    <p class="boot-line" style="--delay:2">PACT-Registry: <span class="c-meat">CONNECTED</span></p>
+    <p class="boot-line" style="--delay:3">OVERLAY-Stack: <span class="c-net">ACTIVE</span></p>
+    <p class="boot-line" style="--delay:4">AETHER-Echo: <span class="c-aether">LISTENING</span></p>
+    <p class="boot-line" style="--delay:5">Location: <span class="c-dead">AGNON CITY · DEAD ZONE</span></p>
+    <p class="boot-line" style="--delay:6">WARNING: Unauthorized access detected.</p>
+    <p class="boot-line hook" style="--delay:7">
+      <span class="c-accent">WER ERINNERT SICH?</span>
+    </p>
+  </div>
+  <button id="enter-btn" class="enter-btn">
+    <span class="enter-bracket">[</span>
+    BETRITT DIE WELT
+    <span class="enter-bracket">]</span>
+  </button>
+</section>
+
+<!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+<main id="content" class="content hidden">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-logo">
+      <img src="/assets/REALMVOID-LOGO.png" alt="REALMVOID" width="280" height="280" />
+    </div>
+    <h1 class="hero-title">REALM<span class="c-accent">VOID</span></h1>
+    <p class="hero-sub">Noir-Ermittlungen zwischen den Ebenen</p>
+    <p class="hero-location">Agnon City · 2226 AD</p>
+  </section>
+
+  <!-- WHAT IS THIS -->
+  <section class="section">
+    <div class="terminal-block">
+      <div class="terminal-header">
+        <span class="terminal-dot c-accent">●</span>
+        <span class="terminal-title">TRANSMISSION // WAS IST REALMVOID?</span>
+      </div>
+      <div class="terminal-body">
+        <p>Es gibt keine Magie. Was die Leute „Zauberei" nennen, ist <strong class="c-net">Technomancy</strong>: Der unbefugte Zugriff auf die Protokolle, die unsere Realität steuern.</p>
+        <p>Du bist kein Held. Du bist ein Runner in den Schatten einer vertikalen Stadt. Du suchst nach Wahrheiten, die andere lieber gelöscht sähen.</p>
+        <p>Jeder Zugriff hinterlässt eine Spur. Jede Spur erhöht dein <strong class="c-accent">HEAT</strong>. Bei 100 bist du offline. Permanent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE 3 LAYERS -->
+  <section class="section">
+    <h2 class="section-title">DIE 3 EBENEN</h2>
+    <div class="layers-grid">
+      <div class="layer-card layer-meat">
+        <div class="layer-id">EBENE 0</div>
+        <h3>MEATSPACE</h3>
+        <p>Fleisch, Beton, Regen. Die physische Welt. Hier blutest du.</p>
+      </div>
+      <div class="layer-card layer-net">
+        <div class="layer-id">EBENE 1</div>
+        <h3>NET</h3>
+        <p>Daten, Farben, Geschwindigkeit. Der globale Informationsstrom.</p>
+      </div>
+      <div class="layer-card layer-aether">
+        <div class="layer-id">EBENE 2</div>
+        <h3>AETHER</h3>
+        <p>Echos, Geister, Erinnerungen. Die Aurora-Fragmente.</p>
+      </div>
+    </div>
+    <p class="crossing-note">
+      <span class="c-accent">▸</span> Jeder Fall kreuzt mindestens zwei Ebenen.
+      <span class="c-dead">Dead Zones</span> — Orte ohne Netz. Kein Overlay. Nur du.
+    </p>
+  </section>
+
+  <!-- PLAY / DOWNLOAD / BUILD -->
+  <section class="section">
+    <h2 class="section-title">ZUGANG</h2>
+    <div class="access-grid">
+
+      <a href="https://egammo.github.io/realmvoid/" target="_blank" class="access-card access-play">
+        <div class="access-icon">▶</div>
+        <h3>SPIELEN</h3>
+        <p>CF-04: Der Kerzenschneider ruft</p>
+        <span class="access-tag">Browser · Sofort · Kostenlos</span>
+      </a>
+
+      <a href="/assets/REALMVOID_Quickstart_v1_0.pdf" target="_blank" class="access-card access-pnp">
+        <div class="access-icon">⬡</div>
+        <h3>PEN &amp; PAPER</h3>
+        <p>Quickstart — 10 Seiten One-Shot</p>
+        <span class="access-tag">PDF · 1W6 · 2–3 Stunden</span>
+      </a>
+
+      <a href="https://github.com/egammo/realmvoid" target="_blank" class="access-card access-build">
+        <div class="access-icon">◇</div>
+        <h3>BAUEN</h3>
+        <p>Open Source — Schreib deine eigenen Casefiles</p>
+        <span class="access-tag">GitHub · MIT + CC BY-SA 4.0</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CASEFILE PREVIEW -->
+  <section class="section">
+    <div class="terminal-block">
+      <div class="terminal-header">
+        <span class="terminal-dot c-dead">●</span>
+        <span class="terminal-title">CASEFILE CF-04 // DER KERZENSCHNEIDER RUFT</span>
+      </div>
+      <div class="terminal-body cf-preview">
+        <p class="cf-fixer"><span class="c-dead">FIXER:</span> Jonas Kroll — „Kerzenschneider"</p>
+        <p class="cf-hook"><em>„Jemand erinnert sich. Das sollte nicht passieren."</em></p>
+        <p class="cf-stats">
+          <span class="c-meat">16 Szenen</span> ·
+          <span class="c-net">5 Endings</span> ·
+          <span class="c-aether">3 Ebenen</span> ·
+          <span class="c-accent">HEAT 0–100</span>
+        </p>
+        <p class="cf-crossing">
+          <span class="c-dead">DEAD ZONE</span>
+          <span class="c-dim">→</span>
+          <span class="c-meat">MEATSPACE</span>
+          <span class="c-dim">→</span>
+          <span class="c-net">NET</span>
+          <span class="c-dim">→</span>
+          <span class="c-dead">DEAD ZONE</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">REALM<span class="c-accent">VOID</span></div>
+    <p class="footer-line">Ein <a href="https://egammo.gaming" target="_blank">EGAMMO.gaming</a> Projekt von Julian Fides</p>
+    <p class="footer-line c-dim">Code: MIT · Content: CC BY-SA 4.0</p>
+    <p class="footer-line c-dim">Agnon City 2226 AD · Keine Magie. Nur Konsequenzen.</p>
+  </footer>
+
+</main>
+
+</Base>
+
+<style>
+  /* ═══ UTILITIES ═══ */
+  .c-accent { color: var(--accent); }
+  .c-meat { color: var(--meat); }
+  .c-net { color: var(--net); }
+  .c-aether { color: var(--aether); }
+  .c-dead { color: var(--dead); }
+  .c-dim { color: var(--text-dim); }
+  .hidden { display: none !important; }
+
+  /* ═══ BOOT SEQUENCE ═══ */
+  .boot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .boot-text {
+    font-family: var(--font-boot);
+    font-size: 0.85rem;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .boot-line {
+    opacity: 0;
+    animation: boot-in 0.4s ease forwards;
+    animation-delay: calc(var(--delay) * 0.5s);
+    margin-bottom: 0.4rem;
+    color: var(--text-dim);
+  }
+
+  .boot-line.hook {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    letter-spacing: 0.15em;
+  }
+
+  @keyframes boot-in {
+    from { opacity: 0; transform: translateX(-8px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .enter-btn {
+    opacity: 0;
+    animation: boot-in 0.6s ease forwards;
+    animation-delay: 5s;
+    margin-top: 3rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-bright);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 0.8rem 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .enter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(255, 59, 59, 0.15);
+  }
+
+  .enter-bracket { color: var(--accent); }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    opacity: 0;
+    animation: fade-up 0.8s ease forwards;
+  }
+
+  .hero-logo img {
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(0 0 40px rgba(78, 205, 196, 0.2));
+    animation: logo-pulse 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes logo-pulse {
+    from { filter: drop-shadow(0 0 30px rgba(78, 205, 196, 0.15)); }
+    to   { filter: drop-shadow(0 0 50px rgba(196, 160, 196, 0.25)); }
+  }
+
+  .hero-title {
+    font-family: var(--font-boot);
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    margin-top: 1.5rem;
+    color: var(--text-bright);
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-location {
+    font-family: var(--font-boot);
+    font-size: 0.75rem;
+    color: var(--dead);
+    margin-top: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ═══ SECTIONS ═══ */
+  .section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    opacity: 0;
+    animation: fade-up 0.6s ease forwards;
+    animation-delay: 0.2s;
+  }
+
+  .section-title {
+    font-family: var(--font-boot);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ═══ TERMINAL BLOCKS ═══ */
+  .terminal-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+  }
+
+  .terminal-dot { font-size: 0.5rem; }
+
+  .terminal-body {
+    padding: 1.2rem 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .terminal-body p { margin-bottom: 0.8rem; }
+  .terminal-body p:last-child { margin-bottom: 0; }
+
+  /* ═══ LAYERS ═══ */
+  .layers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .layer-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.2rem;
+    transition: all 0.3s;
+  }
+
+  .layer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+
+  .layer-id {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 0.3rem;
+  }
+
+  .layer-card h3 {
+    font-family: var(--font-boot);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6rem;
+  }
+
+  .layer-card p { font-size: 0.78rem; color: var(--text-dim); line-height: 1.5; }
+
+  .layer-meat { border-color: rgba(160,196,168,0.3); }
+  .layer-meat h3 { color: var(--meat); }
+  .layer-meat:hover { border-color: var(--meat); }
+
+  .layer-net { border-color: rgba(78,205,196,0.3); }
+  .layer-net h3 { color: var(--net); }
+  .layer-net:hover { border-color: var(--net); }
+
+  .layer-aether { border-color: rgba(196,160,196,0.3); }
+  .layer-aether h3 { color: var(--aether); }
+  .layer-aether:hover { border-color: var(--aether); }
+
+  .crossing-note {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  /* ═══ ACCESS CARDS ═══ */
+  .access-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .access-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem 1.2rem;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .access-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+
+  .access-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    transition: transform 0.3s;
+  }
+
+  .access-card:hover .access-icon { transform: scale(1.15); }
+
+  .access-card h3 {
+    font-family: var(--font-boot);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    color: var(--text-bright);
+  }
+
+  .access-card p {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .access-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    background: var(--surface2);
+    color: var(--text-dim);
+  }
+
+  .access-play { border-color: rgba(78,205,196,0.3); }
+  .access-play:hover { border-color: var(--net); color: var(--text); }
+  .access-play .access-icon { color: var(--net); }
+
+  .access-pnp { border-color: rgba(196,160,196,0.3); }
+  .access-pnp:hover { border-color: var(--aether); color: var(--text); }
+  .access-pnp .access-icon { color: var(--aether); }
+
+  .access-build { border-color: rgba(160,196,168,0.3); }
+  .access-build:hover { border-color: var(--meat); color: var(--text); }
+  .access-build .access-icon { color: var(--meat); }
+
+  /* ═══ CF PREVIEW ═══ */
+  .cf-fixer { font-size: 0.85rem; }
+  .cf-hook {
+    font-size: 1rem;
+    color: var(--accent);
+    margin: 0.8rem 0;
+  }
+  .cf-stats {
+    font-family: var(--font-boot);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  .cf-crossing {
+    font-family: var(--font-boot);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    margin-top: 0.5rem;
+  }
+
+  /* ═══ FOOTER ═══ */
+  .footer {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-boot);
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+  }
+
+  .footer-line {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 700px) {
+    .layers-grid { grid-template-columns: 1fr; }
+    .access-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2rem; letter-spacing: 0.2em; }
+    .hero-logo img { width: 150px; height: 150px; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('enter-btn');
+  const boot = document.getElementById('boot');
+  const content = document.getElementById('content');
+
+  btn?.addEventListener('click', () => {
+    boot?.classList.add('hidden');
+    content?.classList.remove('hidden');
+    window.scrollTo(0, 0);
+  });
+</script>
