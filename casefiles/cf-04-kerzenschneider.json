@@ -2,7 +2,7 @@
   "meta": {
     "id": "CF-04",
     "title": "Der Kerzenschneider ruft",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "author": "Julian Fides",
     "bible_ver": "1.2.1",
     "m4_ver": "0.1.1",
@@ -75,7 +75,7 @@
         {
           "label": "\"Was ist drauf, Kroll?\"",
           "goto": "s01c",
-          "heat_delta": 5
+          "heat_delta": 3
         }
       ]
     },
@@ -84,7 +84,7 @@
       "title": "Zu viele Fragen",
       "layer": "DEAD_ZONE",
       "zone": "Nullkapelle",
-      "heat_delta": 5,
+      "heat_delta": 2,
       "audio": "dead_silence",
       "text_md": "Krolls Augen treffen deine. Zum ersten Mal.\n\n*'Erinnerungen'*, sagt er. Das Wort klingt wie eine Warnung.\n\n*'An etwas, das es nicht geben darf.'*\n\nEr schiebt die Adresse über die Bank. Sein Finger zittert. Jonas Kroll zittert nie.",
       "choices": [
@@ -128,7 +128,7 @@
         {
           "label": "Schloss knacken (Handwerk).",
           "goto": "s03",
-          "heat_delta": 5
+          "heat_delta": 3
         },
         {
           "label": "Klopfen.",
@@ -138,7 +138,7 @@
         {
           "label": "Scanner aktivieren — falls hier noch ein Signal durchkommt.",
           "goto": "s02c",
-          "heat_delta": 15,
+          "heat_delta": 8,
           "requires_m4": "M4-HLX-05"
         }
       ]
@@ -148,24 +148,24 @@
       "title": "Klopfen",
       "layer": "DEAD_ZONE",
       "zone": "Faraday-Schlucht",
-      "heat_delta": 5,
+      "heat_delta": 3,
       "audio": "drip_echo",
-      "text_md": "Du klopfst. Einmal. Dann nochmal.\n\nLange nichts.\n\nDann kommt eine Stimme, trocken wie Staub: *„Wenn du Kerzen suchst, bist du falsch.“*\n\nEin Schatten hinter dem Blech. Jemand lebt da drin. Oder spielt es.\n\n*„Sag deinen Namen. Oder geh.“*",
+      "text_md": "Du klopfst. Einmal. Dann nochmal.\n\nLange nichts.\n\nDann kommt eine Stimme, trocken wie Staub: *\"Wenn du Kerzen suchst, bist du falsch.\"*\n\nEin Schatten hinter dem Blech. Jemand lebt da drin. Oder spielt es.\n\n*\"Sag deinen Namen. Oder geh.\"*",
       "choices": [
         {
-          "label": "„Kroll schickt mich. Ich will nur, dass es still wird.“",
+          "label": "\"Kroll schickt mich. Ich will nur, dass es still wird.\"",
           "goto": "s03_pete",
-          "heat_delta": 5
+          "heat_delta": 3
         },
         {
-          "label": "„Mach auf. Jetzt.“",
+          "label": "\"Mach auf. Jetzt.\"",
           "goto": "s03_pete",
-          "heat_delta": 15
+          "heat_delta": 8
         },
         {
           "label": "Zurücktreten. Schloss knacken wie geplant.",
           "goto": "s03",
-          "heat_delta": 10
+          "heat_delta": 5
         }
       ]
     },
@@ -174,19 +174,19 @@
       "title": "Den Geist rufen (Scanner)",
       "layer": "DEAD_ZONE",
       "zone": "Faraday-Schlucht",
-      "heat_delta": 25,
+      "heat_delta": 10,
       "audio": "void_noise_01",
       "text_md": "Du hältst das Gerät an das Metall und flüsterst den Straßenspruch, den du hasst.\n\nDer Scanner *sollte* hier tot sein.\n\nStattdessen atmet er.\n\nIm Display: eine Karte aus Schatten. Dahinter ein Raum. Ein Kern. Warm. Pulsierend.\n\nUnd etwas, das wie Text aussieht, aber sich anfühlt wie Haut:\n\n**WER ERINNERT SICH?**",
       "choices": [
         {
-          "label": "Schloss knacken – jetzt weißt du, wo’s hinführt.",
+          "label": "Schloss knacken – jetzt weißt du, wo's hinführt.",
           "goto": "s03",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
           "label": "Nochmal scannen. Tiefer. (riskant)",
           "goto": "s03",
-          "heat_delta": 15
+          "heat_delta": 8
         }
       ]
     },
@@ -195,24 +195,24 @@
       "title": "Rusty Pete",
       "layer": "DEAD_ZONE",
       "zone": "Faraday-Schlucht",
-      "heat_delta": 5,
+      "heat_delta": 3,
       "audio": "drip_echo",
-      "text_md": "Das Blech knirscht. Ein Spalt öffnet sich.\n\nEin Mann mit Händen voller Rost und Augen voller Schlaf starrt dich an.\n\n*„Rusty Pete.“* Er sagt es, als wär’s ein Urteil.\n\n*„Da drin ist was Warmes. Warm heißt Ärger. Ärger heißt Helix.“*\n\nEr hält die Tür nicht fest. Er hält dich fest – mit Blicken.\n\n*„Du gehst rein? Dann gehst du nicht allein.“*",
+      "text_md": "Das Blech knirscht. Ein Spalt öffnet sich.\n\nEin Mann mit Händen voller Rost und Augen voller Schlaf starrt dich an.\n\n*\"Rusty Pete.\"* Er sagt es, als wär's ein Urteil.\n\n*\"Da drin ist was Warmes. Warm heißt Ärger. Ärger heißt Helix.\"*\n\nEr hält die Tür nicht fest. Er hält dich fest – mit Blicken.\n\n*\"Du gehst rein? Dann gehst du nicht allein.\"*",
       "choices": [
         {
-          "label": "„Komm. Aber wenn du lügst, bleibst du zurück.“",
+          "label": "\"Komm. Aber wenn du lügst, bleibst du zurück.\"",
+          "goto": "s03",
+          "heat_delta": 3
+        },
+        {
+          "label": "\"Bleib draußen. Ich arbeite allein.\"",
           "goto": "s03",
           "heat_delta": 5
         },
         {
-          "label": "„Bleib draußen. Ich arbeite allein.“",
+          "label": "\"Was willst du dafür?\"",
           "goto": "s03",
-          "heat_delta": 10
-        },
-        {
-          "label": "„Was willst du dafür?“",
-          "goto": "s03",
-          "heat_delta": 10
+          "heat_delta": 5
         }
       ]
     },
@@ -221,24 +221,24 @@
       "title": "Der Raum",
       "layer": "MEATSPACE",
       "zone": "Nullkapelle – verschmolzener Core",
-      "heat_delta": 5,
+      "heat_delta": 3,
       "audio": "dead_silence",
       "text_md": "Der Raum ist Glas, das vergessen hat, wie man bricht.\n\nWände verschmolzen. Kabel wie Adern.\n\nIn der Mitte: der Kern.\n\nEr sollte tot sein.\n\nEr pulsiert.\n\nNicht hell. Nicht laut.\n\nWie etwas, das versucht, nicht zu atmen.",
       "choices": [
         {
           "label": "Langsam ran. Nichts anfassen.",
           "goto": "s04",
-          "heat_delta": 5
+          "heat_delta": 3
         },
         {
           "label": "Die Leitungen prüfen. Woher kommt der Strom?",
           "goto": "s04",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
-          "label": "„Wer ist da?“ (in die Stille)",
+          "label": "\"Wer ist da?\" (in die Stille)",
           "goto": "s04",
-          "heat_delta": 15
+          "heat_delta": 8
         }
       ]
     },
@@ -247,24 +247,24 @@
       "title": "Aktivierung",
       "layer": "MEATSPACE",
       "zone": "Nullkapelle – Core",
-      "heat_delta": 10,
+      "heat_delta": 5,
       "audio": "data_hum",
-      "text_md": "Du berührst das Gehäuse.\n\nEs ist warm.\n\nDer Kern antwortet.\n\nEin Summen schiebt sich unter deine Zähne, als hätte jemand die Luft verkabelt.\n\nEin kurzer Riss – ein Kontakt.\n\nNicht Netz.\n\nMehr wie… eine Narbe, die wieder aufgeht.",
+      "text_md": "Du berührst das Gehäuse.\n\nEs ist warm.\n\nDer Kern antwortet.\n\nEin Summen schiebt sich unter deine Zähne, als hätte jemand die Luft verkabelt.\n\nEin kurzer Riss – ein Kontakt.\n\nNicht Netz.\n\nMehr wie... eine Narbe, die wieder aufgeht.",
       "choices": [
         {
           "label": "Stabilisieren. Kurz halten. (vorsichtig)",
           "goto": "s04b",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
           "label": "Kern abklemmen. Sofort still machen. (brutal)",
           "goto": "s05",
-          "heat_delta": 15
+          "heat_delta": 8
         },
         {
           "label": "PACT erzwingen: Zugang erzwingen. (M4-PCT-03)",
           "goto": "s04b",
-          "heat_delta": 25,
+          "heat_delta": 12,
           "requires_m4": "M4-PCT-03"
         }
       ]
@@ -274,24 +274,24 @@
       "title": "Fragment",
       "layer": "NET",
       "zone": "Kernkontakt (kurz)",
-      "heat_delta": 20,
+      "heat_delta": 8,
       "audio": "void_noise_01",
       "text_md": "Die Welt kippt in Daten.\n\nDu riechst Regen.\n\nDu fühlst Metall auf Haut.\n\nEin Name fällt wie eine Münze in einen Brunnen:\n\n**AURORA.**\n\nUnd dann wieder diese Frage, nicht als Text, sondern als Druck in der Brust:\n\n**WER ERINNERT SICH?**\n\nDer Kern sendet.\n\nDas ist der Moment, in dem die Stadt zurückschaut.",
       "choices": [
         {
           "label": "Abreißen. Kern raus und weg.",
           "goto": "s05",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
           "label": "Noch ein Blick. Tiefer. (mehr Erinnerung)",
           "goto": "s05",
-          "heat_delta": 25
+          "heat_delta": 12
         },
         {
           "label": "Still machen. Hier. Jetzt.",
           "goto": "s05_destroy",
-          "heat_delta": 15
+          "heat_delta": 8
         }
       ]
     },
@@ -300,30 +300,30 @@
       "title": "Die Jagd",
       "layer": "MEATSPACE",
       "zone": "Nullkapelle",
-      "heat_delta": 15,
+      "heat_delta": 8,
       "audio": "heartbeat",
       "text_md": "Von draußen: Schritte.\n\nNicht viele.\n\nGenug.\n\nLichtkegel schneiden durch Ritzen, die es nicht geben sollte.\n\nHelix kommt nicht zum Reden.\n\nDer Kern in deinen Händen ist plötzlich sehr schwer – wie ein Beweis.",
       "choices": [
         {
           "label": "Rennen. Faraday-Schlucht. (Dead Zone)",
           "goto": "s05_run",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
           "label": "Schleier weben und warten, bis sie vorbei sind. (M4-OVL-01)",
           "goto": "s05_hide",
-          "heat_delta": 25,
+          "heat_delta": 12,
           "requires_m4": "M4-OVL-01"
         },
         {
           "label": "Kern hier zerstören und mit leeren Händen raus.",
           "goto": "s05_destroy",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
           "label": "Zögern. Lauschen. (schlechter Instinkt)",
           "goto": "end_caught",
-          "heat_delta": 40
+          "heat_delta": 20
         }
       ]
     },
@@ -332,14 +332,14 @@
       "title": "Schleier",
       "layer": "MEATSPACE",
       "zone": "Nullkapelle",
-      "heat_delta": 10,
+      "heat_delta": 5,
       "audio": "dead_silence",
       "text_md": "Du legst den Schleier.\n\nNicht mit Technik. Mit Aberglauben.\n\nDu wirst kleiner in den Augen der Welt.\n\nDie Exorzisten gehen vorbei.\n\nEiner bleibt stehen.\n\nEr schaut nicht zu dir.\n\nEr schaut *durch* dich.\n\nDann weiter.\n\nSie nehmen nichts.\n\nAber sie lassen etwas zurück.\n\nEine Spur, die sich wie Kreide anfühlt.",
       "choices": [
         {
           "label": "Jetzt raus. Bevor die Kreide trocknet.",
           "goto": "s05_run",
-          "heat_delta": 10
+          "heat_delta": 5
         }
       ]
     },
@@ -348,19 +348,19 @@
       "title": "Still machen",
       "layer": "MEATSPACE",
       "zone": "Nullkapelle – Core",
-      "heat_delta": 20,
+      "heat_delta": 8,
       "audio": "void_noise_01",
       "text_md": "Du schlägst.\n\nDer Kern schreit nicht.\n\nEr *fragt*.\n\nDann bricht er.\n\nDas Summen stirbt.\n\nFür einen Atemzug ist alles normal.\n\nDann hörst du draußen die Schritte schneller werden.\n\nNicht wegen dem Signal.\n\nWegen dir.",
       "choices": [
         {
           "label": "Raus. Faraday-Schlucht.",
           "goto": "s05_run",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
           "label": "Nicht rennen. Leise bewegen. (langsamer, sicherer)",
           "goto": "s05_run",
-          "heat_delta": 5
+          "heat_delta": 3
         }
       ]
     },
@@ -369,19 +369,19 @@
       "title": "Flucht",
       "layer": "DEAD_ZONE",
       "zone": "Faraday-Schlucht",
-      "heat_delta": 10,
+      "heat_delta": 5,
       "audio": "drip_echo",
       "text_md": "Der Tunnel schluckt dich.\n\nKein Netz.\n\nKein Overlay.\n\nNur Tropfen, Atem, Schritte.\n\nHinter dir: Stimmen.\n\nVorne: Dunkel.\n\nDu weißt nicht, was schlimmer ist.",
       "choices": [
         {
           "label": "Durchziehen. Keine Pausen. (schnell, laut)",
           "goto": "s06",
-          "heat_delta": 15
+          "heat_delta": 8
         },
         {
           "label": "Langsam. Schatten. Jede Ecke lesen. (vorsichtig)",
           "goto": "s06",
-          "heat_delta": 5
+          "heat_delta": 3
         }
       ]
     },
@@ -390,29 +390,29 @@
       "title": "Zurück bei Kroll",
       "layer": "DEAD_ZONE",
       "zone": "Nullkapelle – Vorhalle",
-      "heat_delta": 5,
+      "heat_delta": 3,
       "audio": "dead_silence",
-      "text_md": "Kroll wartet, wo er immer wartet.\n\nEr fragt nicht, ob du verletzt bist.\n\nEr schaut auf deine Hände.\n\n*„Hast du’s still gemacht?“*\n\nDann, leiser:\n\n*„Und… hat es dich gefragt?“*",
+      "text_md": "Kroll wartet, wo er immer wartet.\n\nEr fragt nicht, ob du verletzt bist.\n\nEr schaut auf deine Hände.\n\n*\"Hast du's still gemacht?\"*\n\nDann, leiser:\n\n*\"Und... hat es dich gefragt?\"*",
       "choices": [
         {
-          "label": "Kern geben. „Ist still.“",
+          "label": "Kern geben. \"Ist still.\"",
           "goto": "end_deliver",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
-          "label": "Kern behalten. „Ist meins.“",
+          "label": "Kern behalten. \"Ist meins.\"",
           "goto": "end_keep",
-          "heat_delta": 15
+          "heat_delta": 8
         },
         {
-          "label": "Lügen. „Nichts gefunden.“",
+          "label": "Lügen. \"Nichts gefunden.\"",
           "goto": "end_walk_away",
-          "heat_delta": 10
+          "heat_delta": 5
         },
         {
           "label": "An Mirror-Net verkaufen.",
           "goto": "end_sell",
-          "heat_delta": 15
+          "heat_delta": 8
         }
       ]
     }
@@ -422,7 +422,7 @@
       "id": "end_deliver",
       "title": "Abgeliefert",
       "text_md": "Du bringst den Kern zu Kroll. Er nimmt ihn. Er zerstört ihn vor deinen Augen.\n\n*'Danke'*, sagt er. Und dann: *'Vergiss das.'*\n\nDu vergisst es nicht. Du wirst es nie vergessen.\n\n**Aber wer erinnert sich jetzt?**",
-      "heat_range": "0-40"
+      "heat_range": "0-70"
     },
     {
       "id": "end_keep",
@@ -440,7 +440,7 @@
       "id": "end_walk_away",
       "title": "Weggegangen",
       "text_md": "Du gehst nach Hause. Du legst dich hin. Du schließt die Augen.\n\nUnd dann hörst du es. Leise. Unter dem Rauschen deines eigenen Netzes.\n\nEine Stimme, die fragt: *'Wer erinnert sich?'*\n\nDu drehst dich um. Niemand da.\n\n**Manche Jobs suchen dich aus.**",
-      "heat_range": "0-10"
+      "heat_range": "0-40"
     },
     {
       "id": "end_sell",

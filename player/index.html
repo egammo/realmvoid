@@ -510,6 +510,66 @@
     color: var(--text);
   }
 
+  /* ── Tutorial lines ── */
+  #boot-text .tutorial-line {
+    color: var(--net);
+    font-size: 12px;
+    line-height: 1.8;
+    opacity: 0.85;
+  }
+
+  /* ── HEAT tooltip ── */
+  #heat-container {
+    position: relative;
+  }
+
+  #heat-tooltip {
+    font-size: 10px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+    display: none;
+    letter-spacing: 0.5px;
+  }
+
+  #heat-tooltip.visible {
+    display: block;
+  }
+
+  #heat-label {
+    cursor: help;
+  }
+
+  /* ── M4 tooltip ── */
+  .m4-tag {
+    cursor: help;
+    position: relative;
+  }
+
+  .m4-tag-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid var(--aether);
+    color: var(--text);
+    font-size: 10px;
+    padding: 6px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    z-index: 100;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+
+  .choice-btn:hover .m4-tag-tooltip {
+    display: block;
+  }
+
   /* ── Casefile title ── */
   #case-title {
     font-size: 10px;
@@ -550,6 +610,7 @@
       <div id="heat-bar-inner"></div>
     </div>
     <div id="heat-warning" class="">—</div>
+    <div id="heat-tooltip">HEAT = Wie aufmerksam die Stadt auf dich ist. Steigt durch riskante Aktionen. Bei 100 ist es vorbei.</div>
   </div>
 
   <div id="scene-title">—</div>
@@ -577,6 +638,15 @@ const LAYERS = {
   DEAD_ZONE: { color: '#666666', bg: 'rgba(40,40,40,0.5)',     glow: 'rgba(100,100,100,0.1)' }
 };
 
+// M4 Technomancy descriptions for tooltips
+const M4_DESCRIPTIONS = {
+  'M4-HLX-01': 'Klopfen — Schloss-Bypass via Token-Spoofing',
+  'M4-HLX-05': 'Totenwache — RAM-Dump, Signale aus toten Systemen lesen',
+  'M4-HLX-07': 'Herz stillstehen — Medizin-Implantat herunterfahren',
+  'M4-PCT-03': 'Pakt-Zwang — Erzwungener Zugang durch Vertragsbindung',
+  'M4-OVL-01': 'Schleier — Wahrnehmung der Umgebung manipulieren'
+};
+
 // HEAT thresholds — like session variables with consequences
 const HEAT_THRESHOLDS = [
   { at: 0,  color: '#4ecdc4', warning: '' },
@@ -593,7 +663,13 @@ async function boot() {
     { text: 'Connecting to Agnon City Infrastructure...', delay: 600, cls: '' },
     { text: 'WARNING: Unstable node detected', delay: 400, cls: '' },
     { text: '...', delay: 800, cls: '' },
-    { text: 'Wer erinnert sich?', delay: 1200, cls: 'hook-line' }
+    { text: 'Wer erinnert sich?', delay: 1200, cls: 'hook-line' },
+    { text: ' ', delay: 600, cls: '' },
+    { text: '// KURZEINWEISUNG:', delay: 300, cls: 'tutorial-line' },
+    { text: 'HEAT = Dein Bedrohungslevel. Bei 100: Game Over.', delay: 200, cls: 'tutorial-line' },
+    { text: 'Vorsichtige Aktionen kosten weniger HEAT.', delay: 200, cls: 'tutorial-line' },
+    { text: 'LAYER zeigt deine Realitätsebene (Stadt / Netz / Void).', delay: 200, cls: 'tutorial-line' },
+    { text: 'M4-Tags = Technomantie-Fähigkeiten (optional, riskant).', delay: 200, cls: 'tutorial-line' }
   ];
 
   const bootText = document.getElementById('boot-text');
@@ -664,25 +740,50 @@ async function startGame() {
   document.getElementById('case-title').textContent =
     CASEFILE.meta.id + ' — ' + CASEFILE.meta.title;
 
+  // HEAT tooltip toggle
+  document.getElementById('heat-label').addEventListener('click', () => {
+    document.getElementById('heat-tooltip').classList.toggle('visible');
+  });
+
   // Start first scene
   state.heat = 0;
   state.history = [];
+
+  // Show HEAT tooltip on first scene so players understand
+  document.getElementById('heat-tooltip').classList.add('visible');
+  setTimeout(() => document.getElementById('heat-tooltip').classList.remove('visible'), 8000);
+
   renderScene(CASEFILE.scenes[0].sid);
 }
 
 // ── Render scene ──
 function renderScene(sid) {
-  // Check endings first
-  const ending = CASEFILE.aftermath?.find(e => e.id === sid);
-  if (ending) {
-    renderEnding(ending);
-    return;
-  }
-
-  // Check HEAT game over
+  // Check HEAT game over first
   if (state.heat >= 100) {
     const heatEnd = CASEFILE.aftermath?.find(e => e.id === 'end_caught');
     if (heatEnd) { renderEnding(heatEnd); return; }
+  }
+
+  // Check endings — verify heat_range if specified
+  const ending = CASEFILE.aftermath?.find(e => e.id === sid);
+  if (ending) {
+    if (ending.heat_range) {
+      const [min, max] = ending.heat_range.split('-').map(Number);
+      if (state.heat >= min && state.heat <= max) {
+        renderEnding(ending);
+        return;
+      }
+      // Heat out of range — find a fallback ending that fits
+      const fallback = CASEFILE.aftermath?.find(e => {
+        if (!e.heat_range) return false;
+        const [fMin, fMax] = e.heat_range.split('-').map(Number);
+        return state.heat >= fMin && state.heat <= fMax;
+      });
+      if (fallback) { renderEnding(fallback); return; }
+    }
+    // No heat_range or no fallback — show the ending anyway
+    renderEnding(ending);
+    return;
   }
 
   const scene = CASEFILE.scenes.find(s => s.sid === sid);
@@ -747,7 +848,8 @@ function renderScene(sid) {
       label += `<span class="heat-cost">+${choice.heat_delta} HEAT</span>`;
     }
     if (choice.requires_m4) {
-      label += `<span class="m4-tag">${choice.requires_m4}</span>`;
+      const m4Desc = M4_DESCRIPTIONS[choice.requires_m4] || 'Technomantie-Effekt';
+      label += `<span class="m4-tag">${choice.requires_m4}<span class="m4-tag-tooltip">${m4Desc}</span></span>`;
     }
     btn.innerHTML = label;
 
