@@ -929,24 +929,9 @@ function renderScene(sid) {
     if (heatEnd) { renderEnding(heatEnd); return; }
   }
 
-  // Check endings — verify heat_range if specified
+  // Check endings — player-chosen endings always show (heat_range is metadata only)
   const ending = CASEFILE.aftermath?.find(e => e.id === sid);
   if (ending) {
-    if (ending.heat_range) {
-      const [min, max] = ending.heat_range.split('-').map(Number);
-      if (state.heat >= min && state.heat <= max) {
-        renderEnding(ending);
-        return;
-      }
-      // Heat out of range — find a fallback ending that fits
-      const fallback = CASEFILE.aftermath?.find(e => {
-        if (!e.heat_range) return false;
-        const [fMin, fMax] = e.heat_range.split('-').map(Number);
-        return state.heat >= fMin && state.heat <= fMax;
-      });
-      if (fallback) { renderEnding(fallback); return; }
-    }
-    // No heat_range or no fallback — show the ending anyway
     renderEnding(ending);
     return;
   }
