@@ -3,7 +3,6 @@ interface Props {
   title: string;
 }
 const { title } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -16,10 +15,10 @@ const base = import.meta.env.BASE_URL;
   <meta property="og:title" content="REALMVOID" />
   <meta property="og:description" content="Noir-Ermittlungen zwischen den Ebenen. Agnon City 2226 AD." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://egammo.github.io/realmvoid/" />
-  <meta property="og:image" content={`${base}assets/REALMVOID-LOGO.png`} />
+  <meta property="og:url" content="https://realmvoid.dev" />
+  <meta property="og:image" content="https://realmvoid.dev/assets/REALMVOID-LOGO.png" />
 
-  <link rel="icon" type="image/png" href={`${base}assets/REALMVOID-LOGO.png`} />
+  <link rel="icon" type="image/png" href="/assets/REALMVOID-LOGO.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
