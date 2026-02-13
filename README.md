@@ -1,111 +1,116 @@
 # REALMVOID
 
-**Wer erinnert sich?**
+**Who remembers?**
 
-REALMVOID ist ein Open-Source Cyberpunk-Noir Shared-Universe-Franchise, angesiedelt in der Megastadt Agnon City im Jahr 2226. Eine Welt aus zerfallender Infrastruktur, verbotener Technomantie und Erinnerungen, die sich weigern zu sterben.
+REALMVOID is an open-source cyberpunk-noir shared universe franchise set in the megacity Agnon City, 2226 AD. A world of crumbling infrastructure, forbidden technomancy, and memories that refuse to die.
 
-## Was ist REALMVOID?
+> **[Deutsche Version / German Version](README_DE.md)**
 
-REALMVOID ist keine Game-Engine. Es ist kein einzelnes Produkt. Es ist **eine Welt** — offen für jeden, der sie erkunden, spielen und erweitern möchte.
+## What is REALMVOID?
 
-- **Franchise Bible** — Die Regeln des Universums: vier Realitätsebenen, Technomantie, Fraktionen und die Philosophie, die alles zusammenhält.
-- **Casefile Player** — Ein browserbasierter Text-Adventure-Engine. Spiele Noir-Ermittlungsfälle in Agnon City. Keine Installation nötig.
-- **PnP Quickstart** — Ein Tabletop-Oneshot für 2-5 Spieler, ein Würfel und 30 Minuten.
-- **Community Casefiles** — Schreibe eigene Fälle im M7-Format. Trage sie bei. Baue die Welt mit auf.
+REALMVOID is not a game engine. It's not a single product. It is **a world** — open for anyone to explore, play, and expand.
 
-## Spielen
+- **Franchise Bible** — The rules of the universe: three reality layers, technomancy, factions, and the philosophy that holds it all together.
+- **Casefile Player** *(Tech Demo)* — A browser-based interactive fiction engine. Play noir investigations in Agnon City. No installation required. Demonstrates the M7 casefile format and the Layer/HEAT mechanics.
+- **PnP Quickstart** — A tabletop one-shot for 2-5 players, one die, and 30 minutes.
+- **Community Casefiles** — Write your own cases in M7 format. Contribute them. Help build the world.
 
-### Im Browser
-Öffne [`player/index.html`](player/index.html) in einem Browser — oder spiele direkt auf [GitHub Pages](https://egammo.github.io/realmvoid/).
+## Play
 
-**Kein Server, kein Build, keine Installation nötig.** Eine einzelne HTML-Datei mit Vanilla JS.
+### In the Browser *(Tech Demo)*
+Open [`player/index.html`](player/index.html) in a browser — or play directly at [realmvoid.com/player/](https://realmvoid.com/player/).
 
-### Spielablauf
-1. **Boot-Sequenz** — Terminal-Animation mit Kurzeinweisung
-2. **Einsatz-Briefing** — Erklärt wer du bist, was dein Auftrag ist, und alle wichtigen Begriffe
-3. **Interaktive Geschichte** — Triff Entscheidungen, navigiere durch vier Realitätsebenen
-4. **Ending** — Fünf verschiedene Enden, abhängig von deinen Entscheidungen
+**No server, no build, no installation required.** A single HTML file with vanilla JS.
 
-### Spielmechaniken
+> **Note:** The Casefile Player is a tech demo showcasing the M7 JSON format. It demonstrates how casefiles work (layer switching, HEAT system, branching narratives) but is not a finished product. Feedback and contributions are welcome.
 
-**HEAT (0-100)** — Dein Bedrohungslevel. Jede riskante Aktion erhöht HEAT. Bei 100 ist das Spiel vorbei.
+### How to Play
+1. **Boot Sequence** — Terminal animation with a quick tutorial
+2. **Mission Briefing** — Explains who you are, what your mission is, and key terms
+3. **Interactive Story** — Make choices, navigate across reality layers
+4. **Ending** — Five different endings depending on your decisions
+
+### Mechanics
+
+**HEAT (0-100)** — Your threat level. Every risky action raises HEAT. At 100, it's game over.
 
 | HEAT | Status |
 |---|---|
-| 0-29 | Sicher. Helix hat dich nicht auf dem Schirm. |
-| 30-59 | Helix wird aufmerksam. Sei vorsichtiger. |
-| 60-89 | Helix sucht aktiv nach dir. Vermeide riskante Aktionen. |
-| 90-99 | Exorzisten sind unterwegs. Wenige Fehler bis Game Over. |
-| 100 | Game Over. |
+| 0-29 | Safe. Helix doesn't know you exist. |
+| 30-59 | Helix is paying attention. Be careful. |
+| 60-89 | Helix is actively hunting you. Avoid risky actions. |
+| 90-99 | Exorcists inbound. One wrong move left. |
+| 100 | Game over. |
 
-**Layer** — Deine aktuelle Realitätsebene:
+**Layer** — Your current reality layer:
 
-| Layer | Bedeutung |
+| Layer | Meaning |
 |---|---|
-| **MEATSPACE** | Die physische Stadt. Beton, Rost, Neonlicht. |
-| **NET** | Das digitale Overlay. Datenströme und Signale. |
-| **DEAD ZONE** | Orte ohne Netzwerk. Keine Überwachung, keine Hilfe. |
+| **MEATSPACE** | The physical city. Concrete, rust, neon. |
+| **NET** | The digital overlay. Data streams and signals. |
+| **DEAD ZONE** | Places without network. No surveillance, no help. |
 
-**M4-Tags** — Optionale Technomantie-Fähigkeiten auf manchen Auswahlmöglichkeiten. Mächtig, aber riskant (kosten mehr HEAT).
+**M4 Tags** — Optional technomancy abilities on some choices. Powerful but risky (costs more HEAT).
 
-## Die Welt
+## The World
 
-**Agnon City, 2226.** Eine Megastadt, kontrolliert von **Helix** — einer allgegenwärtigen Überwachungs-KI. Ihre Vollstrecker, die **Exorzisten**, jagen jeden, der verbotene Technologie benutzt.
+**Agnon City, 2226.** A megacity controlled by **Helix** — an omnipresent surveillance AI. Its enforcers, the **Exorcists**, hunt anyone who uses forbidden technology.
 
-Du bist ein **Fixer** — ein Problemlöser für Leute, die keine offiziellen Wege gehen können. Dein digitales **Overlay** zeigt dir normalerweise Karten, Nachrichten und Warnungen — aber in der **Dead Zone** funktioniert nichts davon.
+You are a **Fixer** — a problem solver for people who can't go through official channels. Your digital **Overlay** normally shows you maps, messages, and warnings — but in the **Dead Zone**, none of that works.
 
-**Technomantie** ist verbotene Software, die wie Magie wirkt — aber Spuren hinterlässt. Und dann ist da noch **Aurora** — eine vergessene Ära, an die sich niemand erinnern soll.
+**Technomancy** is forbidden software that feels like magic — but leaves traces. And then there's **Aurora** — a forgotten era that no one is supposed to remember.
 
-## Repository-Struktur
+## Repository Structure
 
 ```
 realmvoid/
-├── lore/               # Franchise Bible, Technomancy Catalog, Lint Rules
+├── lore/                  # Franchise Bible, Technomancy Catalog, Lint Rules
 ├── modules/
 │   └── cities/
-│       └── agnon-city/ # Starter Pack, NPC-Roster, Zonen-Map
-├── casefiles/          # M7 JSON Casefiles + Schema
-├── player/             # Browser-basierter Casefile Player (Vanilla JS)
-├── pnp/                # Tabletop Pen & Paper Quickstart
-├── website/            # Astro-basierte Website (realmvoid.com)
-└── tools/              # Validatoren, Linter, Utilities
+│       └── agnon-city/    # Starter Pack, NPC Roster, Zone Map
+├── casefiles/             # M7 JSON Casefiles + Schema
+│   └── community/         # Community-contributed Casefiles
+├── player/                # Browser-based Casefile Player (Vanilla JS)
+├── pnp/                   # Tabletop Pen & Paper Quickstart
+├── website/               # Astro-based website (realmvoid.com)
+└── tools/                 # Validators, Linters, Utilities
 ```
 
-## Aktueller Stand
+## Current Status
 
 **Version 0.3.0** (2026-02-12)
 
 - Franchise Bible v1.2.1
 - M4 Technomancy Catalog v0.1.1
-- Casefile Player mit Briefing-System, HEAT-Balancing, Tooltips
-- CF-04 "Der Kerzenschneider ruft" v0.3.0 (16 Szenen, 5 Enden)
+- Casefile Player with briefing system, HEAT balancing, tooltips
+- CF-04 "Der Kerzenschneider ruft" v0.3.0 (16 scenes, 5 endings)
 - Agnon City Starter Pack v0.1
 - PnP Quickstart v1.0
-- GitHub Actions: Casefile-Validierung + GitHub Pages Deployment
+- GitHub Actions: Casefile validation + GitHub Pages deployment
 
-Siehe [CHANGELOG.md](CHANGELOG.md) für Details.
+See [CHANGELOG.md](CHANGELOG.md) for details.
 
-## Mitmachen
+## Contributing
 
-Lies [CONTRIBUTING.md](CONTRIBUTING.md) für Hinweise zum Beitragen.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## Quick Links
 
-- **Website:** [realmvoid.com](https://realmvoid.com) *(coming soon)*
+- **Website:** [realmvoid.com](https://realmvoid.com)
 - **Publisher:** [EGAMMO.gaming](https://egammo.eu)
 - **Community:** [board.egammo.eu](https://board.egammo.eu)
 
-## Lizenzen
+## Licenses
 
 - **Code** (Player, Tools, Website): [MIT License](LICENSES/MIT.txt)
 - **Content** (Lore, Casefiles, Artwork): [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt)
 
-## Erstellt von
+## Created by
 
-**Julian Fides** — World Architect, Kurator und Autor von *Die Straße zwischen den Häusern*.
+**Julian Fides** — World Architect, Curator, and author of *Die Straße zwischen den Häusern* (The Street Between the Houses).
 
-Veröffentlicht von **EGAMMO.gaming** — *We make worlds for players, because the only limit is their imagination.*
+Published by **EGAMMO.gaming** — *We make worlds for players, because the only limit is their imagination.*
 
 ---
 
-*Agnon City braucht Runner. Bist du bereit?*
+*Agnon City needs runners. Are you ready?*

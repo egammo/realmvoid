@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -163,6 +163,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 2px;
+    position: relative;
   }
 
   #heat-label {
@@ -173,6 +174,7 @@
     text-transform: uppercase;
     color: var(--text-dim);
     margin-bottom: 8px;
+    cursor: help;
   }
 
   #heat-value {
@@ -210,6 +212,22 @@
 
   #heat-warning.visible {
     opacity: 1;
+  }
+
+  /* ── HEAT tooltip ── */
+  #heat-tooltip {
+    font-size: 10px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+    display: none;
+    letter-spacing: 0.5px;
+  }
+
+  #heat-tooltip.visible {
+    display: block;
   }
 
   /* ── Scene title ── */
@@ -327,6 +345,8 @@
     border: 1px solid rgba(196, 160, 196, 0.3);
     padding: 1px 6px;
     border-radius: 2px;
+    cursor: help;
+    position: relative;
   }
 
   .choice-btn:disabled {
@@ -340,6 +360,29 @@
     padding-left: 20px;
     color: var(--text);
     border-color: var(--border);
+  }
+
+  /* ── M4 tooltip ── */
+  .m4-tag-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid var(--aether);
+    color: var(--text);
+    font-size: 10px;
+    padding: 6px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    z-index: 100;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+
+  .choice-btn:hover .m4-tag-tooltip {
+    display: block;
   }
 
   /* ── Ending screen ── */
@@ -453,6 +496,14 @@
     color: var(--text-bright);
   }
 
+  /* ── Tutorial lines ── */
+  #boot-text .tutorial-line {
+    color: var(--net);
+    font-size: 12px;
+    line-height: 1.8;
+    opacity: 0.85;
+  }
+
   /* ── Dead Zone effect ── */
   .dead-zone-active {
     animation: dead-flicker 4s ease-in-out infinite;
@@ -477,97 +528,6 @@
     60% { transform: translate(-1px, -1px); filter: hue-rotate(0deg); }
     80% { transform: translate(1px, 1px); }
     100% { transform: translate(0); }
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-    body { font-size: 13px; }
-    #app { padding: 16px; }
-    #scene-text { font-size: 14px; }
-    .choice-btn { font-size: 12px; padding: 12px 16px; }
-  }
-
-  /* ── Audio control ── */
-  #audio-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    padding: 6px 12px;
-    cursor: pointer;
-    z-index: 100;
-    border-radius: 2px;
-    letter-spacing: 1px;
-    transition: all 0.2s;
-  }
-
-  #audio-toggle:hover {
-    border-color: var(--layer-color);
-    color: var(--text);
-  }
-
-  /* ── Tutorial lines ── */
-  #boot-text .tutorial-line {
-    color: var(--net);
-    font-size: 12px;
-    line-height: 1.8;
-    opacity: 0.85;
-  }
-
-  /* ── HEAT tooltip ── */
-  #heat-container {
-    position: relative;
-  }
-
-  #heat-tooltip {
-    font-size: 10px;
-    color: var(--text-dim);
-    line-height: 1.6;
-    margin-top: 8px;
-    padding-top: 6px;
-    border-top: 1px solid var(--border);
-    display: none;
-    letter-spacing: 0.5px;
-  }
-
-  #heat-tooltip.visible {
-    display: block;
-  }
-
-  #heat-label {
-    cursor: help;
-  }
-
-  /* ── M4 tooltip ── */
-  .m4-tag {
-    cursor: help;
-    position: relative;
-  }
-
-  .m4-tag-tooltip {
-    display: none;
-    position: absolute;
-    bottom: calc(100% + 6px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--surface);
-    border: 1px solid var(--aether);
-    color: var(--text);
-    font-size: 10px;
-    padding: 6px 10px;
-    border-radius: 2px;
-    white-space: nowrap;
-    z-index: 100;
-    letter-spacing: 0.5px;
-    pointer-events: none;
-  }
-
-  .choice-btn:hover .m4-tag-tooltip {
-    display: block;
   }
 
   /* ── Casefile title ── */
@@ -691,57 +651,54 @@
     color: var(--accent);
     border: 1px solid var(--accent);
   }
+
+  /* ── Language switcher ── */
+  #lang-btn {
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 600;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  #lang-btn:hover {
+    border-color: var(--net);
+    color: var(--text-bright);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    body { font-size: 13px; }
+    #app { padding: 16px; }
+    #scene-text { font-size: 14px; }
+    .choice-btn { font-size: 12px; padding: 12px 16px; }
+  }
 </style>
 </head>
 <body>
 
+<!-- Language switcher (always visible) -->
+<button id="lang-btn" onclick="switchLanguage()"></button>
+
 <!-- Boot screen -->
 <div id="boot-screen">
   <div id="boot-text"></div>
-  <button id="boot-enter" onclick="startGame()">Betritt die Welt</button>
+  <button id="boot-enter" onclick="startGame()"></button>
 </div>
 
 <!-- Briefing screen -->
 <div id="briefing-screen" class="hidden">
-  <div id="briefing-content">
-    <h2>// Einsatz-Briefing</h2>
-
-    <div class="briefing-section">
-      <div class="briefing-label">Wer bist du?</div>
-      <div class="briefing-value">Du bist ein <strong>Fixer</strong> — ein Problemlöser für Leute, die keine offiziellen Wege gehen können. Du arbeitest in Agnon City, einer Megastadt im Jahr 2226.</div>
-    </div>
-
-    <div class="briefing-section">
-      <div class="briefing-label">Dein Auftraggeber</div>
-      <div class="briefing-value"><strong>Jonas Kroll</strong> — ein alter Kontakt, dem du halbwegs vertraust. Er will, dass du einen aktivierten Datenkern aus der Faraday-Schlucht holst, bevor die Stadtpolizei ihn findet.</div>
-    </div>
-
-    <div class="briefing-section">
-      <div class="briefing-label">Dein Ziel</div>
-      <div class="briefing-value">Finde den Kern. Entscheide, was du damit machst. Überlebe. <strong>Halte dein HEAT niedrig</strong> — bei 100 ist das Spiel vorbei.</div>
-    </div>
-
-    <div class="briefing-section">
-      <div class="briefing-label">Begriffe</div>
-      <div class="briefing-glossary">
-        <span class="glossary-term">Helix</span>
-        <span class="glossary-def">Die KI, die Agnon City überwacht und kontrolliert.</span>
-        <span class="glossary-term">Exorzisten</span>
-        <span class="glossary-def">Helix-Vollstrecker. Bewaffnet, schnell, gnadenlos.</span>
-        <span class="glossary-term">Overlay</span>
-        <span class="glossary-def">Dein digitales Sichtfeld — zeigt Karten, Nachrichten, Warnungen.</span>
-        <span class="glossary-term">Dead Zone</span>
-        <span class="glossary-def">Orte ohne Netzwerk. Kein Overlay, keine Überwachung.</span>
-        <span class="glossary-term">Technomantie</span>
-        <span class="glossary-def">Verbotene Software-Tricks. Mächtig, aber hinterlässt Spuren.</span>
-        <span class="glossary-term">Aurora</span>
-        <span class="glossary-def">Eine vergessene Ära. Niemand soll sich daran erinnern.</span>
-        <span class="glossary-term">HEAT</span>
-        <span class="glossary-def">Wie aufmerksam Helix auf dich ist. 0 = sicher. 100 = tot.</span>
-      </div>
-    </div>
-  </div>
-  <button id="briefing-start" onclick="startFirstScene()">Auftrag annehmen</button>
+  <div id="briefing-content"></div>
+  <button id="briefing-start" onclick="startFirstScene()"></button>
 </div>
 
 <!-- Main app -->
@@ -766,7 +723,7 @@
       <div id="heat-bar-inner"></div>
     </div>
     <div id="heat-warning" class="">—</div>
-    <div id="heat-tooltip">HEAT = Wie aufmerksam die Stadt auf dich ist. Steigt durch riskante Aktionen. Bei 100 ist es vorbei.</div>
+    <div id="heat-tooltip"></div>
   </div>
 
   <div id="scene-title">—</div>
@@ -775,16 +732,172 @@
   <div id="ending" style="display:none;"></div>
 </div>
 
-<button id="audio-toggle" style="display:none;" onclick="toggleAudio()">♪ Audio: An</button>
-
 <script>
 // ═══════════════════════════════════════════════════
-// REALMVOID CASEFILE PLAYER ENGINE v0.1
+// REALMVOID CASEFILE PLAYER ENGINE v0.2
 // Vanilla JS — No frameworks, no build, no npm.
+// Now with EN/DE i18n support.
 // ═══════════════════════════════════════════════════
 
+// ── i18n ──
+const I18N = {
+  en: {
+    boot_enter: 'Enter the World',
+    boot_hook: 'Who remembers?',
+    boot_tutorial_title: '// QUICK BRIEFING:',
+    boot_tutorial_1: 'HEAT = Your threat level. At 100: Game Over.',
+    boot_tutorial_2: 'Cautious actions cost less HEAT.',
+    boot_tutorial_3: 'LAYER shows your reality plane (City / Net / Void).',
+    boot_tutorial_4: 'M4 Tags = Technomancy abilities (optional, risky).',
+    briefing_title: '// Mission Briefing',
+    briefing_who_label: 'Who are you?',
+    briefing_who_text: 'You are a <strong>Fixer</strong> — a problem solver for people who can\'t go through official channels. You work in Agnon City, a megacity in the year 2226.',
+    briefing_employer_label: 'Your Employer',
+    briefing_employer_text: '<strong>Jonas Kroll</strong> — an old contact you somewhat trust. He wants you to retrieve an activated data core from Faraday Gorge before the city police finds it.',
+    briefing_objective_label: 'Your Objective',
+    briefing_objective_text: 'Find the core. Decide what to do with it. Survive. <strong>Keep your HEAT low</strong> — at 100, the game is over.',
+    briefing_glossary_label: 'Glossary',
+    glossary_helix: 'The AI that monitors and controls Agnon City.',
+    glossary_exorcists: 'Helix enforcers. Armed, fast, merciless.',
+    glossary_overlay: 'Your digital HUD — shows maps, messages, warnings.',
+    glossary_deadzone: 'Places without network. No overlay, no surveillance.',
+    glossary_technomancy: 'Forbidden protocol exploits. Powerful, but leaves traces.',
+    glossary_aurora: 'A forgotten era. Nobody is supposed to remember.',
+    glossary_heat: 'How much Helix is watching you. 0 = safe. 100 = dead.',
+    briefing_start: 'Accept Mission',
+    heat_tooltip: 'HEAT = How much attention the city pays to you. Rises through risky actions. At 100, it\'s over.',
+    heat_30: 'Helix is getting suspicious. Be more careful.',
+    heat_60: 'Helix is actively hunting you. Avoid risky actions!',
+    heat_90: 'Exorcists deployed! A few more mistakes until Game Over!',
+    heat_100: 'HEAT 100 — GAME OVER',
+    m4_hlx01: 'Knocking — Lock bypass via token spoofing',
+    m4_hlx05: 'Dead Watch — RAM dump, reading signals from dead systems',
+    m4_hlx07: 'Heart Standstill — Shut down medical implant',
+    m4_pct03: 'Pact Force — Forced access through contract binding',
+    m4_ovl01: 'Veil — Manipulate environmental perception',
+    error_load: 'Could not load casefile.',
+    error_load_hint: 'Make sure the casefile JSON is in the same directory.',
+    scenes_label: 'SCENES',
+    play_again: 'Play Again',
+    lang_switch: 'Deutsch'
+  },
+  de: {
+    boot_enter: 'Betritt die Welt',
+    boot_hook: 'Wer erinnert sich?',
+    boot_tutorial_title: '// KURZEINWEISUNG:',
+    boot_tutorial_1: 'HEAT = Dein Bedrohungslevel. Bei 100: Game Over.',
+    boot_tutorial_2: 'Vorsichtige Aktionen kosten weniger HEAT.',
+    boot_tutorial_3: 'LAYER zeigt deine Realitätsebene (Stadt / Netz / Void).',
+    boot_tutorial_4: 'M4-Tags = Technomancy-Fähigkeiten (optional, riskant).',
+    briefing_title: '// Einsatz-Briefing',
+    briefing_who_label: 'Wer bist du?',
+    briefing_who_text: 'Du bist ein <strong>Fixer</strong> — ein Problemlöser für Leute, die keine offiziellen Wege gehen können. Du arbeitest in Agnon City, einer Megastadt im Jahr 2226.',
+    briefing_employer_label: 'Dein Auftraggeber',
+    briefing_employer_text: '<strong>Jonas Kroll</strong> — ein alter Kontakt, dem du halbwegs vertraust. Er will, dass du einen aktivierten Datenkern aus der Faraday-Schlucht holst, bevor die Stadtpolizei ihn findet.',
+    briefing_objective_label: 'Dein Ziel',
+    briefing_objective_text: 'Finde den Kern. Entscheide, was du damit machst. Überlebe. <strong>Halte dein HEAT niedrig</strong> — bei 100 ist das Spiel vorbei.',
+    briefing_glossary_label: 'Begriffe',
+    glossary_helix: 'Die KI, die Agnon City überwacht und kontrolliert.',
+    glossary_exorcists: 'Helix-Vollstrecker. Bewaffnet, schnell, gnadenlos.',
+    glossary_overlay: 'Dein digitales Sichtfeld — zeigt Karten, Nachrichten, Warnungen.',
+    glossary_deadzone: 'Orte ohne Netzwerk. Kein Overlay, keine Überwachung.',
+    glossary_technomancy: 'Verbotene Protokoll-Exploits. Mächtig, aber hinterlässt Spuren.',
+    glossary_aurora: 'Eine vergessene Ära. Niemand soll sich daran erinnern.',
+    glossary_heat: 'Wie aufmerksam Helix auf dich ist. 0 = sicher. 100 = tot.',
+    briefing_start: 'Auftrag annehmen',
+    heat_tooltip: 'HEAT = Wie aufmerksam die Stadt auf dich ist. Steigt durch riskante Aktionen. Bei 100 ist es vorbei.',
+    heat_30: 'Helix wird aufmerksam. Sei vorsichtiger.',
+    heat_60: 'Helix sucht aktiv nach dir. Vermeide riskante Aktionen!',
+    heat_90: 'Exorzisten sind unterwegs! Noch wenige Fehler bis Game Over!',
+    heat_100: 'HEAT 100 — GAME OVER',
+    m4_hlx01: 'Klopfen — Schloss-Bypass via Token-Spoofing',
+    m4_hlx05: 'Totenwache — RAM-Dump, Signale aus toten Systemen lesen',
+    m4_hlx07: 'Herz stillstehen — Medizin-Implantat herunterfahren',
+    m4_pct03: 'Pakt-Zwang — Erzwungener Zugang durch Vertragsbindung',
+    m4_ovl01: 'Schleier — Wahrnehmung der Umgebung manipulieren',
+    error_load: 'Casefile konnte nicht geladen werden.',
+    error_load_hint: 'Stelle sicher, dass die Casefile-JSON im selben Verzeichnis liegt.',
+    scenes_label: 'SZENEN',
+    play_again: 'Nochmal spielen',
+    lang_switch: 'English'
+  }
+};
+
+// ── Language detection ──
+function detectLanguage() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('lang')) {
+    const p = params.get('lang').toLowerCase();
+    if (p === 'de') return 'de';
+    return 'en';
+  }
+  if (navigator.language && navigator.language.startsWith('de')) return 'de';
+  return 'en';
+}
+
+let LANG = detectLanguage();
+
+function t(key) { return I18N[LANG][key] || I18N.en[key] || key; }
+
+function switchLanguage() {
+  const newLang = LANG === 'en' ? 'de' : 'en';
+  const url = new URL(window.location);
+  url.searchParams.set('lang', newLang);
+  window.location.href = url.toString();
+}
+
+// ── Populate UI with correct language ──
+function initUI() {
+  document.documentElement.lang = LANG;
+  document.getElementById('lang-btn').textContent = '\uD83C\uDF10 ' + t('lang_switch');
+  document.getElementById('boot-enter').textContent = t('boot_enter');
+  document.getElementById('heat-tooltip').textContent = t('heat_tooltip');
+  document.getElementById('briefing-start').textContent = t('briefing_start');
+
+  // Build briefing content
+  document.getElementById('briefing-content').innerHTML = `
+    <h2>${t('briefing_title')}</h2>
+
+    <div class="briefing-section">
+      <div class="briefing-label">${t('briefing_who_label')}</div>
+      <div class="briefing-value">${t('briefing_who_text')}</div>
+    </div>
+
+    <div class="briefing-section">
+      <div class="briefing-label">${t('briefing_employer_label')}</div>
+      <div class="briefing-value">${t('briefing_employer_text')}</div>
+    </div>
+
+    <div class="briefing-section">
+      <div class="briefing-label">${t('briefing_objective_label')}</div>
+      <div class="briefing-value">${t('briefing_objective_text')}</div>
+    </div>
+
+    <div class="briefing-section">
+      <div class="briefing-label">${t('briefing_glossary_label')}</div>
+      <div class="briefing-glossary">
+        <span class="glossary-term">Helix</span>
+        <span class="glossary-def">${t('glossary_helix')}</span>
+        <span class="glossary-term">${LANG === 'de' ? 'Exorzisten' : 'Exorcists'}</span>
+        <span class="glossary-def">${t('glossary_exorcists')}</span>
+        <span class="glossary-term">Overlay</span>
+        <span class="glossary-def">${t('glossary_overlay')}</span>
+        <span class="glossary-term">Dead Zone</span>
+        <span class="glossary-def">${t('glossary_deadzone')}</span>
+        <span class="glossary-term">${LANG === 'de' ? 'Technomancy' : 'Technomancy'}</span>
+        <span class="glossary-def">${t('glossary_technomancy')}</span>
+        <span class="glossary-term">Aurora</span>
+        <span class="glossary-def">${t('glossary_aurora')}</span>
+        <span class="glossary-term">HEAT</span>
+        <span class="glossary-def">${t('glossary_heat')}</span>
+      </div>
+    </div>
+  `;
+}
+
+// ── Game state ──
 let CASEFILE = null;
-let state = { scene: null, heat: 0, history: [], audioOn: true };
+let state = { scene: null, heat: 0, history: [] };
 
 // Layer style mapping
 const LAYERS = {
@@ -794,22 +907,22 @@ const LAYERS = {
   DEAD_ZONE: { color: '#666666', bg: 'rgba(40,40,40,0.5)',     glow: 'rgba(100,100,100,0.1)' }
 };
 
-// M4 Technomancy descriptions for tooltips
-const M4_DESCRIPTIONS = {
-  'M4-HLX-01': 'Klopfen — Schloss-Bypass via Token-Spoofing',
-  'M4-HLX-05': 'Totenwache — RAM-Dump, Signale aus toten Systemen lesen',
-  'M4-HLX-07': 'Herz stillstehen — Medizin-Implantat herunterfahren',
-  'M4-PCT-03': 'Pakt-Zwang — Erzwungener Zugang durch Vertragsbindung',
-  'M4-OVL-01': 'Schleier — Wahrnehmung der Umgebung manipulieren'
+// M4 Technomancy description keys
+const M4_KEYS = {
+  'M4-HLX-01': 'm4_hlx01',
+  'M4-HLX-05': 'm4_hlx05',
+  'M4-HLX-07': 'm4_hlx07',
+  'M4-PCT-03': 'm4_pct03',
+  'M4-OVL-01': 'm4_ovl01'
 };
 
-// HEAT thresholds — like session variables with consequences
+// HEAT thresholds — warning_key maps to i18n
 const HEAT_THRESHOLDS = [
-  { at: 0,  color: '#4ecdc4', warning: '' },
-  { at: 30, color: '#c4c44e', warning: 'Helix wird aufmerksam. Sei vorsichtiger.' },
-  { at: 60, color: '#c4804e', warning: 'Helix sucht aktiv nach dir. Vermeide riskante Aktionen!' },
-  { at: 90, color: '#ff3b3b', warning: 'Exorzisten sind unterwegs! Noch wenige Fehler bis Game Over!' },
-  { at: 100, color: '#ff0000', warning: 'HEAT 100 — GAME OVER' }
+  { at: 0,   color: '#4ecdc4', warning_key: '' },
+  { at: 30,  color: '#c4c44e', warning_key: 'heat_30' },
+  { at: 60,  color: '#c4804e', warning_key: 'heat_60' },
+  { at: 90,  color: '#ff3b3b', warning_key: 'heat_90' },
+  { at: 100, color: '#ff0000', warning_key: 'heat_100' }
 ];
 
 // ── Boot sequence ──
@@ -819,13 +932,13 @@ async function boot() {
     { text: 'Connecting to Agnon City Infrastructure...', delay: 600, cls: '' },
     { text: 'WARNING: Unstable node detected', delay: 400, cls: '' },
     { text: '...', delay: 800, cls: '' },
-    { text: 'Wer erinnert sich?', delay: 1200, cls: 'hook-line' },
+    { text: t('boot_hook'), delay: 1200, cls: 'hook-line' },
     { text: ' ', delay: 600, cls: '' },
-    { text: '// KURZEINWEISUNG:', delay: 300, cls: 'tutorial-line' },
-    { text: 'HEAT = Dein Bedrohungslevel. Bei 100: Game Over.', delay: 200, cls: 'tutorial-line' },
-    { text: 'Vorsichtige Aktionen kosten weniger HEAT.', delay: 200, cls: 'tutorial-line' },
-    { text: 'LAYER zeigt deine Realitätsebene (Stadt / Netz / Void).', delay: 200, cls: 'tutorial-line' },
-    { text: 'M4-Tags = Technomantie-Fähigkeiten (optional, riskant).', delay: 200, cls: 'tutorial-line' }
+    { text: t('boot_tutorial_title'), delay: 300, cls: 'tutorial-line' },
+    { text: t('boot_tutorial_1'), delay: 200, cls: 'tutorial-line' },
+    { text: t('boot_tutorial_2'), delay: 200, cls: 'tutorial-line' },
+    { text: t('boot_tutorial_3'), delay: 200, cls: 'tutorial-line' },
+    { text: t('boot_tutorial_4'), delay: 200, cls: 'tutorial-line' }
   ];
 
   const bootText = document.getElementById('boot-text');
@@ -854,11 +967,14 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 // ── Load casefile ──
 async function loadCasefile() {
-  // Try loading from same directory, then from casefiles/
+  const base = 'cf-04-kerzenschneider';
   const paths = [
-    'cf-04-kerzenschneider.json',
-    'casefiles/cf-04-kerzenschneider.json',
-    '../casefiles/cf-04-kerzenschneider.json'
+    `${base}.${LANG}.json`,
+    `${base}.json`,
+    `casefiles/${base}.${LANG}.json`,
+    `casefiles/${base}.json`,
+    `../casefiles/${base}.${LANG}.json`,
+    `../casefiles/${base}.json`
   ];
 
   for (const path of paths) {
@@ -871,8 +987,7 @@ async function loadCasefile() {
     } catch(e) { /* try next */ }
   }
 
-  // Fallback: use embedded casefile for demo
-  console.warn('Could not load external casefile, using embedded demo.');
+  console.warn('Could not load external casefile.');
   return false;
 }
 
@@ -887,7 +1002,7 @@ async function startGame() {
   if (!CASEFILE) {
     document.getElementById('app').style.display = 'block';
     document.getElementById('scene-text').innerHTML =
-      '<p>Casefile konnte nicht geladen werden.</p><p>Stelle sicher, dass <code>cf-04-kerzenschneider.json</code> im selben Verzeichnis liegt.</p>';
+      `<p>${t('error_load')}</p><p>${t('error_load_hint')}</p>`;
     return;
   }
 
@@ -899,8 +1014,6 @@ async function startGame() {
 function startFirstScene() {
   document.getElementById('briefing-screen').classList.add('hidden');
   document.getElementById('app').style.display = 'block';
-  document.getElementById('audio-toggle').style.display = 'block';
-
   // Set title
   document.getElementById('case-title').textContent =
     CASEFILE.meta.id + ' — ' + CASEFILE.meta.title;
@@ -998,7 +1111,8 @@ function renderScene(sid) {
       label += `<span class="heat-cost">+${choice.heat_delta} HEAT</span>`;
     }
     if (choice.requires_m4) {
-      const m4Desc = M4_DESCRIPTIONS[choice.requires_m4] || 'Technomantie-Effekt';
+      const m4Key = M4_KEYS[choice.requires_m4];
+      const m4Desc = m4Key ? t(m4Key) : 'Technomancy';
       label += `<span class="m4-tag">${choice.requires_m4}<span class="m4-tag-tooltip">${m4Desc}</span></span>`;
     }
     btn.innerHTML = label;
@@ -1040,15 +1154,15 @@ function renderEnding(ending) {
     <h2>— ${ending.title} —</h2>
     <div class="ending-text">${mdToHtml(ending.text_md)}</div>
     <div style="font-size:10px;color:var(--text-dim);letter-spacing:2px;margin-bottom:24px;">
-      FINAL HEAT: ${state.heat} · SZENEN: ${state.history.length}
+      FINAL HEAT: ${state.heat} · ${t('scenes_label')}: ${state.history.length}
     </div>
-    <button id="restart-btn" onclick="restart()">Nochmal spielen</button>
+    <button id="restart-btn" onclick="restart()">${t('play_again')}</button>
   `;
 }
 
 // ── Restart ──
 function restart() {
-  state = { scene: null, heat: 0, history: [], audioOn: state.audioOn };
+  state = { scene: null, heat: 0, history: [] };
   updateHeatUI();
   document.getElementById('ending').style.display = 'none';
   renderScene(CASEFILE.scenes[0].sid);
@@ -1083,8 +1197,8 @@ function updateHeatUI() {
   document.documentElement.style.setProperty('--heat-color', threshold.color);
 
   const warning = document.getElementById('heat-warning');
-  if (threshold.warning) {
-    warning.textContent = threshold.warning;
+  if (threshold.warning_key) {
+    warning.textContent = I18N[LANG][threshold.warning_key] || '';
     warning.classList.add('visible');
   } else {
     warning.classList.remove('visible');
@@ -1120,15 +1234,11 @@ function mdToHtml(md) {
     .join('');
 }
 
-// ── Audio (placeholder — real implementation needs audio files) ──
-function toggleAudio() {
-  state.audioOn = !state.audioOn;
-  document.getElementById('audio-toggle').textContent =
-    state.audioOn ? '♪ Audio: An' : '♪ Audio: Aus';
-}
-
 // ── Init ──
-window.addEventListener('DOMContentLoaded', boot);
+window.addEventListener('DOMContentLoaded', () => {
+  initUI();
+  boot();
+});
 </script>
 </body>
 </html>

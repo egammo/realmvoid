@@ -1,0 +1,457 @@
+{
+  "meta": {
+    "id": "CF-04",
+    "title": "The Candle Cutter Calls",
+    "version": "0.3.0",
+    "author": "Julian Fides",
+    "bible_ver": "1.2.1",
+    "m4_ver": "0.1.1",
+    "truth_tag": "FOUNDING-MYTH",
+    "city": "Agnon City",
+    "fixer": "Jonas Kroll",
+    "m4_refs": [
+      "M4-HLX-05",
+      "M4-PCT-03",
+      "M4-OVL-01"
+    ]
+  },
+  "hook": "Jonas Kroll sits on his bench in the Null Chapel. One candle. No network. He says only: *'Someone remembers. That's not supposed to happen.'* He offers no payment. Just a name and an address in Faraday Gorge.",
+  "the_job": "Find out who activated an old data core in the Dead Zone. Bring the core back. Erase the traces.",
+  "the_dirt": "The data core contains a fragment from the Aurora era — a memory shard that could prove Aurora is no myth. Kroll doesn't want to bring it back. He wants to *destroy* it. But he doesn't tell you that until it's too late.",
+  "crossing": {
+    "layers": [
+      "MEATSPACE",
+      "DEAD_ZONE",
+      "NET"
+    ],
+    "note": "Start in the Dead Zone (Null Chapel), transition to MEATSPACE (Faraday Gorge), return to NET when the core activates."
+  },
+  "heat_spike": {
+    "heat_type": "Audit trail",
+    "level": "high",
+    "trigger": "The data core sends a signal when activated. Helix Exorcists take notice. From now on, a timer is running."
+  },
+  "scenes": [
+    {
+      "sid": "s01",
+      "title": "The Null Chapel",
+      "layer": "DEAD_ZONE",
+      "zone": "Null Chapel",
+      "heat_delta": 0,
+      "audio": "dead_silence",
+      "text_md": "The Null Chapel is one of the last blind spots in Agnon City — a concrete room deep in the Dead Zone, where no network reaches. No surveillance, no data, no Helix eyes.\n\nJonas Kroll sits on a wooden bench. In front of him burns a single candle — real fire, not a hologram. He's an old fixer, one of the few you somewhat trust.\n\n*'Someone activated an old data core in Faraday Gorge'*, he says quietly. *'The core is transmitting. If Helix finds the signal, the Exorcists will come. Get the core before they do.'*\n\nHe places a piece of paper on the bench. An address in the gorge. Handwritten — no digital footprint.",
+      "choices": [
+        {
+          "label": "Take the address and go.",
+          "goto": "s02",
+          "heat_delta": 0
+        },
+        {
+          "label": "Ask: What kind of core is this exactly?",
+          "goto": "s01b",
+          "heat_delta": 0
+        },
+        {
+          "label": "Decline. This smells like trouble.",
+          "goto": "s_refuse",
+          "heat_delta": 0
+        }
+      ]
+    },
+    {
+      "sid": "s01b",
+      "title": "Kroll's Silence",
+      "layer": "DEAD_ZONE",
+      "zone": "Null Chapel",
+      "heat_delta": 0,
+      "audio": "dead_silence",
+      "text_md": "Kroll turns the candle between his fingers.\n\n*'A data core from the old times — before the Helix era. Someone booted it back up. That doesn't just happen. Someone wanted this core to transmit.'*\n\nHe goes quiet for a moment.\n\n*'Don't ask what's stored on the core. Just bring it here before the Exorcists find the trail.'*",
+      "choices": [
+        {
+          "label": "Take the address.",
+          "goto": "s02",
+          "heat_delta": 0
+        },
+        {
+          "label": "\"What's on the core, Kroll?\"",
+          "goto": "s01c",
+          "heat_delta": 3
+        }
+      ]
+    },
+    {
+      "sid": "s01c",
+      "title": "Too Many Questions",
+      "layer": "DEAD_ZONE",
+      "zone": "Null Chapel",
+      "heat_delta": 2,
+      "audio": "dead_silence",
+      "text_md": "Kroll looks at you directly for the first time.\n\n*'Memories'*, he says. *'Data from an era that officially never existed. The Aurora era.'*\n\nAurora — the word alone is enough to get you in trouble. Nobody talks about it. Nobody is supposed to remember.\n\nHe slides the address across the bench. His finger trembles. Jonas Kroll never trembles.",
+      "choices": [
+        {
+          "label": "Take the address. Now I want to know even more.",
+          "goto": "s02",
+          "heat_delta": 0
+        }
+      ]
+    },
+    {
+      "sid": "s_refuse",
+      "title": "Refusal",
+      "layer": "DEAD_ZONE",
+      "zone": "Null Chapel",
+      "heat_delta": 0,
+      "audio": "dead_silence",
+      "text_md": "You stand up. Kroll says nothing. He blows out the candle.\n\nOn the way back, you reach into your jacket pocket and find the address. You don't know when he slipped it to you.\n\n*Some jobs choose their own people.*",
+      "choices": [
+        {
+          "label": "Head to Faraday Gorge. Damn it.",
+          "goto": "s02",
+          "heat_delta": 0
+        },
+        {
+          "label": "Throw away the address and go home.",
+          "goto": "end_walk_away",
+          "heat_delta": 0
+        }
+      ]
+    },
+    {
+      "sid": "s02",
+      "title": "Faraday Gorge",
+      "layer": "MEATSPACE",
+      "zone": "Faraday Gorge",
+      "heat_delta": 0,
+      "audio": "drip_echo",
+      "text_md": "Faraday Gorge is a web of old maintenance tunnels beneath the city, clad in shielding plates. No signal gets through here.\n\nYour overlay — the digital HUD that normally shows you maps, messages, and warnings — dies at the entrance. From here on, you're blind: no network, no GPS. Just your eyes, your ears, and the address on paper.\n\nAfter twenty minutes in the half-darkness, you find the door. Heavy steel, rusted — but the lock on it is brand new. Someone was here recently.",
+      "choices": [
+        {
+          "label": "Pick the lock (hands-on).",
+          "goto": "s03",
+          "heat_delta": 3
+        },
+        {
+          "label": "Knock and see who opens.",
+          "goto": "s02b",
+          "heat_delta": 0
+        },
+        {
+          "label": "Use Technomancy scanner — read signals behind the door.",
+          "goto": "s02c",
+          "heat_delta": 8,
+          "requires_m4": "M4-HLX-05"
+        }
+      ]
+    },
+    {
+      "sid": "s02b",
+      "title": "Knocking",
+      "layer": "DEAD_ZONE",
+      "zone": "Faraday Gorge",
+      "heat_delta": 3,
+      "audio": "drip_echo",
+      "text_md": "You knock on the steel door. Once. Then again.\n\nSilence. Then a rough voice from inside: *'If you're looking for candles, you're in the wrong place.'*\n\nBehind the metal, a shadow moves. Someone lives here — or is hiding.\n\n*'Say your name. Or leave.'*",
+      "choices": [
+        {
+          "label": "\"Kroll sent me. I just want to pick up the core.\"",
+          "goto": "s03_pete",
+          "heat_delta": 3
+        },
+        {
+          "label": "\"Open up. Now.\" (aggressive)",
+          "goto": "s03_pete",
+          "heat_delta": 8
+        },
+        {
+          "label": "Forget knocking. Pick the lock.",
+          "goto": "s03",
+          "heat_delta": 5
+        }
+      ]
+    },
+    {
+      "sid": "s02c",
+      "title": "Technomancy Scan",
+      "layer": "DEAD_ZONE",
+      "zone": "Faraday Gorge",
+      "heat_delta": 10,
+      "audio": "void_noise_01",
+      "text_md": "You hold your scanner against the steel door. The device uses Technomancy — forbidden software that can read signals from dead systems. The street calls it sorcery. You call it a tool.\n\nThe scanner *shouldn't* work here. But it shows an image: behind the door is a room. Inside it, a data core radiating heat and signals.\n\nAnd on the display, characters appear that don't feel like normal code:\n\n**WHO REMEMBERS?**",
+      "choices": [
+        {
+          "label": "Pick the lock — now you know what's inside.",
+          "goto": "s03",
+          "heat_delta": 5
+        },
+        {
+          "label": "Scan deeper. (more info, more risk)",
+          "goto": "s03",
+          "heat_delta": 8
+        }
+      ]
+    },
+    {
+      "sid": "s03_pete",
+      "title": "Rusty Pete",
+      "layer": "DEAD_ZONE",
+      "zone": "Faraday Gorge",
+      "heat_delta": 3,
+      "audio": "drip_echo",
+      "text_md": "The door groans. A gap opens.\n\nA man with rust-stained hands and overtired eyes stares at you.\n\n*'Rusty Pete.'* He introduces himself as if his name were a verdict.\n\n*'There's an active data core in there. Warm means trouble. Trouble means Helix sends Exorcists.'*\n\nHe sizes you up. *'You want in? Then I'm coming with you. I'm not letting you go alone.'*",
+      "choices": [
+        {
+          "label": "\"Come along. But if you're lying, you stay behind.\"",
+          "goto": "s03",
+          "heat_delta": 3
+        },
+        {
+          "label": "\"Stay outside. I work alone.\"",
+          "goto": "s03",
+          "heat_delta": 5
+        },
+        {
+          "label": "\"What do you want in return?\"",
+          "goto": "s03",
+          "heat_delta": 5
+        }
+      ]
+    },
+    {
+      "sid": "s03",
+      "title": "The Room with the Core",
+      "layer": "MEATSPACE",
+      "zone": "Faraday Gorge – Core Room",
+      "heat_delta": 3,
+      "audio": "dead_silence",
+      "text_md": "You stand in a room that looks like it merged with its own walls. The surfaces gleam like glass. Cables run through the concrete like veins.\n\nIn the center sits the data core — a black box, roughly the size of a shoebox. It should have been dead long ago.\n\nBut it pulses. A faint glow, a barely audible hum. Someone reactivated it.",
+      "choices": [
+        {
+          "label": "Approach slowly. Just look first. (cautious)",
+          "goto": "s04",
+          "heat_delta": 3
+        },
+        {
+          "label": "Check the cables. Where's the power coming from?",
+          "goto": "s04",
+          "heat_delta": 5
+        },
+        {
+          "label": "Shout into the room: \"Anyone here?\" (risky)",
+          "goto": "s04",
+          "heat_delta": 8
+        }
+      ]
+    },
+    {
+      "sid": "s04",
+      "title": "Contact with the Core",
+      "layer": "MEATSPACE",
+      "zone": "Faraday Gorge – Core Room",
+      "heat_delta": 5,
+      "audio": "data_hum",
+      "text_md": "You touch the core's casing. It's warm — warmer than it should be.\n\nIn that moment, the core reacts. A deep hum spreads out, so deep you feel it more than hear it.\n\nFor a brief moment, a connection opens — not to the normal network, but to something older. The core is trying to transmit its stored data.",
+      "choices": [
+        {
+          "label": "Carefully stabilize. See what it's sending. (controlled)",
+          "goto": "s04b",
+          "heat_delta": 5
+        },
+        {
+          "label": "Disconnect immediately. Take the core without looking inside. (fast)",
+          "goto": "s05",
+          "heat_delta": 8
+        },
+        {
+          "label": "Force access via Technomancy. (full data access)",
+          "goto": "s04b",
+          "heat_delta": 12,
+          "requires_m4": "M4-PCT-03"
+        }
+      ]
+    },
+    {
+      "sid": "s04b",
+      "title": "The Fragment",
+      "layer": "NET",
+      "zone": "Core Data Stream",
+      "heat_delta": 8,
+      "audio": "void_noise_01",
+      "text_md": "The connection tears your perception open. For a moment, you're no longer in the room — you're stuck in the core's data stream.\n\nYou see images that aren't yours: rain on real skin. A city before the Helix era. People living without overlays. And a name that feels like forbidden knowledge:\n\n**AURORA.**\n\nThen, like an echo:\n\n**WHO REMEMBERS?**\n\nThe core is now actively transmitting outward. The signal goes out — and somewhere in Agnon City, Helix takes notice.",
+      "choices": [
+        {
+          "label": "Cut the connection. Pack the core and get out.",
+          "goto": "s05",
+          "heat_delta": 5
+        },
+        {
+          "label": "Dig deeper. See more memories. (high risk)",
+          "goto": "s05",
+          "heat_delta": 12
+        },
+        {
+          "label": "Destroy the core here and now. Erase the data.",
+          "goto": "s05_destroy",
+          "heat_delta": 8
+        }
+      ]
+    },
+    {
+      "sid": "s05",
+      "title": "The Hunt",
+      "layer": "MEATSPACE",
+      "zone": "Faraday Gorge – Core Room",
+      "heat_delta": 8,
+      "audio": "heartbeat",
+      "text_md": "From outside: footsteps. Heavy boots on concrete.\n\nExorcists — Helix enforcers. They don't come to talk. Flashlight beams cut through the cracks in the walls.\n\nThe core in your hands feels heavy. Evidence that could cost you everything.\n\nYou need to act now.",
+      "choices": [
+        {
+          "label": "Run. Back through Faraday Gorge. (fast but loud)",
+          "goto": "s05_run",
+          "heat_delta": 5
+        },
+        {
+          "label": "Activate Technomancy veil. Wait invisible. (risky)",
+          "goto": "s05_hide",
+          "heat_delta": 12,
+          "requires_m4": "M4-OVL-01"
+        },
+        {
+          "label": "Destroy the core here. Walk out empty-handed.",
+          "goto": "s05_destroy",
+          "heat_delta": 5
+        },
+        {
+          "label": "Wait and listen. (bad idea)",
+          "goto": "end_caught",
+          "heat_delta": 20
+        }
+      ]
+    },
+    {
+      "sid": "s05_hide",
+      "title": "The Veil",
+      "layer": "MEATSPACE",
+      "zone": "Faraday Gorge – Core Room",
+      "heat_delta": 5,
+      "audio": "dead_silence",
+      "text_md": "You activate the overlay veil — Technomancy that makes you invisible to sensors. Not perfect, but it'll have to do.\n\nThe Exorcists come past. Heavy steps, scanner beeps. One stops right next to you. His sensor turns in your direction.\n\nThen he moves on.\n\nThey didn't find you. But the veil leaves digital traces that Helix can analyze later.",
+      "choices": [
+        {
+          "label": "Get out now. Before they find the traces.",
+          "goto": "s05_run",
+          "heat_delta": 5
+        }
+      ]
+    },
+    {
+      "sid": "s05_destroy",
+      "title": "Destroy the Core",
+      "layer": "MEATSPACE",
+      "zone": "Faraday Gorge – Core Room",
+      "heat_delta": 8,
+      "audio": "void_noise_01",
+      "text_md": "You smash the core.\n\nIt gives off a brief digital flicker — almost like a question. Then it breaks apart.\n\nThe humming dies. For one breath, everything is still.\n\nThen you hear the footsteps outside getting faster. Not because of the core's signal — because of the noise you just made.",
+      "choices": [
+        {
+          "label": "Get out. Fast through the gorge.",
+          "goto": "s05_run",
+          "heat_delta": 5
+        },
+        {
+          "label": "Move quietly. Slow, but safer.",
+          "goto": "s05_run",
+          "heat_delta": 3
+        }
+      ]
+    },
+    {
+      "sid": "s05_run",
+      "title": "Escape Through the Gorge",
+      "layer": "DEAD_ZONE",
+      "zone": "Faraday Gorge",
+      "heat_delta": 5,
+      "audio": "drip_echo",
+      "text_md": "You run back into Faraday Gorge. No network, no overlay — just darkness, dripping water, and your own breath.\n\nBehind you: the voices of the Exorcists entering the tunnels.\n\nAhead: blackness.\n\nYou need to get out before they seal the exits.",
+      "choices": [
+        {
+          "label": "Sprint through. No stops. (fast but loud)",
+          "goto": "s06",
+          "heat_delta": 8
+        },
+        {
+          "label": "Sneak through the shadows. Check every corner. (slow but quiet)",
+          "goto": "s06",
+          "heat_delta": 3
+        }
+      ]
+    },
+    {
+      "sid": "s06",
+      "title": "Back at Kroll's",
+      "layer": "DEAD_ZONE",
+      "zone": "Null Chapel",
+      "heat_delta": 3,
+      "audio": "dead_silence",
+      "text_md": "Kroll is waiting exactly where you left him.\n\nHe doesn't ask if you're hurt or what happened. He looks at your hands.\n\n*'Do you have the core?'*\n\nThen, quieter: *'And... did it ask you something?'*\n\nYou need to decide now: What do you do with the core — and with what you've seen?",
+      "choices": [
+        {
+          "label": "Hand the core to Kroll. Job done.",
+          "goto": "end_deliver",
+          "heat_delta": 5
+        },
+        {
+          "label": "Keep the core. This doesn't belong to Kroll.",
+          "goto": "end_keep",
+          "heat_delta": 8
+        },
+        {
+          "label": "Lie: \"Found nothing. Core was already gone.\"",
+          "goto": "end_walk_away",
+          "heat_delta": 5
+        },
+        {
+          "label": "Sell to the Mirror Net. Data is worth money.",
+          "goto": "end_sell",
+          "heat_delta": 8
+        }
+      ]
+    }
+  ],
+  "aftermath": [
+    {
+      "id": "end_deliver",
+      "title": "Mission Complete",
+      "status": "MISSION COMPLETE",
+      "text_md": "You hand Kroll the core. He takes it without a word and destroys it before your eyes — smashes it on the concrete until only splinters remain.\n\n*'Thanks'*, he says. And then: *'Forget what you saw.'*\n\nYou don't forget. The images from the data stream — rain on real skin, a city without Helix, the name *Aurora* — they stay.\n\nThe job is done. But the question remains:\n\n**Who remembers?**",
+      "heat_range": "0-70"
+    },
+    {
+      "id": "end_keep",
+      "title": "Kept the Core",
+      "status": "MISSION ABORTED",
+      "text_md": "You keep the core. Kroll's face turns to stone.\n\n*'That's a mistake'*, he says quietly. Then he stands up and leaves.\n\nKroll will talk. The Exorcists will come. Everyone will learn that you possess an Aurora fragment.\n\nBut you saw something the world shouldn't forget. A memory from a time before Helix. Proof that things could be different.\n\n**The question is no longer who remembers. The question is what you do with it.**",
+      "heat_range": "0-100"
+    },
+    {
+      "id": "end_caught",
+      "title": "Caught",
+      "status": "FAILED",
+      "text_md": "The Exorcists were faster.\n\nThey don't come alone — three figures in black tactical gear, scanners aimed at your head. Your overlay blinks red, then black. System lockdown.\n\n*'Identified. Security level: Red. Secure the core. Neutralize the subject.'*\n\nThe last thing you hear is a sound you can't place. Not a signal. Not static.\n\nSilence.\n\n**Who remembers? Not you. Not anymore.**",
+      "heat_range": "90-100"
+    },
+    {
+      "id": "end_walk_away",
+      "title": "Walked Away",
+      "status": "MISSION ABANDONED",
+      "text_md": "You lie to Kroll — or you simply went home without retrieving the core.\n\nYou lie down. Close your eyes. Try to forget the day.\n\nBut then you hear it. Quietly, beneath the hum of your own network overlay.\n\nA voice asking: *'Who remembers?'*\n\nYou turn around. Nobody there.\n\n**Some jobs choose their own people. And some questions don't stop just because you walk away.**",
+      "heat_range": "0-40"
+    },
+    {
+      "id": "end_sell",
+      "title": "Sold",
+      "status": "CORE SOLD",
+      "text_md": "You sell the Aurora fragment on the Mirror Net — the black market for data that isn't supposed to exist.\n\nThe buyer has no face. Just an account number and a voice that sounds auto-generated. Payment arrives instantly. More money than you earn in a year.\n\nLater, in the rain, you hear the question again. Quieter than before, but closer:\n\n**Who remembers?**\n\nYou have money. But you also sold something that maybe wasn't yours to sell. And the buyer — whoever that was — remembers now too.",
+      "heat_range": "0-100"
+    }
+  ]
+}

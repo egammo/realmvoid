@@ -1,249 +1,251 @@
 # REALMVOID — Quickstart
-## Ein Noir-Abenteuer in einer Welt ohne Magie. Nur Technologie. Nur Konsequenzen.
+## A Noir Adventure in a World Without Magic. Only Technology. Only Consequences.
 
-**Für 2–5 Spieler · 1 Spielleiter · 2–3 Stunden · 1W6**
+**For 2–5 Players · 1 Game Master · 2–3 Hours · 1D6**
 
----
-
-## Seite 1 — Cover + Pitch
-
-> *„Wer erinnert sich? An die Zeit, als das Fleisch noch keine Lizenz brauchte? Ich nicht. Aber ich kenne jemanden, der behauptet, er hätte ein Aurora-Fragment gefunden."*
-
-**DAS IST DER JOB:**
-Du bist kein Held. Du bist ein Runner in Agnon City. Du bewegst dich in den Schatten zwischen sterilen Arkologien und verrosteten Sprawls. Du suchst nach Wahrheiten, die andere lieber gelöscht sähen.
-
-**DAS IST DAS RISIKO:**
-Jeder Zugriff auf den HELIX-Code hinterlässt eine Spur. Wenn dein HEAT-Level steigt, werden die Helix/Architects auf dich aufmerksam. In Agnon City ist Information tödlicher als Blei.
+> **[Deutsche Version / German Version](REALMVOID_Quickstart_v1_0_DE.md)**
 
 ---
 
-## Seite 2 — Was ist REALMVOID?
+## Page 1 — Cover + Pitch
 
-### Die Welt in Kürze
+> *"Who remembers? The time when flesh didn't need a license? I don't. But I know someone who claims he found an Aurora fragment."*
 
-Wir schreiben das Jahr 2226. Die Erde wird von Megastädten beherrscht, die keinen Himmel mehr kennen. Es gibt keine Magie. Was die Leute „Zauberei" nennen, ist Technomancy: Der unbefugte Zugriff auf die Protokolle, die unsere Realität steuern.
+**THIS IS THE JOB:**
+You are not a hero. You are a runner in Agnon City. You move through the shadows between sterile arcologies and rusted sprawls. You search for truths that others would rather see erased.
 
-### Die 3 Ebenen
-
-1. **MEATSPACE:** Fleisch, Beton, Regen. Die physische Welt. Hier blutest du.
-2. **NET:** Daten, Farben, Geschwindigkeit. Der globale Informationsstrom und die Infrastruktur.
-3. **AETHER:** Echos, Geister, Erinnerungen. Die Ebene der Aurora-Echos und hochgeladenen Bewusstseine.
-
-### Kern-Axiome
-
-- **DAS CROSSING:** Kein Fall ist eindimensional. Jede Ermittlung zwingt dich, mindestens zwei Ebenen zu überqueren. Ein Mord im Meatspace hat immer ein Echo im Aether.
-- **DEAD ZONES:** Orte ohne Netz. Kein Overlay. Nur du. In einer Dead Zone bist du auf deine Augen und dein Handwerk angewiesen.
+**THIS IS THE RISK:**
+Every access to the HELIX code leaves a trace. When your HEAT level rises, the Helix/Architects take notice. In Agnon City, information is deadlier than lead.
 
 ---
 
-## Seite 3 — Regeln
+## Page 2 — What is REALMVOID?
 
-Keine HP. Keine Klassen. Keine Level. Nur Situationen und Konsequenzen.
+### The World in Brief
 
-### Das 1W6-System
+The year is 2226. Earth is ruled by megacities that no longer know sky. There is no magic. What people call "sorcery" is Technomancy: unauthorized access to the protocols that govern our reality.
 
-Wenn du eine riskante Aktion versuchst, würfle 1W6:
+### The 3 Layers
 
-- **5–6: ERFOLG.** Du erreichst dein Ziel ohne Komplikationen.
-- **3–4: TEILERFOLG.** Du bekommst, was du willst, aber es kostet etwas (Zeit, HEAT, eine neue Gefahr).
-- **1–2: MISSERFOLG.** Du scheiterst und die Situation eskaliert.
+1. **MEATSPACE:** Flesh, concrete, rain. The physical world. This is where you bleed.
+2. **NET:** Data, colors, speed. The global information stream and infrastructure.
+3. **AETHER:** Echoes, ghosts, memories. The layer of Aurora echoes and uploaded consciousnesses.
 
-**Vorteil:** Würfle 2W6, nimm den höheren.
-**Nachteil:** Würfle 2W6, nimm den niedrigeren.
+### Core Axioms
+
+- **THE CROSSING:** No case is one-dimensional. Every investigation forces you to cross at least two layers. A murder in Meatspace always has an echo in the Aether.
+- **DEAD ZONES:** Places without network. No overlay. Just you. In a Dead Zone, you rely on your eyes and your craft.
+
+---
+
+## Page 3 — Rules
+
+No HP. No classes. No levels. Only situations and consequences.
+
+### The 1D6 System
+
+When you attempt a risky action, roll 1D6:
+
+- **5–6: SUCCESS.** You achieve your goal without complications.
+- **3–4: PARTIAL SUCCESS.** You get what you want, but it costs something (time, HEAT, a new danger).
+- **1–2: FAILURE.** You fail and the situation escalates.
+
+**Advantage:** Roll 2D6, take the higher.
+**Disadvantage:** Roll 2D6, take the lower.
 
 ### HEAT (0–100)
 
-Jede Technomancy-Nutzung (HELIX, PACT, OVERLAY) erhöht deinen HEAT-Wert. HEAT sinkt nicht von allein. Nur durch aktive Maßnahmen (Zeit, Risiko, Kosten).
+Every Technomancy use (HELIX, PACT, OVERLAY) raises your HEAT value. HEAT doesn't drop on its own. Only through active measures (time, risk, cost).
 
-- **30+:** NPCs werden aufmerksam. Erste Warnungen flackern in deinem Overlay.
-- **60+:** Deine Optionen schwinden. Der Druck der Helix/Architects steigt.
-- **90+:** Ein Audit läuft. Der Timer tickt. Die Exorzisten sind unterwegs.
-- **100:** Game Over. Deine Lizenzen werden gelöscht. Du bist offline.
-
----
-
-## Seite 4 — Die Archetypen
-
-### 1. DER FIXER
-Kennt Leute. Kennt Preise. Kennt Grenzen.
-- **Move: Netzwerk anzapfen** — Würfle, um einen Kontakt zu aktivieren oder eine Ressource zu finden.
-- **Move: Deal schmieden** — Würfle, um eine Situation durch Verhandlung oder Bestechung zu lösen.
-
-### 2. DER TECHNOMANT
-Biegt die Regeln. Bezahlt den Preis.
-- **Move: Effekt wirken** — Wähle einen Effekt aus dem M4-Katalog (HELIX, PACT, OVERLAY). Würfle. Dein HEAT steigt.
-- **Move: Spuren lesen** — Würfle, um Technomancy-Rückstände oder Audit-Tracker in der Umgebung zu erkennen.
-
-### 3. DER RUNNER
-Schnell. Dreckig. Überlebt.
-- **Move: Fluchtweg finden** — Würfle, um in einer Sackgasse einen Ausweg oder ein Versteck zu entdecken.
-- **Move: Zuschlagen** — Würfle für jede direkte körperliche Aktion (Kampf, Einbruch, Klettern).
-
-### 4. DER ARCHIVIST
-Weiß zu viel. Sagt zu wenig.
-- **Move: Daten graben** — Würfle, um verborgene Informationen oder Passwörter in Systemen oder Echos zu finden.
-- **Move: Wahrheit erkennen** — Würfle, um eine Lüge zu durchschauen oder ein getarntes Overlay zu identifizieren.
+- **30+:** NPCs take notice. First warnings flicker in your overlay.
+- **60+:** Your options dwindle. Helix/Architect pressure mounts.
+- **90+:** An audit is running. The timer ticks. Exorcists are on their way.
+- **100:** Game Over. Your licenses are revoked. You are offline.
 
 ---
 
-## Seite 5 — Technomancy-Kurzliste (M4)
+## Page 4 — The Archetypes
 
-Technomancy ist kein Zauber. Es ist Infrastruktur, die du falsch benutzt. Jeder Effekt: würfeln (1W6). HEAT steigt. Spuren bleiben.
+### 1. THE FIXER
+Knows people. Knows prices. Knows limits.
+- **Move: Tap Network** — Roll to activate a contact or find a resource.
+- **Move: Forge a Deal** — Roll to resolve a situation through negotiation or bribery.
 
-**M4-HLX-01 · „Klopfen" · MEATSPACE (HELIX)**
-Handshake-Spoof gegen elektronische Schlösser via gefälschtem Wartungs-Token.
-HEAT: niedrig (Audit) · Spur: Wartungs-Log zeigt Phantom-Eintrag.
+### 2. THE TECHNOMANCER
+Bends the rules. Pays the price.
+- **Move: Cast Effect** — Choose an effect from the M4 catalog (HELIX, PACT, OVERLAY). Roll. Your HEAT rises.
+- **Move: Read Traces** — Roll to detect Technomancy residue or audit trackers in the environment.
 
-**M4-HLX-05 · „Totenwache" · NET (HELIX)**
-RAM-Dump eines kürzlich Verstorbenen via Neural-Link. Letzte 30–120 Sekunden.
-HEAT: mittel (Brain-Burn) · Spur: Operator-Signatur im Dump-Log.
+### 3. THE RUNNER
+Fast. Dirty. Survives.
+- **Move: Find Escape Route** — Roll to discover an exit or hiding spot in a dead end.
+- **Move: Strike** — Roll for any direct physical action (combat, break-in, climbing).
 
-**M4-HLX-07 · „Herz stillstehen" · MEATSPACE (HELIX)**
-Notfall-Shutdown an medizinisches Implantat. Simuliert kritischen Systemfehler.
-HEAT: hoch (Audit) · Spur: Implantat-Log zeigt externen Shutdown.
-
-**M4-PCT-01 · „Den Fluch sprechen" · MEATSPACE (PACT)**
-Gezielter PACT-Entzug: Widerruf einer Wartungslizenz. Implantat degradiert kontrolliert.
-HEAT: hoch (Audit/Legal) · Spur: Registry-Transaktion mit Operator-Signatur.
-
-**M4-PCT-03 · „Taufe" · NET (PACT)**
-Erstellt eine vollständige Schein-Identität mit gültigen Verträgen und Lizenzen.
-HEAT: hoch (Audit) · Spur: Identität ohne Historie (auffällig bei Prüfung).
-
-**M4-PCT-05 · „Exkommunikation" · NET (PACT)**
-Vollständiger PACT-Entzug aus einer Domäne: Zugänge, Verträge, Wartung erlöschen.
-HEAT: extrem (Audit) · Spur: Öffentlicher Register-Eintrag, kaum reversibel.
-
-**M4-OVL-01 · „Den Schleier weben" · MEATSPACE (OVERLAY)**
-Loop-Injection in optische Implantate im Nahbereich. Du wirst „nicht gesehen".
-HEAT: mittel (Prozessor) · Spur: Overlay-Stack-Log. Zeitlimit: 30–60 Sek.
-
-**M4-OVL-03 · „Scrying" · NET (OVERLAY)**
-Hijack von Sensor-Feeds in einem Zielgebiet. Du siehst, was die Sensoren sehen.
-HEAT: mittel (Bandbreite) · Spur: Zugriffs-Logs in Sensor-Systemen.
-
-**M4-OVL-05 · „Babel" · MEATSPACE (OVERLAY)**
-Sprach-Overlay wird verdreht: Gesprochenes wird für das Ziel zu Rauschen.
-HEAT: niedrig (Prozessor) · Spur: Neural-Link-Log „Sprach-Modul-Anomalie".
-
-**M4-OVL-07 · „Die Flüstermaske" · MEATSPACE (OVERLAY)**
-Psychoakustische Layer verschieben Bedeutung: Worte kommen „anders" an.
-HEAT: hoch (neurologisch) · Spur: Tinnitus, Stressmarker, Audiolog-Inkonsistenz.
+### 4. THE ARCHIVIST
+Knows too much. Says too little.
+- **Move: Dig Data** — Roll to find hidden information or passwords in systems or echoes.
+- **Move: Recognize Truth** — Roll to see through a lie or identify a disguised overlay.
 
 ---
 
-## Seite 6 — Abenteuer: Der Kerzenschneider ruft (CF-04)
+## Page 5 — Technomancy Quick List (M4)
 
-**Titel:** Der Kerzenschneider ruft
-**Fixer:** Jonas Kroll — „Kerzenschneider"
+Technomancy is not a spell. It's infrastructure you're using wrong. Each effect: roll (1D6). HEAT rises. Traces remain.
 
-**Hook (laut vorlesen):**
-Kroll sitzt in der Nullkapelle. Kein Netz. Eine Kerze.
-*„Jemand erinnert sich. Das sollte nicht passieren."*
+**M4-HLX-01 · "Knocking" · MEATSPACE (HELIX)**
+Handshake spoof against electronic locks via forged maintenance token.
+HEAT: low (Audit) · Trace: Maintenance log shows phantom entry.
+
+**M4-HLX-05 · "Dead Watch" · NET (HELIX)**
+RAM dump of a recently deceased via neural link. Last 30–120 seconds.
+HEAT: medium (Brain Burn) · Trace: Operator signature in dump log.
+
+**M4-HLX-07 · "Heart Standstill" · MEATSPACE (HELIX)**
+Emergency shutdown of medical implant. Simulates critical system failure.
+HEAT: high (Audit) · Trace: Implant log shows external shutdown.
+
+**M4-PCT-01 · "Speak the Curse" · MEATSPACE (PACT)**
+Targeted PACT withdrawal: revocation of a maintenance license. Implant degrades in controlled manner.
+HEAT: high (Audit/Legal) · Trace: Registry transaction with operator signature.
+
+**M4-PCT-03 · "Baptism" · NET (PACT)**
+Creates a complete fake identity with valid contracts and licenses.
+HEAT: high (Audit) · Trace: Identity without history (suspicious on review).
+
+**M4-PCT-05 · "Excommunication" · NET (PACT)**
+Complete PACT withdrawal from a domain: access, contracts, maintenance expire.
+HEAT: extreme (Audit) · Trace: Public registry entry, nearly irreversible.
+
+**M4-OVL-01 · "Weave the Veil" · MEATSPACE (OVERLAY)**
+Loop injection into optical implants at close range. You become "unseen."
+HEAT: medium (Processor) · Trace: Overlay stack log. Time limit: 30–60 sec.
+
+**M4-OVL-03 · "Scrying" · NET (OVERLAY)**
+Hijack sensor feeds in a target area. You see what the sensors see.
+HEAT: medium (Bandwidth) · Trace: Access logs in sensor systems.
+
+**M4-OVL-05 · "Babel" · MEATSPACE (OVERLAY)**
+Speech overlay is distorted: spoken words become noise for the target.
+HEAT: low (Processor) · Trace: Neural link log "speech module anomaly."
+
+**M4-OVL-07 · "The Whisper Mask" · MEATSPACE (OVERLAY)**
+Psychoacoustic layers shift meaning: words arrive "differently."
+HEAT: high (Neurological) · Trace: Tinnitus, stress markers, audio log inconsistency.
+
+---
+
+## Page 6 — Adventure: The Candle Cutter Calls (CF-04)
+
+**Title:** The Candle Cutter Calls
+**Fixer:** Jonas Kroll — "The Candle Cutter"
+
+**Hook (read aloud):**
+Kroll sits in the Null Chapel. No network. One candle.
+*"Someone remembers. That's not supposed to happen."*
 
 **The Job:**
-Finde den aktiven Datenkern in der Faraday-Schlucht. Bring ihn zurück. Lösch die Spuren.
+Find the active data core in Faraday Gorge. Bring it back. Erase the traces.
 
-**The Dirt (nur SL):**
-Der Kern enthält ein Aurora-Fragment. Kroll will es vernichten, nicht archivieren.
+**The Dirt (GM only):**
+The core contains an Aurora fragment. Kroll wants to destroy it, not archive it.
 
 **The Crossing:**
 DEAD ZONE → MEATSPACE → NET → DEAD ZONE
 
 ---
 
-## Seite 7 — Szenenübersicht + Branches
+## Page 7 — Scene Overview + Branches
 
-**Akt 1: Die Nullkapelle (Dead Zone)**
-Kroll gibt den Auftrag. Er antwortet knapp. Wenn Spieler zu viel fragen: Kroll wird still. (Siehe Tabelle Seite 8.)
+**Act 1: The Null Chapel (Dead Zone)**
+Kroll gives the job. He answers briefly. If players ask too much: Kroll goes quiet. (See table on page 8.)
 
-**Akt 2: Faraday-Schlucht (Dead Zone → Meatspace)**
-Verschlossene Tür. Optionen:
-- **Knacken** (Runner — Zuschlagen)
-- **Klopfen** (jemand antwortet — Rusty Pete)
-- **Technomancy** (z.B. M4-HLX-01 „Klopfen" — kostet HEAT)
+**Act 2: Faraday Gorge (Dead Zone → Meatspace)**
+Locked door. Options:
+- **Pick it** (Runner — Strike)
+- **Knock** (someone answers — Rusty Pete)
+- **Technomancy** (e.g. M4-HLX-01 "Knocking" — costs HEAT)
 
-**Akt 3: Aktivierung (Meatspace → NET)**
-Kern berühren → Kontakt → Fragment: Regen, Haut, AURORA.
-**HEAT-SPIKE:** Der Kern sendet. Exorzisten werden aufmerksam.
+**Act 3: Activation (Meatspace → NET)**
+Touch core → Contact → Fragment: Rain, skin, AURORA.
+**HEAT SPIKE:** The core transmits. Exorcists take notice.
 
-**Akt 4: Die Jagd (Meatspace)**
-Lichtkegel im Tunnel. Schritte.
-Optionen: **Rennen**, **Schleier (M4-OVL-01)**, **Kern zerstören**, **Zögern (= gefangen)**.
+**Act 4: The Hunt (Meatspace)**
+Flashlight beams in the tunnel. Footsteps.
+Options: **Run**, **Veil (M4-OVL-01)**, **Destroy core**, **Hesitate (= caught)**.
 
-**Akt 5: Zurück bei Kroll (Dead Zone)**
-Kroll: *„Hat es dich gefragt?"*
-Finale Wahl: **geben / behalten / lügen / verkaufen**.
+**Act 5: Back at Kroll's (Dead Zone)**
+Kroll: *"Did it ask you something?"*
+Final choice: **give / keep / lie / sell**.
 
-**Branch-Diagramm (für SL):**
+**Branch Diagram (for GM):**
 
 ```
-Nullkapelle → Faraday-Schlucht → Der Raum → Aktivierung → Jagd → Kroll
-                                                            ↓
-                                                       [HEAT 100 = Gefangen]
+Null Chapel → Faraday Gorge → The Room → Activation → Hunt → Kroll
+                                                        ↓
+                                                   [HEAT 100 = Caught]
 
-Kroll → Kern geben (bitter) | Kern behalten (gefährlich) | Lügen (verfolgt) | Verkaufen (Schuld)
+Kroll → Give core (bitter) | Keep core (dangerous) | Lie (hunted) | Sell (guilt)
 ```
 
 ---
 
-## Seite 8 — NPCs + Zufallstabellen
+## Page 8 — NPCs + Random Tables
 
-### NPC-Kurzliste (für dieses Abenteuer)
+### NPC Quick List (for this adventure)
 
-- **Jonas Kroll („Kerzenschneider"):** leise, langsam, keine Erklärungen. Eine Kerze als Zeitmesser.
-- **Rusty Pete:** Schrottsammler in der Faraday-Schlucht. Hände voller Rost, Augen voller Schlaf. Weiß, wie man in Dead Zones verschwindet.
-- **Helix-Exorzisten:** namenlos. Lichtkegel. Kommen nicht zum Reden.
+- **Jonas Kroll ("The Candle Cutter"):** quiet, slow, no explanations. A candle as a timer.
+- **Rusty Pete:** Scrap collector in Faraday Gorge. Hands full of rust, eyes full of sleep. Knows how to disappear in Dead Zones.
+- **Helix Exorcists:** nameless. Flashlight beams. They don't come to talk.
 
-### 1W6 — Was findest du in der Dead Zone?
+### 1D6 — What do you find in the Dead Zone?
 
-1. Ein verrostetes Medkit ohne Ladung.
-2. Eine Kerze, frisch gelöscht.
-3. Kratzspuren an der Wand — wie Fingernägel.
-4. Ein Stück Papier mit einer Frequenz.
-5. Ein toter Scanner, der noch warm ist.
-6. Nichts. Aber das Gefühl, beobachtet zu werden.
+1. A rusted medkit without charge.
+2. A candle, freshly extinguished.
+3. Scratch marks on the wall — like fingernails.
+4. A piece of paper with a frequency.
+5. A dead scanner, still warm.
+6. Nothing. But the feeling of being watched.
 
-### 1W6 — Was sagt Kroll, wenn du zu viel fragst?
+### 1D6 — What does Kroll say when you ask too much?
 
-1. Schweigen.
-2. „Du fragst wie jemand, der die Antwort nicht will."
-3. Er dreht die Kerze. Sagt nichts.
-4. „Manche Dinge sind still aus gutem Grund."
-5. „Du klingst wie er." (Wer?)
-6. Er steht auf und geht. Du hast 10 Sekunden.
+1. Silence.
+2. "You ask like someone who doesn't want the answer."
+3. He turns the candle. Says nothing.
+4. "Some things are quiet for a good reason."
+5. "You sound like him." (Who?)
+6. He stands up and leaves. You have 10 seconds.
 
-### 1W6 — Exorzisten-Druck (wenn HEAT 60+)
+### 1D6 — Exorcist Pressure (when HEAT 60+)
 
-1. Ein Lichtkegel streift die Wand. Nur einmal.
-2. Funkstille. Und trotzdem: Stimmen.
-3. Eine Tür, die vorher offen war, ist jetzt zu.
-4. Jemand ruft deinen Namen. Falsch ausgesprochen.
-5. Der Tunnel riecht nach Ozon und kaltem Metall.
-6. Schritte, die zu viele sind für einen Körper.
-
----
-
-## Seite 9 — SL-Tipps
-
-- **Noir heißt:** klein anfangen. Niemand rettet die Welt. Jeder rettet sich.
-- **Dead Zone spielen:** beschreib die Abwesenheit. Kein HUD. Kein Komfort. Spieler müssen handeln, nicht klicken.
-- **HEAT ist Druck, nicht Strafe:** zähl laut mit. Schreib die Zahl sichtbar hin.
-- **Kroll spielt Pausen:** nie mehr als 2 Sätze am Stück. Lass Stille arbeiten.
-- **Technomancy kostet:** lass die Spuren real werden (Tinnitus, Logs, Ozon, Alarm).
-- **Enden sind alle richtig:** bitter / gefährlich / verfolgt / verschuldet — das ist REALMVOID.
+1. A flashlight beam sweeps the wall. Just once.
+2. Radio silence. And still: voices.
+3. A door that was open before is now closed.
+4. Someone calls your name. Mispronounced.
+5. The tunnel smells of ozone and cold metal.
+6. Footsteps that are too many for one body.
 
 ---
 
-## Seite 10 — Handouts
+## Page 9 — GM Tips
 
-### Handout A — „Wer erinnert sich?" (laut vorlesen am Anfang)
+- **Noir means:** start small. Nobody saves the world. Everyone saves themselves.
+- **Play the Dead Zone:** describe the absence. No HUD. No comfort. Players must act, not click.
+- **HEAT is pressure, not punishment:** count aloud. Write the number visibly.
+- **Kroll plays pauses:** never more than 2 sentences in a row. Let silence work.
+- **Technomancy costs:** make the traces real (tinnitus, logs, ozone, alarms).
+- **All endings are valid:** bitter / dangerous / hunted / indebted — that's REALMVOID.
 
-> Es ist still.
-> Und trotzdem antwortet etwas.
-> **Wer erinnert sich?**
+---
 
-### Handout B — HEAT-Tracker
+## Page 10 — Handouts
+
+### Handout A — "Who Remembers?" (read aloud at the start)
+
+> It's quiet.
+> And yet something answers.
+> **Who remembers?**
+
+### Handout B — HEAT Tracker
 
 ```
 HEAT [______|______|______|______]
@@ -251,16 +253,16 @@ HEAT [______|______|______|______]
          ⚠      ⚠⚠    ⚠⚠⚠   ☠
 ```
 
-### Handout C — Archetypen-Karten
+### Handout C — Archetype Cards
 
-**FIXER** · Netzwerk anzapfen · Deal schmieden
-**TECHNOMANT** · Effekt wirken · Spuren lesen
-**RUNNER** · Fluchtweg finden · Zuschlagen
-**ARCHIVIST** · Daten graben · Wahrheit erkennen
+**FIXER** · Tap Network · Forge a Deal
+**TECHNOMANCER** · Cast Effect · Read Traces
+**RUNNER** · Find Escape Route · Strike
+**ARCHIVIST** · Dig Data · Recognize Truth
 
 ---
 
 *REALMVOID Quickstart v1.0 · 2026*
-*Erstellt von Julian Fides · EGAMMO.gaming*
-*Lizenz: CC BY-SA 4.0*
+*Created by Julian Fides · EGAMMO.gaming*
+*License: CC BY-SA 4.0*
 *Repo: github.com/egammo/realmvoid*

@@ -136,7 +136,7 @@
           "heat_delta": 0
         },
         {
-          "label": "Technomantie-Scanner benutzen — Signale hinter der Tür lesen.",
+          "label": "Technomancy-Scanner benutzen — Signale hinter der Tür lesen.",
           "goto": "s02c",
           "heat_delta": 8,
           "requires_m4": "M4-HLX-05"
@@ -171,12 +171,12 @@
     },
     {
       "sid": "s02c",
-      "title": "Technomantie-Scan",
+      "title": "Technomancy-Scan",
       "layer": "DEAD_ZONE",
       "zone": "Faraday-Schlucht",
       "heat_delta": 10,
       "audio": "void_noise_01",
-      "text_md": "Du hältst deinen Scanner an die Stahltür. Das Gerät nutzt Technomantie — verbotene Software, die Signale aus toten Systemen lesen kann. Die Straße nennt es Hexerei. Du nennst es ein Werkzeug.\n\nDer Scanner *sollte* hier nicht funktionieren. Aber er zeigt ein Bild: Hinter der Tür liegt ein Raum. Darin ein Datenkern, der Wärme und Signale abstrahlt.\n\nUnd auf dem Display erscheinen Zeichen, die sich nicht wie normaler Code anfühlen:\n\n**WER ERINNERT SICH?**",
+      "text_md": "Du hältst deinen Scanner an die Stahltür. Das Gerät nutzt Technomancy — verbotene Software, die Signale aus toten Systemen lesen kann. Die Straße nennt es Hexerei. Du nennst es ein Werkzeug.\n\nDer Scanner *sollte* hier nicht funktionieren. Aber er zeigt ein Bild: Hinter der Tür liegt ein Raum. Darin ein Datenkern, der Wärme und Signale abstrahlt.\n\nUnd auf dem Display erscheinen Zeichen, die sich nicht wie normaler Code anfühlen:\n\n**WER ERINNERT SICH?**",
       "choices": [
         {
           "label": "Schloss knacken — jetzt weißt du, was drinnen ist.",
@@ -262,7 +262,7 @@
           "heat_delta": 8
         },
         {
-          "label": "Zugang per Technomantie erzwingen. (voller Datenzugriff)",
+          "label": "Zugang per Technomancy erzwingen. (voller Datenzugriff)",
           "goto": "s04b",
           "heat_delta": 12,
           "requires_m4": "M4-PCT-03"
@@ -310,7 +310,7 @@
           "heat_delta": 5
         },
         {
-          "label": "Technomantie-Schleier aktivieren. Unsichtbar warten. (riskant)",
+          "label": "Technomancy-Schleier aktivieren. Unsichtbar warten. (riskant)",
           "goto": "s05_hide",
           "heat_delta": 12,
           "requires_m4": "M4-OVL-01"
@@ -334,7 +334,7 @@
       "zone": "Faraday-Schlucht – Kernraum",
       "heat_delta": 5,
       "audio": "dead_silence",
-      "text_md": "Du aktivierst den Overlay-Schleier — Technomantie, die dich für Sensoren unsichtbar macht. Nicht perfekt, aber es muss reichen.\n\nDie Exorzisten kommen vorbei. Schwere Schritte, Scanner-Piepen. Einer bleibt stehen, direkt neben dir. Sein Sensor dreht sich in deine Richtung.\n\nDann geht er weiter.\n\nSie haben dich nicht gefunden. Aber der Schleier hinterlässt digitale Spuren, die Helix später auswerten kann.",
+      "text_md": "Du aktivierst den Overlay-Schleier — Technomancy, die dich für Sensoren unsichtbar macht. Nicht perfekt, aber es muss reichen.\n\nDie Exorzisten kommen vorbei. Schwere Schritte, Scanner-Piepen. Einer bleibt stehen, direkt neben dir. Sein Sensor dreht sich in deine Richtung.\n\nDann geht er weiter.\n\nSie haben dich nicht gefunden. Aber der Schleier hinterlässt digitale Spuren, die Helix später auswerten kann.",
       "choices": [
         {
           "label": "Jetzt raus. Bevor sie die Spuren finden.",

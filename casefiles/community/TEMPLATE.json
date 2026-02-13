@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "id": "CF-XX",
+    "title": "YOUR CASEFILE TITLE",
+    "version": "0.1.0",
+    "author": "YOUR NAME",
+    "bible_ver": "1.2.1",
+    "m4_ver": "0.1.1",
+    "truth_tag": "CORE-OK",
+    "city": "Agnon City",
+    "fixer": "FIXER NAME",
+    "m4_refs": []
+  },
+
+  "hook": "Who comes to you? Who pays? Who lies?\n\nWrite your hook here.",
+
+  "the_job": "The official assignment — what the fixer tells you.",
+
+  "the_dirt": "The truth behind the job — The Job ≠ The Dirt.",
+
+  "crossing": {
+    "layers": ["MEATSPACE", "NET"],
+    "note": "Describe how and where the crossing between layers happens."
+  },
+
+  "heat_spike": {
+    "heat_type": "Audit-Spur",
+    "level": "hoch",
+    "trigger": "What triggers the escalation?"
+  },
+
+  "scenes": [
+    {
+      "sid": "s01",
+      "title": "Scene 1 Title",
+      "layer": "MEATSPACE",
+      "zone": "Location Name",
+      "heat_delta": 0,
+      "text_md": "Your scene narrative goes here.\n\nUse **bold** and *italic* for emphasis.",
+      "choices": [
+        {
+          "label": "Choice A — the cautious path",
+          "goto": "s02",
+          "heat_delta": 5
+        },
+        {
+          "label": "Choice B — the risky path",
+          "goto": "s03",
+          "heat_delta": 15
+        }
+      ]
+    },
+    {
+      "sid": "s02",
+      "title": "Scene 2 Title",
+      "layer": "NET",
+      "zone": "Location Name",
+      "heat_delta": 0,
+      "text_md": "This scene takes place in the NET layer — the crossing happens here.",
+      "choices": [
+        {
+          "label": "Proceed to the ending",
+          "goto": "end_good"
+        }
+      ]
+    },
+    {
+      "sid": "s03",
+      "title": "Scene 3 Title",
+      "layer": "MEATSPACE",
+      "zone": "Location Name",
+      "heat_delta": 10,
+      "text_md": "The risky path. HEAT is climbing.",
+      "choices": [
+        {
+          "label": "Try to salvage the situation",
+          "goto": "end_bad"
+        }
+      ]
+    }
+  ],
+
+  "aftermath": [
+    {
+      "id": "end_good",
+      "title": "The Clean Exit",
+      "status": "MISSION COMPLETE",
+      "text_md": "You made it out. Barely.\n\nWrite your ending here.",
+      "heat_range": "0-50"
+    },
+    {
+      "id": "end_bad",
+      "title": "Burned",
+      "status": "MISSION FAILED",
+      "text_md": "Too much HEAT. The city remembers.\n\nWrite your ending here.",
+      "heat_range": "51-100"
+    }
+  ]
+}

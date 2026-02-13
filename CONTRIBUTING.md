@@ -2,14 +2,16 @@
 
 Welcome, Runner. Agnon City needs you.
 
+> **[Deutsche Version / German Version](CONTRIBUTING_DE.md)**
+
 ## How to Contribute
 
 ### Writing Casefiles
 
 The most impactful way to contribute is writing **Casefiles** — interactive noir investigations set in the REALMVOID universe.
 
-1. Read the [Franchise Bible](lore/REALMVOID_Franchise_Bible_v1.2.1.md) to understand the world rules.
-2. Read the [Lint Checkliste](lore/REALMVOID_Lint_Checkliste_v1.0.md) to understand what makes a valid Casefile.
+1. Read the [Franchise Bible](lore/REALMVOID_Franchise_Bible_v1_2_1.md) to understand the world rules.
+2. Read the [Lint Checkliste](lore/REALMVOID_Lint_Checkliste_v1_0.md) to understand what makes a valid Casefile.
 3. Use the [M7 JSON Schema](casefiles/schema.m7.casefile.v0.1.json) as your template.
 4. Write your Casefile and submit a Pull Request to `casefiles/community/`.
 

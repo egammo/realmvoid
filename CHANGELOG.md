@@ -5,22 +5,22 @@ All notable changes to REALMVOID will be documented in this file.
 ## [0.3.0] - 2026-02-12
 
 ### Changed
-- **Casefile CF-04 v0.3.0** — Alle Szenen-Texte komplett neu geschrieben: konkret, verständlich, mit Noir-Atmosphäre aber ohne kryptische Metaphern. Jede Szene erklärt jetzt klar was passiert, wo man ist und warum.
-- **HEAT-Balancing** — Alle heat_delta-Werte halbiert. Vorsichtiger Pfad endet bei ~54 HEAT statt 120+. Rücksichtsloses Spielen führt weiterhin zu Game Over.
-- **HEAT-Warnungen** — Von kryptischen Codes ("AUDIT-PROTOKOLL AKTIV") zu verständlichen Sätzen ("Helix sucht aktiv nach dir. Vermeide riskante Aktionen!").
-- **Ending-Texte** — Klarer formuliert mit konkreten Konsequenzen statt reiner Poesie.
+- **Casefile CF-04 v0.3.0** — All scene texts completely rewritten: concrete, understandable, with noir atmosphere but without cryptic metaphors. Each scene now clearly explains what happens, where you are, and why.
+- **HEAT Balancing** — All heat_delta values halved. Cautious path now ends at ~54 HEAT instead of 120+. Reckless play still leads to game over.
+- **HEAT Warnings** — Changed from cryptic codes ("AUDIT-PROTOKOLL AKTIV") to understandable sentences ("Helix is actively hunting you. Avoid risky actions!").
+- **Ending Texts** — Rewritten with concrete consequences instead of pure poetry.
 
 ### Added
-- **Briefing-Screen** — Neuer Einsatz-Briefing-Bildschirm zwischen Boot-Sequenz und Spiel. Erklärt Rolle (Fixer), Auftraggeber (Kroll), Ziel und alle Schlüsselbegriffe (Helix, Exorzisten, Overlay, Dead Zone, Technomantie, Aurora, HEAT).
-- **Ending-Status-Badges** — Jedes Ende zeigt jetzt eine klare Bewertung: MISSION ABGESCHLOSSEN (grün), MISSION ABGEBROCHEN (cyan), GESCHEITERT (rot), MISSION AUFGEGEBEN, KERN VERKAUFT.
-- **HEAT-Tooltip** — Klickbare Erklärung auf der HEAT-Leiste. Wird beim Spielstart automatisch 8 Sekunden lang angezeigt.
-- **M4-Technomantie-Tooltips** — Hover-Erklärungen für M4-Tags auf Auswahlbuttons (z.B. "Totenwache — RAM-Dump, Signale aus toten Systemen lesen").
-- **Boot-Screen Tutorial** — Kurzeinweisung zu HEAT, Layern und M4-Tags vor dem Spielstart.
+- **Briefing Screen** — New mission briefing screen between boot sequence and game. Explains your role (Fixer), employer (Kroll), objective, and all key terms (Helix, Exorcists, Overlay, Dead Zone, Technomancy, Aurora, HEAT).
+- **Ending Status Badges** — Each ending now shows a clear assessment: MISSION COMPLETE (green), MISSION ABORTED (cyan), FAILED (red), MISSION ABANDONED, CORE SOLD.
+- **HEAT Tooltip** — Clickable explanation on the HEAT bar. Automatically shown for 8 seconds at game start.
+- **M4 Technomancy Tooltips** — Hover explanations for M4 tags on choice buttons (e.g. "Dead Watch — RAM dump, reading signals from dead systems").
+- **Boot Screen Tutorial** — Quick tutorial covering HEAT, layers, and M4 tags before game start.
 
 ### Fixed
-- **heat_range-Bug** — Spieler-gewählte Endings zeigen jetzt immer das korrekte Ende. Vorher konnte es passieren, dass "Kern an Kroll übergeben" das "Kern behalten"-Ende anzeigte, weil der HEAT-Wert außerhalb der heat_range lag.
-- **HEAT >= 100 Priorität** — Game-Over-Check hat jetzt Vorrang vor der Ending-ID-Suche.
-- **aftermath heat_range erweitert** — end_deliver von "0-40" auf "0-70", end_walk_away von "0-10" auf "0-40" (als Metadaten beibehalten).
+- **heat_range Bug** — Player-chosen endings now always show the correct ending. Previously, "deliver core to Kroll" could display the "keep core" ending because HEAT was outside the heat_range.
+- **HEAT >= 100 Priority** — Game over check now takes priority over ending ID lookup.
+- **aftermath heat_range expanded** — end_deliver from "0-40" to "0-70", end_walk_away from "0-10" to "0-40" (kept as metadata).
 
 ## [0.1.0] - 2026-02-11
 
@@ -37,4 +37,4 @@ All notable changes to REALMVOID will be documented in this file.
 - CF-04 "Der Kerzenschneider ruft" (Pilot Casefile)
 - Casefile Player Engine v0.1 (Vanilla JS, single HTML file)
 - PnP Quickstart v1.0
-- GitHub Actions: Casefile-Validierung + GitHub Pages Deployment
+- GitHub Actions: Casefile validation + GitHub Pages deployment
