@@ -1,0 +1,9 @@
+# Sub-repos — eigene Git-Repos, nicht Teil dieses Repos
+AXWire/
+realmvoid-os/
+agnon-city/
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+*.swp
